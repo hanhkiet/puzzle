@@ -1,0 +1,66 @@
+<svg fill="none" height="188" viewBox="0 0 374 188" width="374" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="black" height="165.989" rx="20"
+        transform="matrix(0.998402 0.0565012 -0.0539968 0.998541 8.9668 0.797852)" width="365.618" />
+    <rect fill="#FFCB43" height="166" rx="20" width="366" x="4.00195" y="11" />
+    <mask style="mask-type:alpha" height="166" id="mask0_4706_8373" maskUnits="userSpaceOnUse" width="367"
+        x="4" y="11">
+        <rect fill="#FFCB43" height="166" rx="20" width="366" x="4.00195" y="11" />
+    </mask>
+    <g mask="url(#mask0_4706_8373)">
+        <circle cx="380.002" cy="166" r="85" stroke="white" stroke-width="30" />
+        <mask style="mask-type:alpha" height="200" id="mask1_4706_8373" maskUnits="userSpaceOnUse" width="201"
+            x="280" y="66">
+            <circle cx="380.002" cy="166" r="85" stroke="white" stroke-width="30" />
+        </mask>
+        <g mask="url(#mask1_4706_8373)">
+            <circle cx="286.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="110.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="123.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="135.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="148.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="161.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="110.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="123.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="135.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="148.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="161.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="110.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="123.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="135.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="148.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="161.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="110.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="123.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="135.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="148.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="161.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="71.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="84.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="337.502" cy="71.5" fill="black" r="1.5" />
+            <circle cx="337.502" cy="84.5" fill="black" r="1.5" />
+            <circle cx="337.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="350.502" cy="71.5" fill="black" r="1.5" />
+            <circle cx="350.502" cy="84.5" fill="black" r="1.5" />
+            <circle cx="350.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="362.502" cy="71.5" fill="black" r="1.5" />
+            <circle cx="362.502" cy="84.5" fill="black" r="1.5" />
+            <circle cx="362.502" cy="97.5" fill="black" r="1.5" />
+            <circle cx="286.502" cy="172.5" fill="black" r="1.5" />
+            <circle cx="299.502" cy="172.5" fill="black" r="1.5" />
+            <circle cx="311.502" cy="172.5" fill="black" r="1.5" />
+            <circle cx="324.502" cy="172.5" fill="black" r="1.5" />
+        </g>
+    </g>
+    <rect fill="black" height="21" transform="rotate(-38.45 120.002 32.1094)" width="2" x="120.002"
+        y="32.1094" />
+    <rect fill="black" height="21" transform="rotate(60.55 245.289 128)" width="2" x="245.289"
+        y="128" />
+    <rect fill="white" height="21" transform="rotate(28.55 248.039 29)" width="2" x="248.039"
+        y="29" />
+    <rect fill="white" height="34.8479" transform="rotate(-58.4151 137.002 139.259)" width="3"
+        x="137.002" y="139.259" />
+</svg>

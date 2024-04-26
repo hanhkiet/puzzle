@@ -1,0 +1,8 @@
+<svg height="24" id="ic-coin" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <rect fill="none" height="24" id="Rectangle_917" width="24" />
+    <g fill="none" id="Ellipse_33" stroke="#ffc600" stroke-width="1" transform="translate(5 5)">
+        <circle cx="8" cy="8" r="8" stroke="none" />
+        <circle cx="8" cy="8" fill="none" r="7.5" />
+    </g>
+    <circle cx="8" cy="8" fill="#ffc600" id="Ellipse_32" r="8" transform="translate(3 3)" />
+</svg>
