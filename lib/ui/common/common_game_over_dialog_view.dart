@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:tuple/tuple.dart';
-
-
 import '../../core/app_constants.dart';
 import '../../utility/Constants.dart';
 import '../dashboard/dashboard_view.dart';
 import '../model/gradient_model.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_score_widget.dart';
 
 class CommonGameOverDialogView extends StatelessWidget {
@@ -36,9 +34,9 @@ class CommonGameOverDialogView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
-    AdsFile? adsFile = AdsFile(context);
-    adsFile.createInterstitialAd();
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
+    //AdsFile? adsFile = AdsFile(context);
+    //adsFile.createInterstitialAd();
 
     audioPlayer.playGameOverSound();
 
@@ -75,24 +73,24 @@ class CommonGameOverDialogView extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DashboardView(),
+              builder: (context) => const DashboardView(),
             ));
       },
       restartClick: () {
-        showInterstitialAd(adsFile, () {
+        /*showInterstitialAd(adsFile, () {
           disposeInterstitialAd(adsFile);
           Navigator.pop(context, true);
-        });
+        });*/
       },
       nextClick: () {
         if (star >= 2) {
-          showInterstitialAd(adsFile, () {
+          /*showInterstitialAd(adsFile, () {
             disposeInterstitialAd(adsFile);
             if (colorTuple.item2 < defaultLevelSize) {
               function(colorTuple.item2 + 1);
             }
             Navigator.pop(context, true);
-          });
+          });*/
         }
       },
       shareClick: () {

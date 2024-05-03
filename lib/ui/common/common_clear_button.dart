@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utility/Constants.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 
 class CommonClearButton extends StatelessWidget {
@@ -22,7 +22,7 @@ class CommonClearButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
 
     // double radius = getCommonCalculatorRadius(context);
     double radius = btnRadius ?? getCommonCalculatorRadius(context);

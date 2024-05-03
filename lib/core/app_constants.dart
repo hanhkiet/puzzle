@@ -80,9 +80,9 @@ class KeyUtil {
   static Color primaryColor3 = "#C3AEFF".toColor();
   static Color bgColor3 = "#EFEBFE".toColor();
   static Color blackTransparentColor = "#BF000000".toColor();
-  static String themeYellowFolder = 'imgYellow/';
-  static String themeOrangeFolder = 'imgGreen/';
-  static String themeBlueFolder = 'imgBlue/';
+  static String themeYellowFolder = 'img_yellow/';
+  static String themeOrangeFolder = 'img_green/';
+  static String themeBlueFolder = 'img_blue/';
 
   static List<Dashboard> dashboardItems = [
     Dashboard(

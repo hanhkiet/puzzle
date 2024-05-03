@@ -5,7 +5,7 @@ import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
 import '../../utility/Constants.dart';
 import '../model/gradient_model.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_dual_score_widget.dart';
 
 class CommonDualGameOverDialogView extends StatelessWidget {
@@ -28,7 +28,7 @@ class CommonDualGameOverDialogView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
 
     audioPlayer.playGameOverSound();
 

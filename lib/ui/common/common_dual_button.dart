@@ -3,7 +3,7 @@ import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../utility/Constants.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 
 class CommonDualButton extends StatelessWidget {
@@ -32,7 +32,7 @@ class CommonDualButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
 
     double radius = getCommonCalculatorRadius(context);
     // double radius = getCommonRadius(context);

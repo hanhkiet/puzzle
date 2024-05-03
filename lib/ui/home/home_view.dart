@@ -43,14 +43,14 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late Animation<double> fillImageRightPositionTween;
   late bool isGamePageOpen;
   Tuple2<Dashboard, double>? tuple2;
-  AdsFile? adsFile;
+  //AdsFile? adsFile;
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () {
+    /*Future.delayed(Duration.zero, () {
       adsFile = AdsFile(context);
       adsFile!.createAnchoredBanner(context, setState);
-    });
+    });*/
     tuple2 = widget.tuple2;
     isGamePageOpen = false;
     animationController =
@@ -259,7 +259,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
             ),
           ),
-          getBanner(context, adsFile)
+          //getBanner(context, adsFile)
         ],
       ),
     );
@@ -397,6 +397,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    disposeBannerAd(adsFile);
+    //disposeBannerAd(adsFile);
   }
 }

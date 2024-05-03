@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import '../../core/app_constants.dart';
 import '../../data/models/math_pairs.dart';
 import '../app/game_provider.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 
 class ConcentrationProvider extends GameProvider<MathPairs> {
   int first = -1;
@@ -32,7 +32,7 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
   }
 
   Future<void> checkResult(Pair mathPair, int index) async {
-    AudioPlayer audioPlayer = AudioPlayer(context!);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
 
     // if (timerStatus != TimerStatus.pause) {
     if (!currentState.list[index].isActive) {
@@ -54,7 +54,7 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
             print("oldScore===$oldScore====$currentScore");
 
             await Future.delayed(const Duration(milliseconds: 300));
-            loadNewDataIfRequired(level: level == null ? 1 : level);
+            loadNewDataIfRequired(level: level ?? 1);
             currentScore =
                 currentScore + KeyUtil.getScoreUtil(gameCategoryType);
 

@@ -5,8 +5,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 
-
-import '../../ads/AdsFile.dart';
 import '../../core/app_assets.dart';
 import '../../data/models/dashboard.dart';
 import '../../data/models/game_category.dart';
@@ -28,14 +26,14 @@ class LevelView extends StatefulWidget {
 
 class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
   late bool isGamePageOpen;
-  AdsFile? adsFile;
+  //AdsFile? adsFile;
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () {
+    /*Future.delayed(Duration.zero, () {
       adsFile = AdsFile(context);
       adsFile!.createInterstitialAd();
-    });
+    });*/
     isGamePageOpen = false;
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
@@ -64,7 +62,7 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    disposeInterstitialAd(adsFile);
+    //disposeInterstitialAd(adsFile);
   }
 
   @override
@@ -86,10 +84,9 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
 
     return PopScope(
       onPopInvoked: (didPop) async {
-        if(didPop) {
+        if (didPop) {
           await _requestPop();
         }
-
       },
       child: Scaffold(
         appBar: getNoneAppBar(context),
@@ -222,10 +219,9 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                               ),
                             ),
                             onTap: () {
-                              showInterstitialAd(adsFile, () {
+                              /*showInterstitialAd(adsFile, () {
                                 GradientModel model = GradientModel();
-                                model.primaryColor =
-                                    tuple2.item2.primaryColor;
+                                model.primaryColor = tuple2.item2.primaryColor;
                                 model.gridColor = tuple2.item2.gridColor;
 
                                 model.cellColor = getBgColor(
@@ -242,7 +238,7 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                                 ).then((value) {
                                   isGamePageOpen = false;
                                 });
-                              });
+                              });*/
                             },
                           ));
                     }),
@@ -283,7 +279,7 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
 // import 'package:provider/provider.dart';
 // import 'package:tuple/tuple.dart';
 //
-// import '../../ads/AdsFile.dart';
+// import '../../ads/ads_file.dart';
 // import '../../core/app_assets.dart';
 // import '../../data/models/game_category.dart';
 // import '../../utility/Constants.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:puzzle/core/color_scheme.dart';
 
 import '../../utility/Constants.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 
 class CommonButton extends StatelessWidget {
@@ -30,7 +30,7 @@ class CommonButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
     double height1 = getScreenPercentSize(context, 57);
     double height = getScreenPercentSize(context, 57) / 4;
 

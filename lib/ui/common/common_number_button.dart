@@ -3,7 +3,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../utility/Constants.dart';
 import '../model/gradient_model.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 
 class CommonNumberButton extends StatelessWidget {
@@ -34,10 +34,9 @@ class CommonNumberButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
 
-    double radius =
-        btnRadius ?? getCommonCalculatorRadius(context);
+    double radius = btnRadius ?? getCommonCalculatorRadius(context);
 
     return CommonTabAnimationView(
       onTab: () {

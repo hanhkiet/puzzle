@@ -21,8 +21,8 @@ import 'package:puzzle/data/repository/square_root_repository.dart';
 import 'package:puzzle/data/repository/true_false_repository.dart';
 import 'package:puzzle/ui/dashboard/dashboard_provider.dart';
 
-import '../../ads/AdsFile.dart';
 import '../../data/repository/numeric_memory_repository.dart';
+import 'time_provider.dart';
 
 int rightCoin = 10;
 int wrongCoin = 5;
@@ -46,28 +46,27 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   late bool isTimer;
   late bool isRewardedComplete = false;
   late int levelNo;
-  late AdsFile adsFile;
+  //late AdsFile adsFile;
   late BuildContext c;
 
   GameProvider(
-      {required TickerProvider vsync,
+      {required super.vsync,
       required this.gameCategoryType,
       required this.c,
       bool? isTimer})
       : super(
-          vsync: vsync,
           totalTime: KeyUtil.getTimeUtil(gameCategoryType),
         ) {
     this.isTimer = (isTimer == null) ? true : isTimer;
-    adsFile = AdsFile(c);
+    /*adsFile = AdsFile(c);
 
-    adsFile.createRewardedAd();
+    adsFile.createRewardedAd();*/
     print("isTimer12===$isTimer");
   }
 
   @override
   void dispose() {
-    disposeRewardedAd(adsFile);
+    //disposeRewardedAd(adsFile);
     WidgetsBinding.instance.removeObserver(this);
     // TODO: implement dispose
     super.dispose();
@@ -86,7 +85,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     oldScore = 0;
     currentState = list[index];
     if (_homeViewModel.isFirstTime(gameCategoryType)) {
-      await Future.delayed(Duration(milliseconds: 100));
+      await Future.delayed(const Duration(milliseconds: 100));
       showInfoDialog();
     } else {
       print("isTimerStart==$isTimer");
@@ -118,6 +117,8 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
         }
         break;
       case AppLifecycleState.detached:
+        break;
+      case AppLifecycleState.hidden:
         break;
     }
   }

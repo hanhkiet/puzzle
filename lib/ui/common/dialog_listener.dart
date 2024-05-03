@@ -8,7 +8,7 @@ import '../../core/app_constants.dart';
 import '../../utility/Constants.dart';
 import '../app/game_provider.dart';
 import '../model/gradient_model.dart';
-import '../numericMemory/numeric_view.dart';
+import '../numeric_memory/numeric_view.dart';
 import 'common_alert_dialog.dart';
 import 'common_alert_over_dialog.dart';
 import 'common_dual_game_over_dialog_view.dart';
@@ -27,14 +27,14 @@ class DialogListener<T extends GameProvider> extends StatefulWidget {
   final Function? nextQuiz;
 
   const DialogListener({
-    Key? key,
+    super.key,
     required this.appBar,
     required this.child,
     required this.gameCategoryType,
     required this.level,
     required this.colorTuple,
     this.nextQuiz,
-  }) : super(key: key);
+  });
 
   @override
   State<DialogListener<T>> createState() => _DialogListenerState<T>();

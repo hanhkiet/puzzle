@@ -4,7 +4,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../data/models/math_pairs.dart';
 import '../../utility/Constants.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'concentration_provider.dart';
 
 class ConcentrationButton extends StatelessWidget {
@@ -25,7 +25,7 @@ class ConcentrationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
 
     double radius = getPercentSize(height, 30);
 

@@ -1,51 +1,47 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:puzzle/core/app_constants.dart';
-import 'package:puzzle/data/models/calculator.dart';
+import 'package:puzzle/data/models/picture_puzzle.dart';
 import 'package:puzzle/ui/app/game_provider.dart';
-import 'package:puzzle/ui/sound_player/audio_file.dart';
 
-class CalculatorProvider extends GameProvider<Calculator> {
-  BuildContext? context;
+import '../sound_player/audio_file.dart';
+
+class PicturePuzzleProvider extends GameProvider<PicturePuzzle> {
   int? level;
+  BuildContext? context;
 
-  CalculatorProvider(
+  PicturePuzzleProvider(
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.CALCULATOR, c: context) {
+      : super(gameCategoryType: GameCategoryType.PICTURE_PUZZLE, c: context) {
     startGame(level: level);
   }
 
-  bool isClick = false;
-
-  void checkResult(String answer) async {
+  void checkGameResult(String answer) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
 
     if (result.length < currentState.answer.toString().length &&
         timerStatus != TimerStatus.pause) {
       result = result + answer;
       notifyListeners();
-
       if (int.parse(result) == currentState.answer) {
-        notifyListeners();
-
         audioPlayer.playRightSound();
-        isClick = false;
-
         await Future.delayed(const Duration(milliseconds: 300));
         loadNewDataIfRequired(level: level);
+        currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
+
+        addCoin();
+
         if (timerStatus != TimerStatus.pause) {
           restartTimer();
         }
-
-        currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-        addCoin();
         notifyListeners();
       } else if (result.length == currentState.answer.toString().length) {
-        minusCoin();
         audioPlayer.playWrongSound();
         wrongAnswer();
+        minusCoin();
       }
     }
   }

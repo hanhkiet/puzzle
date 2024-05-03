@@ -1,37 +1,35 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
-import 'package:puzzle/core/app_constants.dart';
-import 'package:puzzle/data/models/calculator.dart';
-import 'package:puzzle/ui/app/game_provider.dart';
-import 'package:puzzle/ui/sound_player/audio_file.dart';
+import '../../core/app_constants.dart';
+import '../../data/models/mental_arithmetic.dart';
+import '../app/game_provider.dart';
+import '../sound_player/audio_file.dart';
 
-class CalculatorProvider extends GameProvider<Calculator> {
+class MentalArithmeticProvider extends GameProvider<MentalArithmetic> {
   BuildContext? context;
-  int? level;
 
-  CalculatorProvider(
+  int? level;
+  MentalArithmeticProvider(
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.CALCULATOR, c: context) {
+      : super(
+            gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC, c: context) {
     startGame(level: level);
   }
 
-  bool isClick = false;
-
-  void checkResult(String answer) async {
+  Future<void> checkResult(String answer) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
-
-    if (result.length < currentState.answer.toString().length &&
-        timerStatus != TimerStatus.pause) {
+    if (timerStatus != TimerStatus.pause &&
+        result.length < currentState.answer.toString().length &&
+        ((result.isEmpty && answer == "-") || (answer != "-"))) {
       result = result + answer;
       notifyListeners();
-
-      if (int.parse(result) == currentState.answer) {
-        notifyListeners();
-
+      if (result != "-" && int.parse(result) == currentState.answer) {
         audioPlayer.playRightSound();
-        isClick = false;
+
+        currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
 
         await Future.delayed(const Duration(milliseconds: 300));
         loadNewDataIfRequired(level: level);
@@ -39,13 +37,12 @@ class CalculatorProvider extends GameProvider<Calculator> {
           restartTimer();
         }
 
-        currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-        addCoin();
         notifyListeners();
       } else if (result.length == currentState.answer.toString().length) {
-        minusCoin();
         audioPlayer.playWrongSound();
-        wrongAnswer();
+        if (currentScore > 0) {
+          wrongAnswer();
+        }
       }
     }
   }

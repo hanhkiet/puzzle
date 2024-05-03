@@ -111,14 +111,14 @@ class CommonHintDialog extends StatelessWidget {
                         child: getButtonWidget(context, "Watch Video",
                             colorTuple.item1.primaryColor, () {
                           if (!provider.isRewardedComplete) {
-                            showRewardedAd(provider.adsFile, () {
+                            /*showRewardedAd(provider.adsFile, () {
                               setState(() {
                                 isHint = true;
                                 provider.isRewardedComplete = true;
                               });
                             }, function1: () {
                               Navigator.pop(context);
-                            });
+                            });*/
                           }
                         }, textColor: Colors.black),
                       ),

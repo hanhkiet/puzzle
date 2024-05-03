@@ -51,8 +51,8 @@ class CommonScoreWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AdsFile? adsFile = AdsFile(context);
-    adsFile.createInterstitialAd();
+    //AdsFile? adsFile = AdsFile(context);
+    //adsFile.createInterstitialAd();
 
     double appBarHeight = getScreenPercentSize(context, 25);
     double mainHeight = getScreenPercentSize(context, 30);

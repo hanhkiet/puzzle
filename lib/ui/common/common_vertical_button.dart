@@ -4,7 +4,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../utility/Constants.dart';
 import '../model/gradient_model.dart';
-import '../soundPlayer/audio_file.dart';
+import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 
 class CommonVerticalButton extends StatelessWidget {
@@ -35,7 +35,7 @@ class CommonVerticalButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer(context);
+    AppAudioPlayer audioPlayer = AppAudioPlayer(context);
     double height1 = getScreenPercentSize(context, 57);
     double height = getScreenPercentSize(context, 57) / 4;
 
