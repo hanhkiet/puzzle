@@ -53,6 +53,10 @@ dependencies:
   url_launcher: ^6.2.6
   device_info_plus: ^10.1.0
   flutter_rating_bar: ^4.0.1
+  intl: ^0.18.1
+  fluttertoast: ^8.2.5
+  flutter_email_sender: ^6.0.3
+
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +71,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
   flutter_launcher_icons: ^0.13.1
+  google_mobile_ads: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
