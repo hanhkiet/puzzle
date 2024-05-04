@@ -29,7 +29,7 @@ Widget getSvgImageWithSize(
     {Color? color, BoxFit fit = BoxFit.fill}) {
   return SvgPicture.asset(
     AppAssets.assetPath + image,
-    colorFilter: ColorFilter.mode(color!, BlendMode.srcOut),
+    colorFilter: ColorFilter.mode(color!, BlendMode.srcIn),
     width: width,
     height: height,
     fit: fit,
@@ -52,7 +52,7 @@ Widget getSvgImage(BuildContext context, String image, double size,
     {Color? color}) {
   return SvgPicture.asset(
     AppAssets.assetPath + image,
-    colorFilter: ColorFilter.mode(color!, BlendMode.srcOut),
+    colorFilter: ColorFilter.mode(color!, BlendMode.srcIn),
     width: FetchPixels.getPixelWidth(size),
     height: FetchPixels.getPixelHeight(size),
     fit: BoxFit.fill,
@@ -80,8 +80,8 @@ Widget getDefaultTextFiled(
   return StatefulBuilder(
     builder: (context, setState) {
       final mqData = MediaQuery.of(context);
-      final mqDataNew =
-          mqData.copyWith(textScaler: TextScaler.linear(FetchPixels.getTextScale()));
+      final mqDataNew = mqData.copyWith(
+          textScaler: TextScaler.linear(FetchPixels.getTextScale()));
       return MediaQuery(
         data: mqDataNew,
         child: Container(

@@ -460,7 +460,7 @@ getSettingWidget(BuildContext context, {Function? function}) {
       width: FetchPixels.getPixelHeight(60),
       height: FetchPixels.getPixelHeight(60),
       colorFilter: ColorFilter.mode(
-          Theme.of(context).textTheme.titleMedium!.color!, BlendMode.srcOut),
+          Theme.of(context).textTheme.titleMedium!.color!, BlendMode.srcIn),
     ),
   );
 }

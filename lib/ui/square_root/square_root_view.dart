@@ -75,7 +75,7 @@ class SquareRootView extends StatelessWidget {
                             height: getPercentSize(remainHeight, 6),
                             colorFilter: ColorFilter.mode(
                                 Theme.of(context).textTheme.titleSmall!.color!,
-                                BlendMode.srcOut),
+                                BlendMode.srcIn),
                           ),
                           Selector<SquareRootProvider, SquareRoot>(
                               selector: (p0, p1) => p1.currentState,

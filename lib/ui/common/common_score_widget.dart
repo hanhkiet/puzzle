@@ -519,7 +519,7 @@ class CommonScoreWidget extends StatelessWidget {
                   icon,
                   colorFilter: ColorFilter.mode(
                       Theme.of(context).textTheme.titleSmall!.color!,
-                      BlendMode.srcOut),
+                      BlendMode.srcIn),
                   height: getPercentSize(size, 52),
                 )
               : SvgPicture.asset(
