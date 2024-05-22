@@ -53,7 +53,7 @@ class MathGridButton extends StatelessWidget {
               : gridModel.isActive
                   ? Theme.of(context).scaffoldBackgroundColor
                   : color,
-          borderColor: Theme.of(context).textTheme.subtitle2!.color,
+          borderColor: Theme.of(context).textTheme.titleSmall!.color,
           radius: getScreenPercentSize(context, 2)),
 
       // decoration: BoxDecoration(

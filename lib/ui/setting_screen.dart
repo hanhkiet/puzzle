@@ -109,7 +109,7 @@ class _SettingScreen extends State<SettingScreen> {
       ),
       //TODO
       onPopInvoked: (didPop) {
-        if(didPop) {
+        if (!didPop) {
           backClicks();
         }
       },

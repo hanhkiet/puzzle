@@ -219,6 +219,24 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                               ),
                             ),
                             onTap: () {
+                              GradientModel model = GradientModel();
+                              model.primaryColor = tuple2.item2.primaryColor;
+                              model.gridColor = tuple2.item2.gridColor;
+
+                              model.cellColor = getBgColor(
+                                  themeProvider, tuple2.item2.bgColor);
+                              model.folderName = tuple2.item2.folder;
+                              model.bgColor = tuple2.item2.bgColor;
+                              model.backgroundColor =
+                                  tuple2.item2.backgroundColor;
+                              Navigator.pushNamed(
+                                context,
+                                tuple2.item1.routePath,
+                                arguments: Tuple2(model, (index + 1)),
+                              ).then((value) {
+                                isGamePageOpen = false;
+                              });
+
                               /*showInterstitialAd(adsFile, () {
                                 GradientModel model = GradientModel();
                                 model.primaryColor = tuple2.item2.primaryColor;
