@@ -310,7 +310,7 @@ packages:
     source: hosted
     version: "7.7.0"
   google_mobile_ads:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: google_mobile_ads
       sha256: e2d18992d30b2be77cb6976b931112fc3c4612feffb5eb7a8b036bd7a64934da
