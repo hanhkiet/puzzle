@@ -75,15 +75,15 @@ class NumberPyramidView extends StatelessWidget {
       ],
       child: DialogListener<NumberPyramidProvider>(
         colorTuple: colorTuple1,
-        gameCategoryType: GameCategoryType.NUMBER_PYRAMID,
+        gameCategoryType: GameCategoryType.numberPyramid,
         level: colorTuple1.item2,
         appBar: CommonAppBar<NumberPyramidProvider>(
             hint: false,
             infoView: CommonInfoTextView<NumberPyramidProvider>(
-                gameCategoryType: GameCategoryType.NUMBER_PYRAMID,
+                gameCategoryType: GameCategoryType.numberPyramid,
                 folder: colorTuple1.item1.folderName!,
                 color: colorTuple1.item1.cellColor!),
-            gameCategoryType: GameCategoryType.NUMBER_PYRAMID,
+            gameCategoryType: GameCategoryType.numberPyramid,
             colorTuple: colorTuple1,
             context: context),
 
@@ -507,7 +507,7 @@ class NumberPyramidView extends StatelessWidget {
         //     gameCategoryType: GameCategoryType.NUMBER_PYRAMID,color: colorTuple1.item1.cellColor!),),
 
         child: CommonMainWidget<NumberPyramidProvider>(
-          gameCategoryType: GameCategoryType.NUMBER_PYRAMID,
+          gameCategoryType: GameCategoryType.numberPyramid,
           color: colorTuple1.item1.bgColor!,
           primaryColor: colorTuple1.item1.primaryColor!,
           subChild: Container(

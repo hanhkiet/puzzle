@@ -2,37 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/dashboard.dart';
 import 'package:puzzle/ui/calculator/calculator_view.dart';
 import 'package:puzzle/ui/complex_calculation/complex_calculation_view.dart';
-
 import 'package:puzzle/ui/concentration/concentration_view.dart';
 import 'package:puzzle/ui/correct_answer/correct_answer_view.dart';
 import 'package:puzzle/ui/cube_root/cube_root_view.dart';
-
 import 'package:puzzle/ui/dashboard/dashboard_view.dart';
 import 'package:puzzle/ui/dual_game/dual_view.dart';
 import 'package:puzzle/ui/find_missing/find_missing_view.dart';
 import 'package:puzzle/ui/guess_the_sign/guess_sign_view.dart';
-
 import 'package:puzzle/ui/home/home_view.dart';
 import 'package:puzzle/ui/magic_triangle/magic_triangle_view.dart';
 import 'package:puzzle/ui/math_grid/math_grid_view.dart';
 import 'package:puzzle/ui/math_pairs/math_pairs_view.dart';
 import 'package:puzzle/ui/mental_arithmetic/mental_arithmetic_view.dart';
-
 import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/number_pyramid/number_pyramid_view.dart';
 import 'package:puzzle/ui/numeric_memory/numeric_view.dart';
 import 'package:puzzle/ui/picture_puzzle/picture_puzzle_view.dart';
 import 'package:puzzle/ui/quick_calculation/quick_calculation_view.dart';
-
 import 'package:puzzle/ui/splash/splash_view.dart';
 import 'package:puzzle/ui/square_root/square_root_view.dart';
 import 'package:puzzle/ui/true_false_quiz/true_false_view.dart';
-
 import 'package:tuple/tuple.dart';
+
 import '../data/models/game_category.dart';
-
 import '../ui/level/level_view.dart';
-
 import 'app_constants.dart';
 
 var appRoutes = {

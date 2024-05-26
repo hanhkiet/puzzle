@@ -86,18 +86,18 @@ class PicturePuzzleView extends StatelessWidget {
         appBar: CommonAppBar<PicturePuzzleProvider>(
             hint: false,
             infoView: CommonInfoTextView<PicturePuzzleProvider>(
-                gameCategoryType: GameCategoryType.PICTURE_PUZZLE,
+                gameCategoryType: GameCategoryType.picturePuzzle,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.PICTURE_PUZZLE,
+            gameCategoryType: GameCategoryType.picturePuzzle,
             colorTuple: colorTuple,
             context: context),
 
-        gameCategoryType: GameCategoryType.PICTURE_PUZZLE,
+        gameCategoryType: GameCategoryType.picturePuzzle,
         level: colorTuple.item2,
 
         child: CommonMainWidget<PicturePuzzleProvider>(
-          gameCategoryType: GameCategoryType.PICTURE_PUZZLE,
+          gameCategoryType: GameCategoryType.picturePuzzle,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

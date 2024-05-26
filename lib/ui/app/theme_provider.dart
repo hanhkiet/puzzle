@@ -11,7 +11,7 @@ class ThemeProvider extends ChangeNotifier {
 
   ThemeProvider({required this.sharedPreferences}) {
     themeMode =
-        ThemeMode.values[sharedPreferences.getInt(KeyUtil.IS_DARK_MODE) ?? 1];
+        ThemeMode.values[sharedPreferences.getInt(KeyUtil.isDarkMode) ?? 1];
   }
 
   void changeTheme() async {
@@ -22,6 +22,6 @@ class ThemeProvider extends ChangeNotifier {
     }
 
     notifyListeners();
-    await sharedPreferences.setInt(KeyUtil.IS_DARK_MODE, themeMode.index);
+    await sharedPreferences.setInt(KeyUtil.isDarkMode, themeMode.index);
   }
 }

@@ -15,7 +15,7 @@ class FindMissingProvider extends GameProvider<FindMissingQuizModel> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.FIND_MISSING, c: context) {
+      : super(gameCategoryType: GameCategoryType.findMissing, c: context) {
     startGame(level: level);
   }
 

@@ -51,19 +51,19 @@ class MathGridView extends StatelessWidget {
         colorTuple: colorTuple,
         appBar: CommonAppBar<MathGridProvider>(
             infoView: CommonInfoTextView<MathGridProvider>(
-                gameCategoryType: GameCategoryType.MATH_GRID,
+                gameCategoryType: GameCategoryType.mathGrid,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
             hint: false,
-            gameCategoryType: GameCategoryType.MATH_GRID,
+            gameCategoryType: GameCategoryType.mathGrid,
             colorTuple: colorTuple,
             context: context),
 
-        gameCategoryType: GameCategoryType.MATH_GRID,
+        gameCategoryType: GameCategoryType.mathGrid,
         level: colorTuple.item2,
 
         child: CommonMainWidget<MathGridProvider>(
-          gameCategoryType: GameCategoryType.MATH_GRID,
+          gameCategoryType: GameCategoryType.mathGrid,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

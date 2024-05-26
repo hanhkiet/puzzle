@@ -47,15 +47,15 @@ class MathPairsView extends StatelessWidget {
       ],
       child: DialogListener<MathPairsProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.MATH_PAIRS,
+        gameCategoryType: GameCategoryType.mathPairs,
         level: colorTuple.item2,
         appBar: CommonAppBar<MathPairsProvider>(
             hint: false,
             infoView: CommonInfoTextView<MathPairsProvider>(
-                gameCategoryType: GameCategoryType.MATH_PAIRS,
+                gameCategoryType: GameCategoryType.mathPairs,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.MATH_PAIRS,
+            gameCategoryType: GameCategoryType.mathPairs,
             colorTuple: colorTuple,
             context: context),
 
@@ -119,7 +119,7 @@ class MathPairsView extends StatelessWidget {
         //       gameCategoryType: GameCategoryType.MATH_PAIRS,color: colorTuple.item1.cellColor!),),
 
         child: CommonMainWidget<MathPairsProvider>(
-          gameCategoryType: GameCategoryType.MATH_PAIRS,
+          gameCategoryType: GameCategoryType.mathPairs,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

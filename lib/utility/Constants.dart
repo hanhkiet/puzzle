@@ -316,16 +316,16 @@ getDefaultIconWidget(BuildContext context,
 }
 
 isDetailWidget(GameCategoryType gameCategoryType) {
-  if (gameCategoryType == GameCategoryType.CALCULATOR ||
-      gameCategoryType == GameCategoryType.MENTAL_ARITHMETIC ||
-      gameCategoryType == GameCategoryType.QUICK_CALCULATION ||
-      gameCategoryType == GameCategoryType.MATH_GRID ||
-      gameCategoryType == GameCategoryType.MATH_PAIRS ||
-      gameCategoryType == GameCategoryType.CONCENTRATION ||
-      gameCategoryType == GameCategoryType.MAGIC_TRIANGLE ||
-      gameCategoryType == GameCategoryType.NUMERIC_MEMORY ||
-      gameCategoryType == GameCategoryType.PICTURE_PUZZLE ||
-      gameCategoryType == GameCategoryType.NUMBER_PYRAMID) {
+  if (gameCategoryType == GameCategoryType.calculator ||
+      gameCategoryType == GameCategoryType.mentalArithmetic ||
+      gameCategoryType == GameCategoryType.quickCalculation ||
+      gameCategoryType == GameCategoryType.mathGrid ||
+      gameCategoryType == GameCategoryType.mathPairs ||
+      gameCategoryType == GameCategoryType.concentration ||
+      gameCategoryType == GameCategoryType.magicTriangle ||
+      gameCategoryType == GameCategoryType.numericMemory ||
+      gameCategoryType == GameCategoryType.picturePuzzle ||
+      gameCategoryType == GameCategoryType.numberPyramid) {
     return false;
   } else {
     return true;

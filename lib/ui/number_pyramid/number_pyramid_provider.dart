@@ -15,7 +15,7 @@ class NumberPyramidProvider extends GameProvider<NumberPyramid> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.NUMBER_PYRAMID, c: context) {
+      : super(gameCategoryType: GameCategoryType.numberPyramid, c: context) {
     startGame(level: level);
   }
 

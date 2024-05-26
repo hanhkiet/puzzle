@@ -17,7 +17,7 @@ class QuickCalculationProvider extends GameProvider<QuickCalculation> {
       required int this.level,
       required BuildContext this.context})
       : super(
-            gameCategoryType: GameCategoryType.QUICK_CALCULATION, c: context) {
+            gameCategoryType: GameCategoryType.quickCalculation, c: context) {
     startGame(level: level);
     nextCurrentState = list[index + 1];
   }

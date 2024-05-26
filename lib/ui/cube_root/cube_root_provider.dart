@@ -15,7 +15,7 @@ class CubeRootProvider extends GameProvider<CubeRoot> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.CUBE_ROOT, c: context) {
+      : super(gameCategoryType: GameCategoryType.cubeRoot, c: context) {
     startGame(level: level);
   }
 

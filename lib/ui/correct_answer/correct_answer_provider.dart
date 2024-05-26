@@ -14,7 +14,7 @@ class CorrectAnswerProvider extends GameProvider<CorrectAnswer> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.CORRECT_ANSWER, c: context) {
+      : super(gameCategoryType: GameCategoryType.correctAnswer, c: context) {
     startGame(level: level);
   }
 

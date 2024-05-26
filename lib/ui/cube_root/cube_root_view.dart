@@ -43,17 +43,17 @@ class CubeRootView extends StatelessWidget {
 
         appBar: CommonAppBar<CubeRootProvider>(
             infoView: CommonInfoTextView<CubeRootProvider>(
-                gameCategoryType: GameCategoryType.CUBE_ROOT,
+                gameCategoryType: GameCategoryType.cubeRoot,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.CUBE_ROOT,
+            gameCategoryType: GameCategoryType.cubeRoot,
             colorTuple: colorTuple,
             context: context),
 
-        gameCategoryType: GameCategoryType.CUBE_ROOT,
+        gameCategoryType: GameCategoryType.cubeRoot,
         level: colorTuple.item2,
         child: CommonMainWidget<CubeRootProvider>(
-          gameCategoryType: GameCategoryType.CUBE_ROOT,
+          gameCategoryType: GameCategoryType.cubeRoot,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

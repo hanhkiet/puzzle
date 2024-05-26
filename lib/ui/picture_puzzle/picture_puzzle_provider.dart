@@ -15,7 +15,7 @@ class PicturePuzzleProvider extends GameProvider<PicturePuzzle> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.PICTURE_PUZZLE, c: context) {
+      : super(gameCategoryType: GameCategoryType.picturePuzzle, c: context) {
     startGame(level: level);
   }
 

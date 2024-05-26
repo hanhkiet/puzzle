@@ -58,15 +58,15 @@ class ConcentrationView extends StatelessWidget {
         ],
         child: DialogListener<ConcentrationProvider>(
           colorTuple: colorTuple,
-          gameCategoryType: GameCategoryType.CONCENTRATION,
+          gameCategoryType: GameCategoryType.concentration,
           level: colorTuple.item2,
           appBar: CommonAppBar<ConcentrationProvider>(
               hint: false,
               infoView: CommonInfoTextView<ConcentrationProvider>(
-                  gameCategoryType: GameCategoryType.CONCENTRATION,
+                  gameCategoryType: GameCategoryType.concentration,
                   folder: colorTuple.item1.folderName!,
                   color: colorTuple.item1.cellColor!),
-              gameCategoryType: GameCategoryType.CONCENTRATION,
+              gameCategoryType: GameCategoryType.concentration,
               colorTuple: colorTuple,
               context: context,
               isTimer: false),
@@ -137,7 +137,7 @@ class ConcentrationView extends StatelessWidget {
           // ),
 
           child: CommonMainWidget<ConcentrationProvider>(
-            gameCategoryType: GameCategoryType.CONCENTRATION,
+            gameCategoryType: GameCategoryType.concentration,
             color: colorTuple.item1.bgColor!,
             isTimer: false,
             primaryColor: colorTuple.item1.primaryColor!,

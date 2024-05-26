@@ -44,20 +44,20 @@ class MagicTriangleView extends StatelessWidget {
       ],
       child: DialogListener<MagicTriangleProvider>(
         colorTuple: colorTuple1,
-        gameCategoryType: GameCategoryType.MAGIC_TRIANGLE,
+        gameCategoryType: GameCategoryType.magicTriangle,
         level: colorTuple1.item2,
         appBar: CommonAppBar<MagicTriangleProvider>(
             hint: false,
             infoView: CommonInfoTextView<MagicTriangleProvider>(
-                gameCategoryType: GameCategoryType.MAGIC_TRIANGLE,
+                gameCategoryType: GameCategoryType.magicTriangle,
                 folder: colorTuple1.item1.folderName!,
                 color: colorTuple1.item1.cellColor!),
-            gameCategoryType: GameCategoryType.MAGIC_TRIANGLE,
+            gameCategoryType: GameCategoryType.magicTriangle,
             colorTuple: colorTuple1,
             context: context),
 
         child: CommonMainWidget<MagicTriangleProvider>(
-          gameCategoryType: GameCategoryType.MAGIC_TRIANGLE,
+          gameCategoryType: GameCategoryType.magicTriangle,
           color: colorTuple1.item1.bgColor!,
           primaryColor: colorTuple1.item1.primaryColor!,
           subChild: Container(

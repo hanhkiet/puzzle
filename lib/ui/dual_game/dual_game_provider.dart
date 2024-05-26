@@ -15,7 +15,7 @@ class DualGameProvider extends GameProvider<QuizModel> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.DUAL_GAME, c: context) {
+      : super(gameCategoryType: GameCategoryType.dualGame, c: context) {
     startGame(level: level);
   }
 

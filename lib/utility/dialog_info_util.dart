@@ -8,7 +8,7 @@ class DialogInfoUtil {
     var tuple2 = Tuple2(KeyUtil.primaryColor2, KeyUtil.bgColor2);
     var tuple3 = Tuple2(KeyUtil.primaryColor3, KeyUtil.bgColor3);
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return GameInfoDialog(
             title: "Calculator",
             image: "assets/gif/calculator-intro.gif",
@@ -16,7 +16,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.calculatorScore,
             wrongAnswerScore: KeyUtil.calculatorScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return GameInfoDialog(
             title: "Guess The Sign",
             image: "assets/gif/whats-the-sign-intro.gif",
@@ -25,7 +25,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.guessSignScore,
             wrongAnswerScore: KeyUtil.guessSignScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return GameInfoDialog(
             title: "Square Root",
             image: "assets/gif/sqroot-intro.gif",
@@ -34,7 +34,7 @@ class DialogInfoUtil {
             wrongAnswerScore: KeyUtil.squareRootScoreMinus,
             colorTuple: tuple2);
 
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return GameInfoDialog(
             title: "Find Missing",
             image: "assets/gif/correct-answer.gif",
@@ -42,7 +42,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.findMissingScore,
             wrongAnswerScore: KeyUtil.findMissingScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return GameInfoDialog(
             title: "True False",
             image: "assets/gif/correct-answer.gif",
@@ -51,7 +51,7 @@ class DialogInfoUtil {
             wrongAnswerScore: KeyUtil.trueFalseScoreMinus,
             colorTuple: tuple1);
 
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return GameInfoDialog(
             title: "Dual Game",
             image: "assets/gif/correct-answer.gif",
@@ -60,7 +60,7 @@ class DialogInfoUtil {
             wrongAnswerScore: KeyUtil.dualScoreMinus,
             colorTuple: tuple1);
 
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return GameInfoDialog(
             title: "Complex Calculation",
             image: "assets/gif/whats-the-sign-intro.gif",
@@ -70,7 +70,7 @@ class DialogInfoUtil {
             wrongAnswerScore: KeyUtil.complexCalculationScoreMinus,
             colorTuple: tuple1);
 
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return GameInfoDialog(
             title: "Cube Root",
             image: "assets/gif/correct-answer.gif",
@@ -79,7 +79,7 @@ class DialogInfoUtil {
             wrongAnswerScore: KeyUtil.cubeRootScoreMinus,
             colorTuple: tuple1);
 
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return GameInfoDialog(
             title: "Numeric Memory",
             image: "assets/gif/correct-answer.gif",
@@ -87,7 +87,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.numericMemoryScore,
             wrongAnswerScore: KeyUtil.numericMemoryScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return GameInfoDialog(
             title: "Concentration",
             image: "assets/gif/correct-answer.gif",
@@ -95,7 +95,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.concentrationScore,
             wrongAnswerScore: KeyUtil.concentrationScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return GameInfoDialog(
             title: "Math Pairs",
             image: "assets/gif/math-pair-intro.gif",
@@ -104,7 +104,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.mathematicalPairsScore,
             wrongAnswerScore: KeyUtil.mathematicalPairsScoreMinus,
             colorTuple: tuple2);
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return GameInfoDialog(
             title: "Correct Answer",
             image: "assets/gif/correct-answer.gif",
@@ -112,7 +112,7 @@ class DialogInfoUtil {
             correctAnswerScore: KeyUtil.correctAnswerScore,
             wrongAnswerScore: KeyUtil.correctAnswerScoreMinus,
             colorTuple: tuple1);
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         return GameInfoDialog(
           title: "Magic Triangle",
           image: "assets/gif/magic-triangle-intro.gif",
@@ -122,7 +122,7 @@ class DialogInfoUtil {
           colorTuple: tuple3,
           wrongAnswerScore: KeyUtil.magicTriangleScore,
         );
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return GameInfoDialog(
           title: "Mental Arithmetic",
           colorTuple: tuple2,
@@ -132,7 +132,7 @@ class DialogInfoUtil {
           correctAnswerScore: KeyUtil.mentalArithmeticScore,
           wrongAnswerScore: KeyUtil.mentalArithmeticScoreMinus,
         );
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return GameInfoDialog(
           title: "Quick Calculation",
           colorTuple: tuple1,
@@ -142,7 +142,7 @@ class DialogInfoUtil {
           correctAnswerScore: KeyUtil.quickCalculationScore,
           wrongAnswerScore: KeyUtil.quickCalculationScoreMinus,
         );
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return GameInfoDialog(
           title: "Math Grid",
           colorTuple: tuple2,
@@ -152,7 +152,7 @@ class DialogInfoUtil {
           correctAnswerScore: KeyUtil.mathGridScore,
           wrongAnswerScore: KeyUtil.mathGridScore,
         );
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return GameInfoDialog(
           title: "Picture Puzzle",
           colorTuple: tuple3,
@@ -162,7 +162,7 @@ class DialogInfoUtil {
           correctAnswerScore: KeyUtil.picturePuzzleScore,
           wrongAnswerScore: KeyUtil.picturePuzzleScore,
         );
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return GameInfoDialog(
           title: "Number Pyramid",
           colorTuple: tuple3,

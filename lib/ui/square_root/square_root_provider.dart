@@ -15,7 +15,7 @@ class SquareRootProvider extends GameProvider<SquareRoot> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.SQUARE_ROOT, c: context) {
+      : super(gameCategoryType: GameCategoryType.squareRoot, c: context) {
     startGame(level: level);
   }
 

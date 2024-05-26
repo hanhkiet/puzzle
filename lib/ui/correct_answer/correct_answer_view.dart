@@ -41,19 +41,19 @@ class CorrectAnswerView extends StatelessWidget {
                 context: context))
       ],
       child: DialogListener<CorrectAnswerProvider>(
-        gameCategoryType: GameCategoryType.CORRECT_ANSWER,
+        gameCategoryType: GameCategoryType.correctAnswer,
         level: colorTuple.item2,
         colorTuple: colorTuple,
         appBar: CommonAppBar<CorrectAnswerProvider>(
             infoView: CommonInfoTextView<CorrectAnswerProvider>(
-                gameCategoryType: GameCategoryType.CORRECT_ANSWER,
+                gameCategoryType: GameCategoryType.correctAnswer,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.CORRECT_ANSWER,
+            gameCategoryType: GameCategoryType.correctAnswer,
             colorTuple: colorTuple,
             context: context),
         child: CommonMainWidget<CorrectAnswerProvider>(
-          gameCategoryType: GameCategoryType.CORRECT_ANSWER,
+          gameCategoryType: GameCategoryType.correctAnswer,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

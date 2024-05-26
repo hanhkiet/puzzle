@@ -21,7 +21,7 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
       required Function this.nextQuiz,
       bool? isTimer})
       : super(
-            gameCategoryType: GameCategoryType.NUMERIC_MEMORY,
+            gameCategoryType: GameCategoryType.numericMemory,
             isTimer: isTimer,
             c: context) {
     this.isTimer = (isTimer == null) ? true : isTimer;

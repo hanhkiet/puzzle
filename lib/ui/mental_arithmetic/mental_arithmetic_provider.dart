@@ -15,7 +15,7 @@ class MentalArithmeticProvider extends GameProvider<MentalArithmetic> {
       required int this.level,
       required BuildContext this.context})
       : super(
-            gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC, c: context) {
+            gameCategoryType: GameCategoryType.mentalArithmetic, c: context) {
     startGame(level: level);
   }
 

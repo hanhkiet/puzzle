@@ -46,19 +46,19 @@ class FindMissingView extends StatelessWidget {
       ],
       child: DialogListener<FindMissingProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.FIND_MISSING,
+        gameCategoryType: GameCategoryType.findMissing,
         level: colorTuple.item2,
         appBar: CommonAppBar<FindMissingProvider>(
             infoView: CommonInfoTextView<FindMissingProvider>(
-                gameCategoryType: GameCategoryType.FIND_MISSING,
+                gameCategoryType: GameCategoryType.findMissing,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.FIND_MISSING,
+            gameCategoryType: GameCategoryType.findMissing,
             colorTuple: colorTuple,
             context: context),
 
         child: CommonMainWidget<FindMissingProvider>(
-          gameCategoryType: GameCategoryType.FIND_MISSING,
+          gameCategoryType: GameCategoryType.findMissing,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

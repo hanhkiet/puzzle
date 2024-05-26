@@ -73,7 +73,7 @@ class HomeButtonView extends StatelessWidget {
                         TextAlign.center,
                         getPercentSize(remainHeight, 11)),
                     Opacity(
-                      opacity: (gameCategoryType == GameCategoryType.DUAL_GAME)
+                      opacity: (gameCategoryType == GameCategoryType.dualGame)
                           ? 0
                           : 1,
                       child: Container(

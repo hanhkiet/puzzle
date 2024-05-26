@@ -46,15 +46,15 @@ class DualView extends StatelessWidget {
       ],
       child: DialogListener<DualGameProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.DUAL_GAME,
+        gameCategoryType: GameCategoryType.dualGame,
         level: colorTuple.item2,
         appBar: CommonAppBar<DualGameProvider>(
             hint: false,
             infoView: CommonInfoTextView<DualGameProvider>(
-                gameCategoryType: GameCategoryType.DUAL_GAME,
+                gameCategoryType: GameCategoryType.dualGame,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.DUAL_GAME,
+            gameCategoryType: GameCategoryType.dualGame,
             colorTuple: colorTuple,
             context: context),
         child: getCommonWidget(

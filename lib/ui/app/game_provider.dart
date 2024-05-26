@@ -129,12 +129,12 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     print("list12===${list.length}");
 
     if (index < 19) {
-      if (gameCategoryType == GameCategoryType.QUICK_CALCULATION &&
+      if (gameCategoryType == GameCategoryType.quickCalculation &&
           list.length - 2 == index) {
         list.addAll(getList(level ?? index ~/ 5 + 1));
       } else if (list.length - 1 == index) {
         print("level---${index ~/ 5 + 1}");
-        if (gameCategoryType == GameCategoryType.SQUARE_ROOT) {
+        if (gameCategoryType == GameCategoryType.squareRoot) {
           list.addAll(getList(level ?? index ~/ 5 + 2));
         } else {
           list.addAll(getList(level ?? index ~/ 5 + 1));
@@ -269,7 +269,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   void gotItFromInfoDialog(int? level) {
     if (_homeViewModel.isFirstTime(gameCategoryType)) {
       _homeViewModel.setFirstTime(gameCategoryType);
-      if (gameCategoryType == GameCategoryType.MENTAL_ARITHMETIC) {
+      if (gameCategoryType == GameCategoryType.mentalArithmetic) {
         startGame(level: level);
       }
       if (isTimer) {
@@ -286,48 +286,48 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     this.levelNo = level;
 
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return CalculatorRepository.getCalculatorDataList(level);
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return SignRepository.getSignDataList(level);
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return FindMissingRepository.getFindMissingDataList(level);
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return TrueFalseRepository.getTrueFalseDataList(level);
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return SquareRootRepository.getSquareDataList(level);
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return MathPairsRepository.getMathPairsDataList(level);
 
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return MathPairsRepository.getMathPairsDataList(level);
 
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return NumericMemoryRepository.getNumericMemoryDataList(level);
 
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return CorrectAnswerRepository.getCorrectAnswerDataList(level);
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         if (level > 15) {
           return MagicTriangleRepository.getNextLevelTriangleDataProviderList();
         } else {
           return MagicTriangleRepository.getTriangleDataProviderList();
         }
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return MentalArithmeticRepository.getMentalArithmeticDataList(level);
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return QuickCalculationRepository.getQuickCalculationDataList(level, 5);
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return MathGridRepository.getMathGridData(level);
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return PicturePuzzleRepository.getPicturePuzzleDataList(level);
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return NumberPyramidRepository.getPyramidDataList(level);
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return DualRepository.getDualData(level);
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return ComplexCalculationRepository.getComplexData(level);
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return CubeRootRepository.getCubeDataList(level);
     }
   }

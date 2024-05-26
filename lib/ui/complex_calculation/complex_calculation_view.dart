@@ -46,19 +46,19 @@ class ComplexCalculationView extends StatelessWidget {
       ],
       child: DialogListener<ComplexCalculationProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
+        gameCategoryType: GameCategoryType.complexCalculation,
         level: colorTuple.item2,
         appBar: CommonAppBar<ComplexCalculationProvider>(
             infoView: CommonInfoTextView<ComplexCalculationProvider>(
-                gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
+                gameCategoryType: GameCategoryType.complexCalculation,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
+            gameCategoryType: GameCategoryType.complexCalculation,
             colorTuple: colorTuple,
             context: context),
 
         child: CommonMainWidget<ComplexCalculationProvider>(
-          gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
+          gameCategoryType: GameCategoryType.complexCalculation,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

@@ -44,18 +44,18 @@ class SquareRootView extends StatelessWidget {
 
         appBar: CommonAppBar<SquareRootProvider>(
             infoView: CommonInfoTextView<SquareRootProvider>(
-                gameCategoryType: GameCategoryType.SQUARE_ROOT,
+                gameCategoryType: GameCategoryType.squareRoot,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.SQUARE_ROOT,
+            gameCategoryType: GameCategoryType.squareRoot,
             colorTuple: colorTuple,
             context: context),
 
-        gameCategoryType: GameCategoryType.SQUARE_ROOT,
+        gameCategoryType: GameCategoryType.squareRoot,
         level: colorTuple.item2,
 
         child: CommonMainWidget<SquareRootProvider>(
-          gameCategoryType: GameCategoryType.SQUARE_ROOT,
+          gameCategoryType: GameCategoryType.squareRoot,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

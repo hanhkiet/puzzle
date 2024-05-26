@@ -59,7 +59,7 @@ class _DialogListenerState<T extends GameProvider>
 
     if (isDialogOpen != null && !isDialogOpen!) {
       if (provider.dialogType == DialogType.over &&
-          provider.gameCategoryType == GameCategoryType.DUAL_GAME) {
+          provider.gameCategoryType == GameCategoryType.dualGame) {
         isDialogOpen = true;
         showDialog<bool>(
           context: context,
@@ -117,7 +117,7 @@ class _DialogListenerState<T extends GameProvider>
               context.read<T>().updateScore();
               if (value != null && value) {
                 if (widget.gameCategoryType ==
-                    GameCategoryType.NUMERIC_MEMORY) {
+                    GameCategoryType.numericMemory) {
                   if (widget.nextQuiz != null) {
                     Navigator.pushReplacement(
                         context,

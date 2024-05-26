@@ -81,13 +81,13 @@ class QuickCalculationView extends StatelessWidget {
         colorTuple: colorTuple,
         appBar: CommonAppBar<QuickCalculationProvider>(
             infoView: CommonInfoTextView<QuickCalculationProvider>(
-                gameCategoryType: GameCategoryType.QUICK_CALCULATION,
+                gameCategoryType: GameCategoryType.quickCalculation,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.QUICK_CALCULATION,
+            gameCategoryType: GameCategoryType.quickCalculation,
             colorTuple: colorTuple,
             context: context),
-        gameCategoryType: GameCategoryType.QUICK_CALCULATION,
+        gameCategoryType: GameCategoryType.quickCalculation,
         level: colorTuple.item2,
         // child: getCommonWidget(context: context, child: Column(
         //   children: <Widget>[
@@ -306,7 +306,7 @@ class QuickCalculationView extends StatelessWidget {
         //     gameCategoryType: GameCategoryType.QUICK_CALCULATION,color: colorTuple.item1.cellColor!),),
 
         child: CommonMainWidget<QuickCalculationProvider>(
-          gameCategoryType: GameCategoryType.QUICK_CALCULATION,
+          gameCategoryType: GameCategoryType.quickCalculation,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

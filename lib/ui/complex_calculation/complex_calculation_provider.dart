@@ -17,7 +17,7 @@ class ComplexCalculationProvider extends GameProvider<ComplexModel> {
       required int this.level,
       required BuildContext this.context})
       : super(
-            gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
+            gameCategoryType: GameCategoryType.complexCalculation,
             c: context) {
     startGame(level: level);
   }

@@ -18,7 +18,7 @@ class MathPairsProvider extends GameProvider<MathPairs> {
       required int this.level,
       required BuildContext this.context})
       : super(
-            gameCategoryType: GameCategoryType.MATH_PAIRS,
+            gameCategoryType: GameCategoryType.mathPairs,
             c: context) {
     startGame(level: level);
   }

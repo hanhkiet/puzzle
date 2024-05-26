@@ -234,7 +234,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                       gameCategoryType: e.gameCategoryType,
                                       onTab: () {
                                         if (e.gameCategoryType ==
-                                            GameCategoryType.DUAL_GAME) {
+                                            GameCategoryType.dualGame) {
                                           showDuelDialog(
                                               themeProvider, context);
                                         } else {

@@ -16,7 +16,7 @@ class MagicTriangleProvider extends GameProvider<MagicTriangle> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.MAGIC_TRIANGLE, c: context) {
+      : super(gameCategoryType: GameCategoryType.magicTriangle, c: context) {
     startGame(level: level);
   }
 

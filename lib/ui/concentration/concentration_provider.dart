@@ -21,7 +21,7 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
       required Function this.nextQuiz,
       bool? isTimer})
       : super(
-            gameCategoryType: GameCategoryType.CONCENTRATION,
+            gameCategoryType: GameCategoryType.concentration,
             isTimer: isTimer,
             c: context) {
     this.isTimer = (isTimer == null) ? true : isTimer;

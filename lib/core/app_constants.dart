@@ -5,27 +5,27 @@ import 'package:tuple/tuple.dart';
 import 'app_assets.dart';
 
 enum GameCategoryType {
-  CALCULATOR,
-  GUESS_SIGN,
-  SQUARE_ROOT,
-  MATH_PAIRS,
-  CORRECT_ANSWER,
-  MAGIC_TRIANGLE,
-  MENTAL_ARITHMETIC,
-  QUICK_CALCULATION,
-  FIND_MISSING,
-  TRUE_FALSE,
-  MATH_GRID,
-  PICTURE_PUZZLE,
-  NUMBER_PYRAMID,
-  DUAL_GAME,
-  COMPLEX_CALCULATION,
-  CUBE_ROOT,
-  CONCENTRATION,
-  NUMERIC_MEMORY,
+  calculator,
+  guessSign,
+  squareRoot,
+  mathPairs,
+  correctAnswer,
+  magicTriangle,
+  mentalArithmetic,
+  quickCalculation,
+  findMissing,
+  trueFalse,
+  mathGrid,
+  picturePuzzle,
+  numberPyramid,
+  dualGame,
+  complexCalculation,
+  cubeRoot,
+  concentration,
+  numericMemory,
 }
 
-enum PuzzleType { MATH_PUZZLE, MEMORY_PUZZLE, BRAIN_PUZZLE }
+enum PuzzleType { mathPuzzle, memoryPuzzle, brainPuzzle }
 
 enum TimerStatus {
   restart,
@@ -43,7 +43,7 @@ enum DialogType {
 }
 
 class KeyUtil {
-  static const IS_DARK_MODE = "isDarkMode";
+  static const isDarkMode = "isDarkMode";
 
   static const String splash = 'Splash';
   static const String dashboard = 'Dashboard';
@@ -86,16 +86,16 @@ class KeyUtil {
 
   static List<Dashboard> dashboardItems = [
     Dashboard(
-        puzzleType: PuzzleType.MATH_PUZZLE,
-        colorTuple: Tuple2(Color(0xff4895EF), Color(0xff3f37c9)),
+        puzzleType: PuzzleType.mathPuzzle,
+        colorTuple: const Tuple2(Color(0xff4895EF), Color(0xff3f37c9)),
         opacity: 0.07,
         outlineIcon: AppAssets.icMathPuzzleOutline,
         subtitle: "Each game with simple calculation with different approach.",
         title: "Math Puzzle",
         gridColor: bgColor1,
-        fillIconColor: Color(0xff4895ef),
+        fillIconColor: const Color(0xff4895ef),
         position: 0,
-        outlineIconColor: Color(0xff436add),
+        outlineIconColor: const Color(0xff436add),
         bgColor: bgColor1,
         backgroundColor: backgroundColor1,
         folder: themeYellowFolder,
@@ -103,16 +103,16 @@ class KeyUtil {
     Dashboard(
         position: 1,
         backgroundColor: backgroundColor2,
-        puzzleType: PuzzleType.MEMORY_PUZZLE,
-        colorTuple: Tuple2(Color(0xff9f2beb), Color(0xff560bad)),
+        puzzleType: PuzzleType.memoryPuzzle,
+        colorTuple: const Tuple2(Color(0xff9f2beb), Color(0xff560bad)),
         opacity: 0.07,
         outlineIcon: AppAssets.icMemoryPuzzleOutline,
         gridColor: bgColor2,
         subtitle:
             "Memorise numbers & signs before applying calculation to them.",
         title: "Memory Puzzle",
-        fillIconColor: Color(0xff9f2beb),
-        outlineIconColor: Color(0xff560BAD),
+        fillIconColor: const Color(0xff9f2beb),
+        outlineIconColor: const Color(0xff560BAD),
         bgColor: bgColor2,
         folder: themeOrangeFolder,
         primaryColor: primaryColor2),
@@ -120,16 +120,16 @@ class KeyUtil {
         position: 2,
         gridColor: bgColor3,
         backgroundColor: backgroundColor3,
-        puzzleType: PuzzleType.BRAIN_PUZZLE,
-        colorTuple: Tuple2(Color(0xfff72585), Color(0xffb5179e)),
+        puzzleType: PuzzleType.brainPuzzle,
+        colorTuple: const Tuple2(Color(0xfff72585), Color(0xffb5179e)),
         opacity: 0.12,
         outlineIcon: AppAssets.icTrainBrainOutline,
         subtitle:
             "Enhance logical thinking, concentration and core cognitive skills.",
         title: "Train Your Brain",
         folder: themeBlueFolder,
-        fillIconColor: Color(0xfff72585),
-        outlineIconColor: Color(0xffB5179E),
+        fillIconColor: const Color(0xfff72585),
+        outlineIconColor: const Color(0xffB5179E),
         bgColor: bgColor3,
         primaryColor: primaryColor3),
   ];
@@ -139,176 +139,177 @@ class KeyUtil {
     bgColor2,
     bgColor3,
   ];
+
   static int getTimeUtil(GameCategoryType gameCategoryType) {
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return calculatorTimeOut;
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return guessSignTimeOut;
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return squareRootTimeOut;
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return cubeRootTimeOut;
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return mathematicalPairsTimeOut;
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return concentrationTimeOut;
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return correctAnswerTimeOut;
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         return magicTriangleTimeOut;
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return mentalArithmeticTimeOut;
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return quickCalculationTimeOut;
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return mathGridTimeOut;
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return picturePuzzleTimeOut;
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return numPyramidTimeOut;
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return numPyramidTimeOut;
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return findMissingTimeOut;
 
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return trueFalseTimeOut;
 
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return dualTimeOut;
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return complexCalculationTimeOut;
 
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return numericMemoryTimeOut;
     }
   }
 
   static double getScoreUtil(GameCategoryType gameCategoryType) {
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return calculatorScore;
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return guessSignScore;
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return squareRootScore;
 
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return cubeRootScore;
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return mathGridScore;
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return concentrationScore;
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return correctAnswerScore;
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         return magicTriangleScore;
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return mentalArithmeticScore;
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return quickCalculationScore;
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return mathGridScore;
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return picturePuzzleScore;
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return numberPyramidScore;
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return findMissingScore;
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return trueFalseScore;
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return dualScore;
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return complexCalculationScore;
 
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return numericMemoryScore;
     }
   }
 
   static double getScoreMinusUtil(GameCategoryType gameCategoryType) {
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return calculatorScoreMinus;
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return guessSignScoreMinus;
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return squareRootScoreMinus;
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return cubeRootScoreMinus;
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return mathematicalPairsScoreMinus;
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return concentrationScoreMinus;
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return correctAnswerScoreMinus;
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         return magicTriangleScoreMinus;
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return mentalArithmeticScoreMinus;
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return quickCalculationScoreMinus;
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return mathGridScoreMinus;
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return picturePuzzleScoreMinus;
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return numberPyramidScoreMinus;
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return findMissingScoreMinus;
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return trueFalseScoreMinus;
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return dualScoreMinus;
 
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return complexCalculationScoreMinus;
 
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return numericMemoryScoreMinus;
     }
   }
 
   static double getCoinUtil(GameCategoryType gameCategoryType) {
     switch (gameCategoryType) {
-      case GameCategoryType.CALCULATOR:
+      case GameCategoryType.calculator:
         return calculatorCoin;
-      case GameCategoryType.GUESS_SIGN:
+      case GameCategoryType.guessSign:
         return guessSignCoin;
-      case GameCategoryType.SQUARE_ROOT:
+      case GameCategoryType.squareRoot:
         return squareRootCoin;
-      case GameCategoryType.CUBE_ROOT:
+      case GameCategoryType.cubeRoot:
         return cubeRootCoin;
 
-      case GameCategoryType.MATH_PAIRS:
+      case GameCategoryType.mathPairs:
         return mathematicalPairsCoin;
-      case GameCategoryType.CONCENTRATION:
+      case GameCategoryType.concentration:
         return concentrationCoin;
-      case GameCategoryType.CORRECT_ANSWER:
+      case GameCategoryType.correctAnswer:
         return correctAnswerCoin;
-      case GameCategoryType.MAGIC_TRIANGLE:
+      case GameCategoryType.magicTriangle:
         return magicTriangleCoin;
-      case GameCategoryType.MENTAL_ARITHMETIC:
+      case GameCategoryType.mentalArithmetic:
         return mentalArithmeticCoin;
-      case GameCategoryType.QUICK_CALCULATION:
+      case GameCategoryType.quickCalculation:
         return quickCalculationCoin;
-      case GameCategoryType.MATH_GRID:
+      case GameCategoryType.mathGrid:
         return mathGridCoin;
-      case GameCategoryType.PICTURE_PUZZLE:
+      case GameCategoryType.picturePuzzle:
         return picturePuzzleCoin;
-      case GameCategoryType.NUMBER_PYRAMID:
+      case GameCategoryType.numberPyramid:
         return numberPyramidCoin;
-      case GameCategoryType.FIND_MISSING:
+      case GameCategoryType.findMissing:
         return findMissingCoin;
-      case GameCategoryType.TRUE_FALSE:
+      case GameCategoryType.trueFalse:
         return truFalseCoin;
-      case GameCategoryType.DUAL_GAME:
+      case GameCategoryType.dualGame:
         return dualGameCoin;
-      case GameCategoryType.COMPLEX_CALCULATION:
+      case GameCategoryType.complexCalculation:
         return complexCalculationCoin;
-      case GameCategoryType.NUMERIC_MEMORY:
+      case GameCategoryType.numericMemory:
         return numericMemoryCoin;
     }
   }
@@ -428,9 +429,9 @@ class KeyUtil {
 
 extension ColorExtension on String {
   toColor() {
-    var hexColor = this.replaceAll("#", "");
+    var hexColor = replaceAll("#", "");
     if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
+      hexColor = "FF$hexColor";
     }
     if (hexColor.length == 8) {
       return Color(int.parse("0x$hexColor"));

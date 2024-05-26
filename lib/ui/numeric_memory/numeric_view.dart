@@ -87,7 +87,7 @@ class NumericMemoryView extends StatelessWidget {
         ],
         child: DialogListener<NumericMemoryProvider>(
           colorTuple: colorTuple,
-          gameCategoryType: GameCategoryType.NUMERIC_MEMORY,
+          gameCategoryType: GameCategoryType.numericMemory,
           level: colorTuple.item2,
           nextQuiz: () {
             print("isNewData===true");
@@ -107,16 +107,16 @@ class NumericMemoryView extends StatelessWidget {
           appBar: CommonAppBar<NumericMemoryProvider>(
               hint: false,
               infoView: CommonInfoTextView<NumericMemoryProvider>(
-                  gameCategoryType: GameCategoryType.NUMERIC_MEMORY,
+                  gameCategoryType: GameCategoryType.numericMemory,
                   folder: colorTuple.item1.folderName!,
                   color: colorTuple.item1.cellColor!),
-              gameCategoryType: GameCategoryType.NUMERIC_MEMORY,
+              gameCategoryType: GameCategoryType.numericMemory,
               colorTuple: colorTuple,
               context: context,
               isTimer: false),
 
           child: CommonMainWidget<NumericMemoryProvider>(
-            gameCategoryType: GameCategoryType.NUMERIC_MEMORY,
+            gameCategoryType: GameCategoryType.numericMemory,
             color: colorTuple.item1.bgColor!,
             isTimer: false,
             primaryColor: colorTuple.item1.primaryColor!,

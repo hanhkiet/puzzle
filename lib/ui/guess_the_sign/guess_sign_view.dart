@@ -52,19 +52,19 @@ class GuessSignView extends StatelessWidget {
       ],
       child: DialogListener<GuessSignProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.GUESS_SIGN,
+        gameCategoryType: GameCategoryType.guessSign,
         level: colorTuple.item2,
         appBar: CommonAppBar<GuessSignProvider>(
             infoView: CommonInfoTextView<GuessSignProvider>(
-                gameCategoryType: GameCategoryType.GUESS_SIGN,
+                gameCategoryType: GameCategoryType.guessSign,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.GUESS_SIGN,
+            gameCategoryType: GameCategoryType.guessSign,
             colorTuple: colorTuple,
             context: context),
 
         child: CommonMainWidget<GuessSignProvider>(
-          gameCategoryType: GameCategoryType.GUESS_SIGN,
+          gameCategoryType: GameCategoryType.guessSign,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

@@ -40,19 +40,19 @@ class TrueFalseView extends StatelessWidget {
       ],
       child: DialogListener<TrueFalseProvider>(
         colorTuple: colorTuple,
-        gameCategoryType: GameCategoryType.TRUE_FALSE,
+        gameCategoryType: GameCategoryType.trueFalse,
         level: colorTuple.item2,
         appBar: CommonAppBar<TrueFalseProvider>(
             infoView: CommonInfoTextView<TrueFalseProvider>(
-                gameCategoryType: GameCategoryType.TRUE_FALSE,
+                gameCategoryType: GameCategoryType.trueFalse,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.TRUE_FALSE,
+            gameCategoryType: GameCategoryType.trueFalse,
             colorTuple: colorTuple,
             context: context),
 
         child: CommonMainWidget<TrueFalseProvider>(
-          gameCategoryType: GameCategoryType.TRUE_FALSE,
+          gameCategoryType: GameCategoryType.trueFalse,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

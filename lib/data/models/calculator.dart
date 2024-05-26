@@ -2,7 +2,7 @@ class Calculator {
   String question;
   int answer;
 
-  Calculator({required  this.question,required  this.answer});
+  Calculator({required this.question, required this.answer});
 
   @override
   String toString() {

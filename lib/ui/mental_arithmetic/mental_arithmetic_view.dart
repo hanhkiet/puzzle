@@ -70,16 +70,16 @@ class MentalArithmeticView extends StatelessWidget {
         colorTuple: colorTuple,
         appBar: CommonAppBar<MentalArithmeticProvider>(
             infoView: CommonInfoTextView<MentalArithmeticProvider>(
-                gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC,
+                gameCategoryType: GameCategoryType.mentalArithmetic,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC,
+            gameCategoryType: GameCategoryType.mentalArithmetic,
             colorTuple: colorTuple,
             context: context),
         level: colorTuple.item2,
-        gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC,
+        gameCategoryType: GameCategoryType.mentalArithmetic,
         child: CommonMainWidget<MentalArithmeticProvider>(
-          gameCategoryType: GameCategoryType.MENTAL_ARITHMETIC,
+          gameCategoryType: GameCategoryType.mentalArithmetic,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

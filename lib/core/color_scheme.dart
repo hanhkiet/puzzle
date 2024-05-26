@@ -45,6 +45,7 @@ extension CustomColorScheme on ColorScheme {
   Color get triangleLineColor => brightness == Brightness.light
       ? const Color(0xffeeeeee)
       : const Color(0xff424242);
+
   Color get unSelectedProgressColor => brightness == Brightness.light
       ? Colors.grey.shade100
       : Colors.grey.shade700;

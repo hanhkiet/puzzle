@@ -15,7 +15,7 @@ class GuessSignProvider extends GameProvider<Sign> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.GUESS_SIGN, c: context) {
+      : super(gameCategoryType: GameCategoryType.guessSign, c: context) {
     startGame(level: level);
   }
 

@@ -15,7 +15,7 @@ class TrueFalseProvider extends GameProvider<TrueFalseModel> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.TRUE_FALSE, c: context) {
+      : super(gameCategoryType: GameCategoryType.trueFalse, c: context) {
     startGame(level: level);
   }
 

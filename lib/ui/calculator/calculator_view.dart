@@ -66,19 +66,19 @@ class CalculatorView extends StatelessWidget {
         })
       ],
       child: DialogListener<CalculatorProvider>(
-        gameCategoryType: GameCategoryType.CALCULATOR,
+        gameCategoryType: GameCategoryType.calculator,
         colorTuple: colorTuple,
         level: colorTuple.item2,
         appBar: CommonAppBar<CalculatorProvider>(
             infoView: CommonInfoTextView<CalculatorProvider>(
-                gameCategoryType: GameCategoryType.CALCULATOR,
+                gameCategoryType: GameCategoryType.calculator,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.CALCULATOR,
+            gameCategoryType: GameCategoryType.calculator,
             colorTuple: colorTuple,
             context: context),
         child: CommonMainWidget<CalculatorProvider>(
-          gameCategoryType: GameCategoryType.CALCULATOR,
+          gameCategoryType: GameCategoryType.calculator,
           color: colorTuple.item1.bgColor!,
           primaryColor: colorTuple.item1.primaryColor!,
           subChild: Container(

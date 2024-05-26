@@ -15,7 +15,7 @@ class MathGridProvider extends GameProvider<MathGrid> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.MATH_GRID, c: context) {
+      : super(gameCategoryType: GameCategoryType.mathGrid, c: context) {
     startGame(level: level ?? 1);
   }
 

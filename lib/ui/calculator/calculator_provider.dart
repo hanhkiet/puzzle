@@ -13,7 +13,7 @@ class CalculatorProvider extends GameProvider<Calculator> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(gameCategoryType: GameCategoryType.CALCULATOR, c: context) {
+      : super(gameCategoryType: GameCategoryType.calculator, c: context) {
     startGame(level: level);
   }
 
