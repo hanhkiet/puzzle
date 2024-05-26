@@ -83,15 +83,6 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-  assets:
-    - assets/images/
-    - assets/
-    - assets/img_yellow/
-    - assets/img_green/
-    - assets/img_blue/
-    - assets/img_blue_dark/
-    - assets/img_green_dark/
-    - assets/img_yellow_dark/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -116,30 +107,5 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  fonts:
-    - family: Montserrat
-      fonts:
-        - asset: assets/fonts/Montserrat-Light.ttf
-          weight: 300
-        - asset: assets/fonts/Montserrat-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Montserrat-Regular.ttf
-        - asset: assets/fonts/Montserrat-SemiBold.ttf
-          weight: 600
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Black.ttf
-          weight: 700
-        - asset: assets/fonts/Poppins-Regular.ttf
-          weight: 400
-    - family: OriginalSurfer
-      fonts:
-        - asset: assets/fonts/OriginalSurfer-Regular.ttf
-          weight: 700
-
-    - family: Latinotype
-      fonts:
-        - asset: assets/fonts/Latinotype - Moranga Bold.otf
-          weight: 800
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
