@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:puzzle/data/models/ComplexModel.dart';
+import 'package:puzzle/data/models/complex_model.dart';
 import 'package:puzzle/data/random_find_missing_data.dart';
 
 class ComplexData {

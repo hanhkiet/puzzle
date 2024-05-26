@@ -11,8 +11,8 @@ class MagicTriangle {
     required this.listTriangle,
     required this.answer,
   }) {
-    this.availableDigit = listGrid.length;
-    this.is3x3 = listGrid.length == 6 ? true : false;
+    availableDigit = listGrid.length;
+    is3x3 = listGrid.length == 6 ? true : false;
   }
 
   bool checkTotal() {

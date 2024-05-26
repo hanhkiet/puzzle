@@ -168,8 +168,6 @@ class KeyUtil {
         return picturePuzzleTimeOut;
       case GameCategoryType.numberPyramid:
         return numPyramidTimeOut;
-      case GameCategoryType.numberPyramid:
-        return numPyramidTimeOut;
       case GameCategoryType.findMissing:
         return findMissingTimeOut;
 

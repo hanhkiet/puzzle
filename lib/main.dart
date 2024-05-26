@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -101,7 +102,9 @@ Future<void> main() async {
   if (kDebugMode) {}
   final sharedPreferences = await SharedPreferences.getInstance();
 
-  print("va===${getFormattedString(19.2)}");
+  if (kDebugMode) {
+    print("va===${getFormattedString(19.2)}");
+  }
 
   setupServiceLocator(sharedPreferences);
   runApp(

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../models/math_grid.dart';
+import 'package:puzzle/data/models/math_grid.dart';
 
 class MathGridRepository {
   static List<int> listOf9 = List<int>.generate(9, (i) => 9);
@@ -35,10 +35,10 @@ class MathGridRepository {
   }
 
   static int generateRandomAnswer() {
-    final _random = Random();
+    final random = Random();
     int min = 5;
     int max = 40;
-    int result = min + _random.nextInt(max - min);
+    int result = min + random.nextInt(max - min);
     return result;
   }
 

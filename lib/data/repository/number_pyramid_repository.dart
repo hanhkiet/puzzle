@@ -1,9 +1,8 @@
 import 'dart:math';
 
+import 'package:puzzle/data/models/number_pyramid.dart';
 import 'package:puzzle/utility/math_util.dart';
 import 'package:tuple/tuple.dart';
-
-import '../models/number_pyramid.dart';
 
 class NumberPyramidRepository {
   static List<NumPyramidCellModel> singlePyramidList = <NumPyramidCellModel>[];
@@ -63,8 +62,8 @@ class NumberPyramidRepository {
     generateUpperLineOfPyramid(baseLineList,
         counter); // generating upper line of pyramid by looping one by one
 
-    final _random = Random();
-    var selectedHintList = hintLists[_random.nextInt(hintLists.length)];
+    final random = Random();
+    var selectedHintList = hintLists[random.nextInt(hintLists.length)];
 
     for (int i = 0; i < selectedHintList.length; i++) {
       singlePyramidList[selectedHintList[i]].isHidden = false;

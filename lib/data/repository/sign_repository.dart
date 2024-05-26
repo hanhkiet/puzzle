@@ -1,5 +1,6 @@
-import '../../utility/math_util.dart';
-import '../models/sign.dart';
+import 'package:flutter/foundation.dart';
+import 'package:puzzle/data/models/sign.dart';
+import 'package:puzzle/utility/math_util.dart';
 
 class SignRepository {
   static List<int> listHasCode = <int>[];
@@ -75,6 +76,8 @@ class SignRepository {
 
 void main() {
   for (int i = 1; i <= 5; i++) {
-    print(SignRepository.getSignDataList(i));
+    if (kDebugMode) {
+      print(SignRepository.getSignDataList(i));
+    }
   }
 }

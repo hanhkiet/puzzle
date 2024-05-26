@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:puzzle/core/app_constants.dart';
 
@@ -30,7 +31,9 @@ class TimeProvider extends CoinProvider {
         notifyListeners();
       }
 
-      print("currentTime===$currentTime");
+      if (kDebugMode) {
+        print("currentTime===$currentTime");
+      }
     });
   }
 
@@ -56,7 +59,9 @@ class TimeProvider extends CoinProvider {
         notifyListeners();
       }
 
-      print("currentTime===$currentTime");
+      if (kDebugMode) {
+        print("currentTime===$currentTime");
+      }
     });
   }
 
@@ -112,7 +117,9 @@ class TimeProvider extends CoinProvider {
 
   @override
   void dispose() {
-    print("dispose---true");
+    if (kDebugMode) {
+      print("dispose---true");
+    }
     // _animationController.dispose();
     if (timer != null) {
       timer!.cancel();

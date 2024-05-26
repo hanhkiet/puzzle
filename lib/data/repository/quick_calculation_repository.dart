@@ -1,5 +1,5 @@
-import '../../utility/math_util.dart';
-import '../models/quick_calculation.dart';
+import 'package:puzzle/data/models/quick_calculation.dart';
+import 'package:puzzle/utility/math_util.dart';
 
 class QuickCalculationRepository {
   static List<int> listHasCode = <int>[];

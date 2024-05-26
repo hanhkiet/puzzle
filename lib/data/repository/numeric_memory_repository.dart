@@ -1,8 +1,7 @@
+import 'package:puzzle/data/models/numeric_memory_answer_pair.dart';
 import 'package:puzzle/data/models/numeric_memory_pair.dart';
 import 'package:puzzle/data/random_find_missing_data.dart';
 import 'package:puzzle/utility/math_util.dart';
-
-import '../models/numeric_memory_answer_pair.dart';
 
 class NumericMemoryRepository {
   static List<int> listHasCode = <int>[];

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:tuple/tuple.dart';
@@ -51,7 +52,9 @@ class CommonGameOverDialogView extends StatelessWidget {
       star = 3;
     }
 
-    print("start---$star");
+    if (kDebugMode) {
+      print("start---$star");
+    }
 
     return CommonScoreWidget(
       context: context,

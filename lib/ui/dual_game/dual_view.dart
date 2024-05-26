@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
@@ -25,15 +26,15 @@ class DualView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double remainHeight = getRemainHeight(context: context);
-    int _crossAxisCount = 2;
+    int crossAxisCount = 2;
     double height = getPercentSize(remainHeight, 45) / 3;
 
-    double _crossAxisSpacing = getPercentSize(height, 20);
+    double crossAxisSpacing = getPercentSize(height, 20);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
 
     return MultiProvider(
       providers: [
@@ -96,14 +97,14 @@ class DualView extends StatelessWidget {
                             builder: (context, currentState, child) {
                               final list = currentState.optionList;
                               return GridView.count(
-                                crossAxisCount: _crossAxisCount,
-                                childAspectRatio: _aspectRatio,
+                                crossAxisCount: crossAxisCount,
+                                childAspectRatio: aspectRatio,
                                 shrinkWrap: true,
                                 padding: EdgeInsets.symmetric(
                                     horizontal: getHorizontalSpace(context),
                                     vertical: getHorizontalSpace(context)),
-                                crossAxisSpacing: _crossAxisSpacing,
-                                mainAxisSpacing: _crossAxisSpacing,
+                                crossAxisSpacing: crossAxisSpacing,
+                                mainAxisSpacing: crossAxisSpacing,
                                 primary: false,
                                 children: List.generate(list.length, (index) {
                                   String e = list[index];
@@ -116,8 +117,10 @@ class DualView extends StatelessWidget {
                                       context
                                           .read<DualGameProvider>()
                                           .checkResult1(e);
-                                      print(
+                                      if (kDebugMode) {
+                                        print(
                                           ("score1====${context.read<DualGameProvider>().score1}"));
+                                      }
                                     },
                                     colorTuple: colorTuple,
                                   );
@@ -161,14 +164,14 @@ class DualView extends StatelessWidget {
                           builder: (context, currentState, child) {
                             final list = currentState.optionList;
                             return GridView.count(
-                              crossAxisCount: _crossAxisCount,
-                              childAspectRatio: _aspectRatio,
+                              crossAxisCount: crossAxisCount,
+                              childAspectRatio: aspectRatio,
                               shrinkWrap: true,
                               padding: EdgeInsets.symmetric(
                                   horizontal: getHorizontalSpace(context),
                                   vertical: getHorizontalSpace(context)),
-                              crossAxisSpacing: _crossAxisSpacing,
-                              mainAxisSpacing: _crossAxisSpacing,
+                              crossAxisSpacing: crossAxisSpacing,
+                              mainAxisSpacing: crossAxisSpacing,
                               primary: false,
                               children: List.generate(list.length, (index) {
                                 String e = list[index];

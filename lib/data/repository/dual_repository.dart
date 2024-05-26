@@ -1,5 +1,3 @@
-
-
 import 'package:puzzle/data/models/quiz_model.dart';
 
 import '../random_dual_data.dart';

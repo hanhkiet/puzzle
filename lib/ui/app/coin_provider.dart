@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'game_provider.dart';
@@ -11,12 +11,16 @@ class CoinProvider with ChangeNotifier {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     coin = prefs.getInt(keyCoin) ?? 0;
 
-    print("coin===$coin");
+    if (kDebugMode) {
+      print("coin===$coin");
+    }
     notifyListeners();
   }
 
   addCoin() async {
-    print("coin===12 $coin");
+    if (kDebugMode) {
+      print("coin===12 $coin");
+    }
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt(keyCoin, (coin + rightCoin));
     getCoin();

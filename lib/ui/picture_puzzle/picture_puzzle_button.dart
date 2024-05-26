@@ -38,10 +38,10 @@ class PicturePuzzleButton extends StatelessWidget {
           child: Center(
             child: CustomPaint(
               painter: picturePuzzleShape.picturePuzzleShapeType ==
-                      PicturePuzzleShapeType.CIRCLE
+                      PicturePuzzleShapeType.circle
                   ? CircleShape(shapeColor, 1)
                   : (picturePuzzleShape.picturePuzzleShapeType ==
-                          PicturePuzzleShapeType.TRIANGLE
+                          PicturePuzzleShapeType.triangle
                       ? TriangleShape(shapeColor, 1)
                       : SquareShape(shapeColor, 1)),
               size: Size(width, width),

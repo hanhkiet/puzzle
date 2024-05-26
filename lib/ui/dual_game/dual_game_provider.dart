@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../core/app_constants.dart';
 import '../../data/models/quiz_model.dart';
@@ -28,8 +29,10 @@ class DualGameProvider extends GameProvider<QuizModel> {
       }
       result = answer;
       notifyListeners();
-      print(
+      if (kDebugMode) {
+        print(
           "result====${currentState.answer}===$result===${(result == currentState.answer)}");
+      }
       if (result == currentState.answer) {
         score2++;
         audioPlayer.playRightSound();
@@ -56,8 +59,10 @@ class DualGameProvider extends GameProvider<QuizModel> {
       result = answer;
       notifyListeners();
 
-      print(
+      if (kDebugMode) {
+        print(
           "result====${currentState.answer}===$result===${(result == currentState.answer)}");
+      }
       if (result == currentState.answer) {
         score1++;
         audioPlayer.playRightSound();

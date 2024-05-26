@@ -1,4 +1,3 @@
-
 import 'package:puzzle/data/models/correct_answer.dart';
 import 'package:puzzle/utility/math_util.dart';
 

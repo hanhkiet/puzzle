@@ -1,6 +1,4 @@
-
-
-import '../models/magic_triangle.dart';
+import 'package:puzzle/data/models/magic_triangle.dart';
 
 class MagicTriangleRepository {
   static Map correctMagicTriangle = {

@@ -5,9 +5,9 @@ enum PicturePuzzleQuestionItemType {
   answer,
 }
 enum PicturePuzzleShapeType {
-  CIRCLE,
-  SQUARE,
-  TRIANGLE,
+  circle,
+  square,
+  triangle,
 }
 
 class PicturePuzzle {

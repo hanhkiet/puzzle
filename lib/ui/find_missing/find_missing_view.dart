@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
@@ -70,16 +71,16 @@ class FindMissingView extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: Center(
-                        child: Selector<FindMissingProvider,
-                                FindMissingQuizModel>(
-                            selector: (p0, p1) => p1.currentState,
-                            builder: (context, calculatorProvider, child) {
-                              return getTextWidget(
-                                  Theme.of(context).textTheme.titleSmall!,
-                                  calculatorProvider.question!,
-                                  TextAlign.center,
-                                  getPercentSize(remainHeight, 4));
-                            }),
+                        child:
+                            Selector<FindMissingProvider, FindMissingQuizModel>(
+                                selector: (p0, p1) => p1.currentState,
+                                builder: (context, calculatorProvider, child) {
+                                  return getTextWidget(
+                                      Theme.of(context).textTheme.titleSmall!,
+                                      calculatorProvider.question!,
+                                      TextAlign.center,
+                                      getPercentSize(remainHeight, 4));
+                                }),
                       ),
                     ),
                     Container(
@@ -91,7 +92,9 @@ class FindMissingView extends StatelessWidget {
                                 FindMissingQuizModel>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               final list = currentState.optionList;
 
@@ -99,8 +102,7 @@ class FindMissingView extends StatelessWidget {
                                 margin: EdgeInsets.symmetric(
                                     vertical: getPercentSize(height1, 10)),
                                 child: Column(
-                                  children:
-                                      List.generate(list.length, (index) {
+                                  children: List.generate(list.length, (index) {
                                     String e = list[index];
                                     return CommonVerticalButton(
                                         text: e,

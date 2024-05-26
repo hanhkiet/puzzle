@@ -13,8 +13,8 @@ class CommonGameExitDialogView extends StatelessWidget {
   const CommonGameExitDialogView({
     required this.score,
     required this.colorTuple,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,95 +62,26 @@ class CommonGameExitDialogView extends StatelessWidget {
         Row(
           children: [
             Expanded(
+              flex: 1,
               child: getButtonWidget(
                   context, "Yes", colorTuple.item1.primaryColor, () {
                 Navigator.pop(context, true);
               },
                   textColor: darken(colorTuple.item1.primaryColor!),
                   isBorder: true),
-              flex: 1,
             ),
             SizedBox(
               width: getWidthPercentSize(context, 3),
             ),
             Expanded(
+              flex: 1,
               child: getButtonWidget(
                   context, "No", colorTuple.item1.primaryColor, () {
                 Navigator.pop(context, false);
               }, textColor: Colors.black),
-              flex: 1,
             ),
           ],
         )
-
-        //    Row(
-        //   children: [
-        //     Expanded(
-        //       child: Card(
-        //         shape: RoundedRectangleBorder(
-        //           borderRadius: BorderRadius.circular(12),
-        //         ),
-        //         elevation: 2,
-        //         child: InkWell(
-        //           onTap: () {
-        //             Navigator.pop(context, true);
-        //           },
-        //           borderRadius: BorderRadius.all(Radius.circular(12)),
-        //           child: ClipRRect(
-        //             borderRadius: BorderRadius.circular(12),
-        //             child: Container(
-        //                 height: 44,
-        //                 alignment: Alignment.center,
-        //                 decoration: BoxDecoration(
-        //                   gradient: LinearGradient(
-        //                     colors: [Color(0xffF48C06), Color(0xffD00000)],
-        //                     begin: Alignment.topCenter,
-        //                     end: Alignment.bottomCenter,
-        //                   ),
-        //                 ),
-        //                 child: Text("YES",
-        //                     style: Theme.of(context)
-        //                         .textTheme
-        //                         .subtitle1!
-        //                         .copyWith(fontSize: 18, color: Colors.white))),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     SizedBox(width: 6),
-        //     Card(
-        //       shape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(12),
-        //       ),
-        //       elevation: 2,
-        //       child: InkWell(
-        //         onTap: () {
-        //           Navigator.pop(context, false);
-        //         },
-        //         borderRadius: BorderRadius.all(Radius.circular(12)),
-        //         child: ClipRRect(
-        //           borderRadius: BorderRadius.circular(12),
-        //           child: Container(
-        //             alignment: Alignment.center,
-        //             height: 44,
-        //             width: 44,
-        //             decoration: BoxDecoration(
-        //               gradient: LinearGradient(
-        //                 colors: [Color(0xffF48C06), Color(0xffD00000)],
-        //                 begin: Alignment.topCenter,
-        //                 end: Alignment.bottomCenter,
-        //               ),
-        //             ),
-        //             child: Icon(
-        //               Icons.play_arrow,
-        //               color: Colors.white,
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
       ],
     );
   }

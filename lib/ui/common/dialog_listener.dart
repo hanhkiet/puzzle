@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/color_scheme.dart';
 import 'package:tuple/tuple.dart';
@@ -54,8 +54,10 @@ class _DialogListenerState<T extends GameProvider>
 
   void addListener() {
     double radius = getScreenPercentSize(context, 5);
-    print(
-        "dialog---true---${provider.dialogType}----${context.read<T>().currentScore}");
+    if (kDebugMode) {
+      print(
+          "dialog---true---${provider.dialogType}----${context.read<T>().currentScore}");
+    }
 
     if (isDialogOpen != null && !isDialogOpen!) {
       if (provider.dialogType == DialogType.over &&
@@ -112,12 +114,13 @@ class _DialogListenerState<T extends GameProvider>
               ),
               barrierDismissible: false,
             ).then((value) {
-              print("level===$level");
+              if (kDebugMode) {
+                print("level===$level");
+              }
               isDialogOpen = false;
               context.read<T>().updateScore();
               if (value != null && value) {
-                if (widget.gameCategoryType ==
-                    GameCategoryType.numericMemory) {
+                if (widget.gameCategoryType == GameCategoryType.numericMemory) {
                   if (widget.nextQuiz != null) {
                     Navigator.pushReplacement(
                         context,

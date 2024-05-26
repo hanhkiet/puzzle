@@ -1,11 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import '../../core/app_constants.dart';
-import '../../data/models/ComplexModel.dart';
+import '../../data/models/complex_model.dart';
 import '../../utility/Constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
@@ -91,7 +91,9 @@ class ComplexCalculationView extends StatelessWidget {
                                 ComplexModel>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               final list = currentState.optionList;
 

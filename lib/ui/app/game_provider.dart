@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/repository/calculator_repository.dart';
-import 'package:puzzle/data/repository/complex_calcualtion_repository.dart';
+import 'package:puzzle/data/repository/complex_calculation_repository.dart';
 import 'package:puzzle/data/repository/correct_answer_repository.dart';
 import 'package:puzzle/data/repository/cube_root_repository.dart';
 import 'package:puzzle/data/repository/dual_repository.dart';
@@ -46,6 +47,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   late bool isTimer;
   late bool isRewardedComplete = false;
   late int levelNo;
+
   //late AdsFile adsFile;
   late BuildContext c;
 
@@ -61,7 +63,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     /*adsFile = AdsFile(c);
 
     adsFile.createRewardedAd();*/
-    print("isTimer12===$isTimer");
+    if (kDebugMode) {
+      print("isTimer12===$isTimer");
+    }
   }
 
   @override
@@ -79,7 +83,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     list = [];
     list = getList(level ?? 1);
 
-    print("list--${list.length}====");
+    if (kDebugMode) {
+      print("list--${list.length}====");
+    }
     index = 0;
     currentScore = 0;
     oldScore = 0;
@@ -88,7 +94,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       await Future.delayed(const Duration(milliseconds: 100));
       showInfoDialog();
     } else {
-      print("isTimerStart==$isTimer");
+      if (kDebugMode) {
+        print("isTimerStart==$isTimer");
+      }
       if (isTimer) {
         restartTimer();
         notifyListeners();
@@ -126,33 +134,33 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   void loadNewDataIfRequired({int? level, bool? isScoreAdd}) {
     isFirstClick = false;
     isSecondClick = false;
-    print("list12===${list.length}");
+    if (kDebugMode) {
+      print("list12===${list.length}");
+    }
 
     if (index < 19) {
       if (gameCategoryType == GameCategoryType.quickCalculation &&
           list.length - 2 == index) {
         list.addAll(getList(level ?? index ~/ 5 + 1));
       } else if (list.length - 1 == index) {
-        print("level---${index ~/ 5 + 1}");
+        if (kDebugMode) {
+          print("level---${index ~/ 5 + 1}");
+        }
         if (gameCategoryType == GameCategoryType.squareRoot) {
           list.addAll(getList(level ?? index ~/ 5 + 2));
         } else {
           list.addAll(getList(level ?? index ~/ 5 + 1));
         }
       }
-      print("list1212===${list.length}");
+      if (kDebugMode) {
+        print("list1212===${list.length}");
+      }
       result = "";
       index = index + 1;
 
-      print("index===$index");
-      // if(isScoreAdd==null) {
-      //   oldScore = currentScore;
-      //   currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-      //
-      //
-      //   print("currentScore===$currentScore==${KeyUtil.getScoreUtil(
-      //       gameCategoryType)}");
-      // }
+      if (kDebugMode) {
+        print("index===$index");
+      }
       currentState = list[index];
     } else {
       dialogType = DialogType.over;
@@ -193,13 +201,17 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   }
 
   void rightAnswer() {
-    print("currentScoreRight===$currentScore");
+    if (kDebugMode) {
+      print("currentScoreRight===$currentScore");
+    }
     oldScore = currentScore;
     currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
 
     addCoin();
 
-    print("currentScore===12 $currentScore");
+    if (kDebugMode) {
+      print("currentScore===12 $currentScore");
+    }
     notifyListeners();
   }
 
@@ -234,7 +246,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       }
     }
 
-    print("dialogType====${dialogType}");
+    if (kDebugMode) {
+      print("dialogType====$dialogType");
+    }
   }
 
   void showInfoDialog() {
@@ -244,25 +258,39 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   }
 
   void showExitDialog() {
-    print("dialog---true2");
+    if (kDebugMode) {
+      print("dialog---true2");
+    }
     pauseTimer();
-    print("dialog---true3");
+    if (kDebugMode) {
+      print("dialog---true3");
+    }
     dialogType = DialogType.exit;
-    print("dialog---true1");
+    if (kDebugMode) {
+      print("dialog---true1");
+    }
     notifyListeners();
   }
 
   void showHintDialog() {
-    print("dialog---true2");
+    if (kDebugMode) {
+      print("dialog---true2");
+    }
     pauseTimer();
-    print("dialog---true3");
+    if (kDebugMode) {
+      print("dialog---true3");
+    }
     dialogType = DialogType.hint;
-    print("dialog---true1");
+    if (kDebugMode) {
+      print("dialog---true1");
+    }
     notifyListeners();
   }
 
   void updateScore() {
-    print("currentScore===$currentScore");
+    if (kDebugMode) {
+      print("currentScore===$currentScore");
+    }
     _homeViewModel.updateScoreboard(gameCategoryType, currentScore);
   }
 
@@ -279,7 +307,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       pauseResumeGame();
     }
 
-    print("home-==${_homeViewModel.isFirstTime(gameCategoryType)}");
+    if (kDebugMode) {
+      print("home-==${_homeViewModel.isFirstTime(gameCategoryType)}");
+    }
   }
 
   List<T> getList(int level) {

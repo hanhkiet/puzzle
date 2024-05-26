@@ -1,7 +1,8 @@
 import 'dart:math';
 
-import 'models/find_missing_model.dart';
 import 'package:intl/intl.dart';
+
+import 'models/find_missing_model.dart';
 
 class RandomFindMissingData {
   int levelNo = 0;
@@ -348,5 +349,4 @@ String getFormattedString(double d) {
   NumberFormat numberFormat = NumberFormat(".00", "en_US");
 
   return numberFormat.format(d);
-  // return d.toStringAsPrecision(4);
 }

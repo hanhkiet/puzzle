@@ -1,4 +1,3 @@
-
 class TrueFalseModel {
   String? sign;
   String? rem;
@@ -12,16 +11,18 @@ class TrueFalseModel {
 
   List<String> optionList = [];
 
-   TrueFalseModel(String answer, {this.firstDigit,this.secondDigit,this.question,this.op_1,this.op_2,this.op_3}) {
-    this.firstDigit = firstDigit;
-    this.secondDigit = secondDigit;
-    this.question = question;
-    this.answer = answer;
-    this.op_1 = op_1;
-    this.op_2 = op_2;
-    this.op_3 = op_3;
+  TrueFalseModel(String this.answer,
+      {this.firstDigit,
+      this.secondDigit,
+      this.question,
+      this.op_1,
+      this.op_2,
+      this.op_3}) {
+    firstDigit = firstDigit;
+    secondDigit = secondDigit;
+    question = question;
+    op_1 = op_1;
+    op_2 = op_2;
+    op_3 = op_3;
   }
-
-
-
 }

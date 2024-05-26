@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../core/app_constants.dart';
 import '../../data/models/math_pairs.dart';
@@ -26,7 +28,9 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
             c: context) {
     this.isTimer = (isTimer == null) ? true : isTimer;
 
-    print("start===true");
+    if (kDebugMode) {
+      print("start===true");
+    }
 
     startGame(level: level, isTimer: isTimer);
   }

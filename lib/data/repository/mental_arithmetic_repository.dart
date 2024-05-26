@@ -1,6 +1,5 @@
-
-import '../../utility/math_util.dart';
-import '../models/mental_arithmetic.dart';
+import 'package:puzzle/data/models/mental_arithmetic.dart';
+import 'package:puzzle/utility/math_util.dart';
 
 class MentalArithmeticRepository {
   static List<int> listHasCode = <int>[];

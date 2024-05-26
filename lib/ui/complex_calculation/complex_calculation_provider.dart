@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 
 import '../../core/app_constants.dart';
-import '../../data/models/ComplexModel.dart';
+import '../../data/models/complex_model.dart';
 
 import '../app/game_provider.dart';
 import '../sound_player/audio_file.dart';

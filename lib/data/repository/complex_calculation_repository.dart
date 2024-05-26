@@ -1,5 +1,5 @@
 import 'package:puzzle/data/complex_data.dart';
-import 'package:puzzle/data/models/ComplexModel.dart';
+import 'package:puzzle/data/models/complex_model.dart';
 
 class ComplexCalculationRepository {
   static List<int> listHasCode = <int>[];

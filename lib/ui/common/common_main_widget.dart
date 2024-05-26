@@ -1,13 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/color_scheme.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../core/app_assets.dart';
-
 import '../../core/app_constants.dart';
 import '../../utility/Constants.dart';
 import '../app/game_provider.dart';
@@ -47,7 +46,9 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
     var margin = getHorizontalSpace(context);
     var stepSize = getScreenPercentSize(context, 1.3);
 
-    print("type===${KeyUtil.getTimeUtil(gameCategoryType!)}");
+    if (kDebugMode) {
+      print("type===${KeyUtil.getTimeUtil(gameCategoryType!)}");
+    }
 
     return Stack(
       children: [
@@ -201,8 +202,10 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
                                             int currentScore =
                                                 tuple2.item1.toInt();
 
-                                            print(
-                                                "current====${tuple2.item2.toInt()}=====${tuple2.item1.toInt()}");
+                                            if (kDebugMode) {
+                                              print(
+                                                  "current====${tuple2.item2.toInt()}=====${tuple2.item1.toInt()}");
+                                            }
                                             return getTextWidget(
                                                 Theme.of(context)
                                                     .textTheme

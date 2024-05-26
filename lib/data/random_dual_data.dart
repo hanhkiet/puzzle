@@ -1,4 +1,7 @@
 import 'dart:math';
+
+import 'package:flutter/foundation.dart';
+
 import 'models/quiz_model.dart';
 import 'random_find_missing_data.dart';
 
@@ -24,6 +27,7 @@ class RandomDualData {
 
   String currentSign = "+";
   String equalSign = "=";
+
   RandomDualData(this.levelNo) {
     dataTypeNumber = levelNo;
     // if (levelNo > 10 && levelNo <= 20) {
@@ -175,7 +179,9 @@ class RandomDualData {
 
     doubleAnswer = n1 / n2;
 
-    print("double===$doubleAnswer");
+    if (kDebugMode) {
+      print("double===$doubleAnswer");
+    }
 
     firstDigit = n1.toInt();
     secondDigit = n2.toInt();
@@ -271,7 +277,9 @@ class RandomDualData {
     double opDouble3 = doubleAnswer + 20;
     List<String> stringList = [];
 
-    print("double==12===${getFormattedString(doubleAnswer)}");
+    if (kDebugMode) {
+      print("double==12===${getFormattedString(doubleAnswer)}");
+    }
     stringList.add(getFormattedString(opDouble1));
     stringList.add(getFormattedString(opDouble2));
     stringList.add(getFormattedString(opDouble3));

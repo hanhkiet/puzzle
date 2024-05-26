@@ -1,7 +1,5 @@
-
-
-import '../../utility/math_util.dart';
-import '../models/picture_puzzle.dart';
+import 'package:puzzle/data/models/picture_puzzle.dart';
+import 'package:puzzle/utility/math_util.dart';
 
 class PicturePuzzleRepository {
   static List<int> listHasCode = <int>[];
@@ -70,9 +68,9 @@ class PicturePuzzleRepository {
     List<String> listDigit = <String>[];
     List<String> listSign = <String>[];
     List<PicturePuzzleShapeType> listShape = [
-      PicturePuzzleShapeType.CIRCLE,
-      PicturePuzzleShapeType.TRIANGLE,
-      PicturePuzzleShapeType.SQUARE
+      PicturePuzzleShapeType.circle,
+      PicturePuzzleShapeType.triangle,
+      PicturePuzzleShapeType.square
     ]..shuffle();
     if (level == 1) {
       switch (index) {

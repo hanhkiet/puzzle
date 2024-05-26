@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../utility/Constants.dart';
@@ -27,7 +28,9 @@ class CommonClearButton extends StatelessWidget {
     // double radius = getCommonCalculatorRadius(context);
     double radius = btnRadius ?? getCommonCalculatorRadius(context);
 
-    print("radius===$radius");
+    if (kDebugMode) {
+      print("radius===$radius");
+    }
     return CommonTabAnimationView(
         onTab: () {
           onTab();

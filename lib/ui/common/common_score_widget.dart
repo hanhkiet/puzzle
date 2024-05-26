@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -78,7 +79,9 @@ class CommonScoreWidget extends StatelessWidget {
       star = 3;
     }
 
-    print("percentage===$percentage");
+    if (kDebugMode) {
+      print("percentage===$percentage");
+    }
     if (score <= 0) {
       star = 0;
       percentage = 0;

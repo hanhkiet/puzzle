@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:puzzle/data/random_find_missing_data.dart';
 
 import 'models/true_false_model.dart';
@@ -20,6 +21,7 @@ class RandomOptionData {
       divisionSign;
   int? dataTypeNumber = 1;
   String currentSign = "+";
+
   RandomOptionData(this.levelNo) {
     if (levelNo > 10 && levelNo <= 20) {
       dataTypeNumber = 2;
