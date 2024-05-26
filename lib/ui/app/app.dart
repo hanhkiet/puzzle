@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/core/app_theme.dart';
-import 'package:puzzle/core/app_routes.dart';
+import 'package:puzzle/ui/app/app_routes.dart';
 import 'package:puzzle/ui/app/theme_provider.dart';
 
 class MyApp extends StatelessWidget {
