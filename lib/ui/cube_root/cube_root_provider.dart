@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../core/app_constants.dart';
 import '../../data/models/cube_root.dart';
@@ -22,8 +23,10 @@ class CubeRootProvider extends GameProvider<CubeRoot> {
   Future<void> checkResult(String answer) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
 
-    print(
-        "result===${int.parse(answer) == currentState.answer && timerStatus != TimerStatus.pause}");
+    if (kDebugMode) {
+      print(
+          "result===${int.parse(answer) == currentState.answer && timerStatus != TimerStatus.pause}");
+    }
 
     if (int.parse(answer) == currentState.answer &&
         timerStatus != TimerStatus.pause) {

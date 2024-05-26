@@ -47,10 +47,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    /*Future.delayed(Duration.zero, () {
-      adsFile = AdsFile(context);
-      adsFile!.createAnchoredBanner(context, setState);
-    });*/
     tuple2 = widget.tuple2;
     isGamePageOpen = false;
     animationController =
@@ -130,15 +126,15 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     ThemeProvider themeProvider = Provider.of(context);
     DashboardProvider dashboardProvider = Provider.of(context);
 
-    int _crossAxisCount = 2;
+    int crossAxisCount = 2;
     double height = getScreenPercentSize(context, 30);
 
-    double _crossAxisSpacing = getPercentSize(height, 10);
+    double crossAxisSpacing = getPercentSize(height, 10);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
 
     return Scaffold(
       appBar: getNoneAppBar(context),
@@ -174,7 +170,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         flex: 1,
                       ),
                       getSettingWidget(context, function: () {
-                        print("model====$themeMode");
+                        if (kDebugMode) {
+                          print("model====$themeMode");
+                        }
                         setState(() {
                           if (themeMode == ThemeMode.dark) {
                             tuple2!.item1.bgColor = "#383838".toColor();
@@ -183,7 +181,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                 KeyUtil.bgColorList[tuple2!.item1.position];
                           }
 
-                          print("color====${tuple2!.item1.position}");
+                          if (kDebugMode) {
+                            print("color====${tuple2!.item1.position}");
+                          }
                         });
                       })
                     ],
@@ -207,8 +207,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                             height: getVerticalSpace(context),
                           ),
                           GridView.count(
-                              crossAxisCount: _crossAxisCount,
-                              childAspectRatio: _aspectRatio,
+                              crossAxisCount: crossAxisCount,
+                              childAspectRatio: aspectRatio,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
 
@@ -217,8 +217,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                               //   right: getHorizontalSpace(context),
                               //   bottom: getHorizontalSpace(context),
                               // ),
-                              crossAxisSpacing: _crossAxisSpacing,
-                              mainAxisSpacing: _crossAxisSpacing,
+                              crossAxisSpacing: crossAxisSpacing,
+                              mainAxisSpacing: crossAxisSpacing,
                               primary: false,
                               padding: EdgeInsets.only(
                                   top: getScreenPercentSize(context, 4)),
@@ -354,22 +354,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             )
           ],
         ),
-        // child: Card(
-        //   color: tuple2.item1.primaryColor,
-        //   elevation: 1,
-        //   shape: RoundedRectangleBorder(
-        //       borderRadius: BorderRadius.all(
-        //         Radius.circular(radius),
-        //       )),
-        //   child: Center(
-        //     child:getTextWidget(Theme.of(context).textTheme.subtitle1!.copyWith(
-        //         fontWeight: FontWeight.w600
-        //     ),s,TextAlign.center,
-        //         getPercentSize(cellHeight, 25)
-        //     ),
-        //
-        //   ),
-        // )
       ),
       onTap: () {
         Navigator.pop(context);
@@ -391,12 +375,5 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         });
       },
     );
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    //disposeBannerAd(adsFile);
   }
 }
