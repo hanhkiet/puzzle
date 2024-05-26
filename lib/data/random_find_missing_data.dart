@@ -121,11 +121,25 @@ class RandomFindMissingData {
     addModel();
 
     if (helpTag == 1) {
-      question = "? $currentSign $secondDigit = ${firstDigit + secondDigit}";
+      question = "? " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = " +
+          (firstDigit + secondDigit).toString();
     } else if (helpTag == 2) {
-      question = "$firstDigit $currentSign ? = ${firstDigit + secondDigit}";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " ? = " +
+          (firstDigit + secondDigit).toString();
     } else {
-      question = "$firstDigit $currentSign $secondDigit = ?";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = ?";
     }
 
     quizModel.question = question;
@@ -149,11 +163,25 @@ class RandomFindMissingData {
     addModel();
 
     if (helpTag == 1) {
-      question = "? $currentSign $secondDigit = ${firstDigit - secondDigit}";
+      question = "? " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = " +
+          (firstDigit - secondDigit).toString();
     } else if (helpTag == 2) {
-      question = "$firstDigit $currentSign ? = ${firstDigit - secondDigit}";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " ? = " +
+          (firstDigit - secondDigit).toString();
     } else {
-      question = "$firstDigit $currentSign $secondDigit = ?";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = ?";
     }
     quizModel.question = question;
     return quizModel;
@@ -176,11 +204,25 @@ class RandomFindMissingData {
     addModel();
 
     if (helpTag == 1) {
-      question = "? $currentSign $secondDigit = ${firstDigit * secondDigit}";
+      question = "? " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = " +
+          (firstDigit * secondDigit).toString();
     } else if (helpTag == 2) {
-      question = "$firstDigit $currentSign ? = ${firstDigit * secondDigit}";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " ? = " +
+          (firstDigit * secondDigit).toString();
     } else {
-      question = "$firstDigit $currentSign $secondDigit = ?";
+      question = firstDigit.toString() +
+          " " +
+          currentSign +
+          " " +
+          secondDigit.toString() +
+          " = ?";
     }
     quizModel.question = question;
     return quizModel;
@@ -208,14 +250,25 @@ class RandomFindMissingData {
     addDoubleModel();
 
     if (helpTag == 1) {
-      question =
-          "? $currentSign ${secondDoubleDigit.toInt()} = ${getFormattedString((firstDoubleDigit / secondDoubleDigit))}";
+      question = "? " +
+          currentSign +
+          " " +
+          secondDoubleDigit.toInt().toString() +
+          " = " +
+          getFormattedString((firstDoubleDigit / secondDoubleDigit));
     } else if (helpTag == 2) {
-      question =
-          "${firstDoubleDigit.toInt()} $currentSign ? = ${getFormattedString((firstDoubleDigit / secondDoubleDigit))}";
+      question = firstDoubleDigit.toInt().toString() +
+          " " +
+          currentSign +
+          " ? = " +
+          getFormattedString((firstDoubleDigit / secondDoubleDigit));
     } else {
-      question =
-          "${firstDoubleDigit.toInt()} $currentSign ${secondDoubleDigit.toInt()} = ?";
+      question = firstDoubleDigit.toInt().toString() +
+          " " +
+          currentSign +
+          " " +
+          secondDoubleDigit.toInt().toString() +
+          " = ?";
     }
     quizModel.question = question;
     return quizModel;
@@ -348,4 +401,5 @@ String getFormattedString(double d) {
   NumberFormat numberFormat = NumberFormat(".00", "en_US");
 
   return numberFormat.format(d);
+  // return d.toStringAsPrecision(4);
 }
