@@ -21,23 +21,6 @@ class FindMissingProvider extends GameProvider<FindMissingQuizModel> {
 
   void checkResult(String answer) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
-    //
-    // if (timerStatus != TimerStatus.pause) {
-    //   result = answer;
-    //   notifyListeners();
-    //   if (result == currentState.answer) {
-    //     audioPlayer.playRightSound();
-    //     await Future.delayed(Duration(milliseconds: 300));
-    //     loadNewDataIfRequired(level: level==null?null:level);
-    //     if (timerStatus != TimerStatus.pause) {
-    //       restartTimer();
-    //     }
-    //     notifyListeners();
-    //   } else {
-    //     audioPlayer.playWrongSound();
-    //     wrongAnswer();
-    //   }
-    // }
 
     if (timerStatus != TimerStatus.pause) {
       result = answer;

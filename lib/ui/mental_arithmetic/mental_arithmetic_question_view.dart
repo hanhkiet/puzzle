@@ -138,13 +138,6 @@ class _MentalArithmeticQuestionViewState
                         : widget.currentState.questionList[index - 1],
                     TextAlign.center,
                     getPercentSize(getRemainHeight(context: context), 3.5)),
-                // child: Text(
-                //   index == 0 ? "" : widget.currentState.questionList[index - 1],
-                //   style: TextStyle(
-                //     fontSize: 30.0,
-                //     fontWeight: FontWeight.w700,
-                //   ),
-                // ),
               ),
             );
           },

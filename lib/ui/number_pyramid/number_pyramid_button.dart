@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:puzzle/core/app_constants.dart';
+import 'package:puzzle/core/color_scheme.dart';
 import 'package:puzzle/data/models/number_pyramid.dart';
 import 'package:puzzle/ui/number_pyramid/number_pyramid_provider.dart';
 import 'package:puzzle/utility/Constants.dart';
@@ -46,11 +48,9 @@ class PyramidNumberButton extends StatelessWidget {
         numberProvider.pyramidBoxSelection(numPyramidCellModel);
       },
       child: Container(
-        // height: (height / 7) * 0.65,
+        height: btnHeight,
         width: width,
-
         alignment: Alignment.center,
-
         decoration: ShapeDecoration(
           gradient: numPyramidCellModel.isHint
               ? LinearGradient(
@@ -72,22 +72,20 @@ class PyramidNumberButton extends StatelessWidget {
                   : Colors.transparent),
           shape: SmoothRectangleBorder(
             side: BorderSide(
-                color:
-                    numPyramidCellModel.isActive ? Colors.black : Colors.black,
-                // : Theme.of(context).colorScheme.triangleLineColor,
-                width: 0.8),
+                color: numPyramidCellModel.isActive
+                    ? darken(KeyUtil.backgroundColor3, 0.5)
+                    : Theme.of(context).colorScheme.triangleLineColor,
+                width: numPyramidCellModel.isActive ? 1.2 : 0.8),
             borderRadius: SmoothBorderRadius(
               cornerRadius: getPercentSize(height, 30),
             ),
           ),
         ),
-
         child: getTextWidget(
             Theme.of(context).textTheme.titleSmall!.copyWith(
-                // color: numPyramidCellModel.isHint
-                //     ?  Colors.white
-                //     : colorTuple.item1
-                color: Colors.black)
+                color: numPyramidCellModel.isHint
+                    ? Colors.white
+                    : colorTuple.item1)
             //
             ,
             numPyramidCellModel.isHidden
@@ -95,18 +93,6 @@ class PyramidNumberButton extends StatelessWidget {
                 : numPyramidCellModel.numberOnCell.toString(),
             TextAlign.center,
             fontSize),
-
-        // child: Text(
-        //   numPyramidCellModel.isHidden
-        //       ? numPyramidCellModel.text
-        //       : numPyramidCellModel.numberOnCell.toString(),
-        //   style: Theme.of(context).textTheme.subtitle2!.copyWith(
-        //       // color: numPyramidCellModel.isHint
-        //       //     ?  Colors.white
-        //       //     : colorTuple.item1
-        //   color: Colors.black
-        //   ),
-        // ),
       ),
     );
   }

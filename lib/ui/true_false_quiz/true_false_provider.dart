@@ -45,19 +45,6 @@ class TrueFalseProvider extends GameProvider<TrueFalseModel> {
         audioPlayer.playWrongSound();
         wrongAnswer();
       }
-
-      // if (result == currentState.answer) {
-      //   audioPlayer.playRightSound();
-      //   await Future.delayed(Duration(milliseconds: 300));
-      //   loadNewDataIfRequired(level: level==null?null:level);
-      //   if (timerStatus != TimerStatus.pause) {
-      //     restartTimer();
-      //   }
-      //   notifyListeners();
-      // } else {
-      //   audioPlayer.playWrongSound();
-      //   wrongAnswer();
-      // }
     }
   }
 }

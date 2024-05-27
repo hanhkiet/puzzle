@@ -58,10 +58,8 @@ class MathGridView extends StatelessWidget {
             gameCategoryType: GameCategoryType.mathGrid,
             colorTuple: colorTuple,
             context: context),
-
         gameCategoryType: GameCategoryType.mathGrid,
         level: colorTuple.item2,
-
         child: CommonMainWidget<MathGridProvider>(
           gameCategoryType: GameCategoryType.mathGrid,
           color: colorTuple.item1.bgColor!,
@@ -86,8 +84,7 @@ class MathGridView extends StatelessWidget {
                                     Theme.of(context)
                                         .textTheme
                                         .titleSmall!
-                                        .copyWith(
-                                            fontWeight: FontWeight.bold),
+                                        .copyWith(fontWeight: FontWeight.bold),
                                     currentAnswer.toString(),
                                     TextAlign.center,
                                     getPercentSize(remainHeight, 4));
@@ -104,10 +101,8 @@ class MathGridView extends StatelessWidget {
                         return Container(
                           decoration: getDefaultDecoration(
                               bgColor: colorTuple.item1.gridColor,
-                              borderColor: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .color,
+                              borderColor:
+                                  Theme.of(context).textTheme.titleSmall!.color,
                               radius: getCommonRadius(context)),
                           margin: EdgeInsets.all(getHorizontalSpace(context)),
                           child: GridView.builder(
@@ -138,18 +133,6 @@ class MathGridView extends StatelessWidget {
                               }),
                         );
                       }),
-
-                      // return ListView.builder(
-                      //   itemCount: list.length,
-                      //
-                      //   itemBuilder: (context, index) {
-                      //   return Container(
-                      //     height: btnHeight,
-                      //     decoration: getDefaultDecoration(
-                      //       bgColor: colorTuple.item1.backgroundColor
-                      //     ),
-                      //   );
-                      // },);
                     ),
                   ],
                 ),
@@ -159,83 +142,6 @@ class MathGridView extends StatelessWidget {
           context: context,
           isTopMargin: false,
         ),
-
-        // child: getCommonWidget(context: context,
-        //   isTopMargin: true,
-        //   child: Column(
-        //   children: <Widget>[
-        //     Expanded(
-        //       child: Selector<MathGridProvider, int>(
-        //           selector: (p0, p1) =>
-        //           p1.currentState.currentAnswer,
-        //           builder: (context, currentAnswer, child) {
-        //             return getTextWidget(
-        //                 Theme
-        //                     .of(context)
-        //                     .textTheme
-        //                     .subtitle2!.copyWith(fontWeight: FontWeight.bold),
-        //                 currentAnswer.toString(),
-        //                 TextAlign.center,
-        //                 getPercentSize(
-        //                     remainHeight, 4));
-        //           }),
-        //     ),
-        //     Container(
-        //       margin: EdgeInsets.symmetric(horizontal: (getHorizontalSpace(context)/2)),
-        //
-        //       child: ClipRRect(
-        //
-        //         borderRadius: BorderRadius.circular(radius),
-        //         child: Container(
-        //
-        //           alignment: Alignment.center,
-        //
-        //
-        //           decoration: getDefaultDecorationWithGradient(colors:
-        //
-        //           LinearGradient(
-        //                 colors: [ lighten(colorTuple.item1.primaryColor!,0.05),darken(colorTuple.item1.primaryColor!,0.05)],
-        //                 begin: Alignment.topCenter,
-        //                 end: Alignment.bottomCenter,
-        //               )
-        //           ),
-        //
-        //
-        //           child: Consumer<MathGridProvider>(
-        //               builder: (context, listForSquare, child) {
-        //                 return Container(
-        //                   child: GridView.builder(
-        //                       gridDelegate:
-        //                       (screenHeight < screenWidth)? SliverGridDelegateWithFixedCrossAxisCount(
-        //                           crossAxisCount: 9,
-        //
-        //                         childAspectRatio: getScreenPercentSize(context, 0.3),
-        //                       ):SliverGridDelegateWithFixedCrossAxisCount(
-        //                         crossAxisCount: 9,
-        //                       ),
-        //                       itemCount: listForSquare
-        //                           .currentState.listForSquare.length,
-        //                       shrinkWrap: true,
-        //
-        //                       physics: NeverScrollableScrollPhysics(),
-        //                       itemBuilder: (BuildContext context, int index) {
-        //                         return MathGridButton(
-        //                           gridModel: listForSquare.currentState.listForSquare[index],
-        //                           index: index,
-        //                           colorTuple: Tuple2(colorTuple.item1.primaryColor!,colorTuple.item1.primaryColor!),
-        //                         );
-        //                       }),
-        //                 );
-        //               }),
-        //         ),
-        //       ),
-        //     ),
-        //     SizedBox(height: getPercentSize(remainHeight, 2.5),)
-        //   ],
-        // ), subChild:      CommonInfoTextView<MathGridProvider>(
-        //       folder: colorTuple.item1.folderName!,
-        //
-        //       gameCategoryType: GameCategoryType.MATH_GRID,color: colorTuple.item1.cellColor!),),
       ),
     );
   }

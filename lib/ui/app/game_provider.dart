@@ -22,6 +22,7 @@ import 'package:puzzle/data/repository/square_root_repository.dart';
 import 'package:puzzle/data/repository/true_false_repository.dart';
 import 'package:puzzle/ui/dashboard/dashboard_provider.dart';
 
+import '../../ads/ads_file.dart';
 import '../../data/repository/numeric_memory_repository.dart';
 import 'time_provider.dart';
 
@@ -48,7 +49,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
   late bool isRewardedComplete = false;
   late int levelNo;
 
-  //late AdsFile adsFile;
+  late AdsFile adsFile;
   late BuildContext c;
 
   GameProvider(
@@ -60,9 +61,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
           totalTime: KeyUtil.getTimeUtil(gameCategoryType),
         ) {
     this.isTimer = (isTimer == null) ? true : isTimer;
-    /*adsFile = AdsFile(c);
+    adsFile = AdsFile(c);
 
-    adsFile.createRewardedAd();*/
+    adsFile.createRewardedAd();
     if (kDebugMode) {
       print("isTimer12===$isTimer");
     }
@@ -70,7 +71,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    //disposeRewardedAd(adsFile);
+    disposeRewardedAd(adsFile);
     WidgetsBinding.instance.removeObserver(this);
     // TODO: implement dispose
     super.dispose();

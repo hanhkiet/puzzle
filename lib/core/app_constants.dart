@@ -325,7 +325,7 @@ class KeyUtil {
   static int trueFalseTimeOut = 20;
   static int trueFalseTime = 1;
 
-  static int numericMemoryTimeOut = 5;
+  static int numericMemoryTimeOut = 20;
   static int numericMemoryTime = 1;
 
   static int complexCalculationTimeOut = 20;
@@ -334,7 +334,7 @@ class KeyUtil {
   static int dualTimeOut = 20;
   static int dualTime = 1;
 
-  static int mentalArithmeticTimeOut = 60;
+  static int mentalArithmeticTimeOut = 40;
   static int mentalArithmeticLocalTimeOut = 4;
   static int squareRootTimeOut = 10;
   static int cubeRootTimeOut = 10;

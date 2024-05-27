@@ -89,9 +89,6 @@ class _DashboardViewState extends State<DashboardView>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         SizedBox(height: getVerticalSpace(context)),
-                        // getVerticalSpace(context),
-                        // SizedBox(height: FetchPixels.getPixelHeight(40),),
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[

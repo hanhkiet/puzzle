@@ -37,7 +37,7 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
     if (mathPair == currentState.answer) {
       audioPlayer.playRightSound();
       currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-
+      if (timerStatus != TimerStatus.pause) increase(period: 2);
       addCoin();
     } else {
       minusCoin();

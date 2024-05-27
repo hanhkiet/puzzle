@@ -73,9 +73,9 @@ class CommonScoreWidget extends StatelessWidget {
 
     if (percentage < 35 && percentage > 10) {
       star = 1;
-    } else if (percentage > 35 && percentage < 75) {
+    } else if (percentage >= 35 && percentage < 75) {
       star = 2;
-    } else if (percentage > 75) {
+    } else if (percentage >= 75) {
       star = 3;
     }
 
@@ -177,181 +177,6 @@ class CommonScoreWidget extends StatelessWidget {
                           }),
                         ),
                       ),
-                      // child:    Container(
-                      //   width: double.infinity,
-                      // //   // height: scoreHeight,
-                      // //   padding:
-                      // //   EdgeInsets.only(top: getPercentSize(mainHeight, 52)),
-                      // //   margin:
-                      // //   EdgeInsets.only(top: getPercentSize(mainHeight, 52)),
-                      //   padding: EdgeInsets.all(
-                      //        getPercentSize(scoreHeight, 10)),
-                      //   // decoration: getDecorationWithSide(
-                      //   //     radius: radius,
-                      //   //     bgColor: colorTuple.item1.bgColor,
-                      //   //     isBottomLeft: true,
-                      //   //     isBottomRight: true),
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.end,
-                      //     mainAxisSize: MainAxisSize.min,
-                      //     children: [
-                      //
-                      //       Align(
-                      //         alignment: Alignment.topRight,
-                      //         child: getDefaultIconWidget(context,
-                      //             icon: AppAssets.backIcon,
-                      //             folder: colorTuple.item1.folderName, function: () {
-                      //               closeClick();
-                      //             }),
-                      //       ),
-                      //
-                      //
-                      //
-                      //       SizedBox(height: getScreenPercentSize(context, 6)),
-                      //
-                      //       Center(
-                      //         child: getTextWidget(
-                      //             Theme.of(context)
-                      //                 .textTheme
-                      //                 .bodyText1!
-                      //                 .copyWith(fontWeight: FontWeight.bold),
-                      //             "Game Over!!!",
-                      //             TextAlign.center,
-                      //             getScreenPercentSize(context, 3)),
-                      //       ),
-                      //
-                      //       Row(
-                      //         mainAxisAlignment: MainAxisAlignment.center,
-                      //         crossAxisAlignment: CrossAxisAlignment.center,
-                      //         children: [
-                      //           getTextWidget(
-                      //               Theme.of(context)
-                      //                   .textTheme
-                      //                   .subtitle2!
-                      //                   .copyWith(fontWeight: FontWeight.w600),
-                      //               score.toString(),
-                      //               TextAlign.center,
-                      //               getPercentSize(scoreHeight, 25)),
-                      //           SizedBox(
-                      //             width: getWidthPercentSize(context, 1.2),
-                      //           ),
-                      //           SvgPicture.asset(
-                      //             AppAssets.icTrophy,
-                      //             height: getPercentSize(scoreHeight, 20),
-                      //             width: getPercentSize(scoreHeight, 15),
-                      //           ),
-                      //         ],
-                      //       ),
-                      //       SizedBox(height: getPercentSize(scoreHeight, 8)),
-                      //       getTextWidget(
-                      //           Theme.of(context)
-                      //               .textTheme
-                      //               .subtitle2!
-                      //               .copyWith(fontWeight: FontWeight.w500),
-                      //           'Your Score',
-                      //           TextAlign.center,
-                      //           getPercentSize(scoreHeight, 12)),
-                      //       Visibility(
-                      //         visible: isDetailView,
-                      //         child: Container(
-                      //           height: btnHeight,
-                      //           margin: EdgeInsets.symmetric(
-                      //               vertical: getScreenPercentSize(context, 3)),
-                      //           child: Row(
-                      //             children: [
-                      //               Expanded(
-                      //                   child: Container(
-                      //                     alignment: Alignment.center,
-                      //                     decoration: getDefaultDecoration(
-                      //                         isShadow: themeMode == ThemeMode.dark?null:true,
-                      //                         shadowColor: getShadowColor(context),
-                      //                         bgColor: themeMode == ThemeMode.dark?colorTuple.item1.bgColor!:getBgColor(themeProvider, colorTuple.item1.bgColor!),
-                      //                         radius: radius),
-                      //                     child: getDetail(context, right.toString(),
-                      //                         AppAssets.rightIcon, btnHeight),
-                      //                   )),
-                      //               SizedBox(width: getHorizontalSpace(context)),
-                      //               Expanded(
-                      //                   child: Container(
-                      //                     alignment: Alignment.center,
-                      //                     decoration: getDefaultDecoration(
-                      //                         isShadow: themeMode == ThemeMode.dark?null:true,
-                      //                         shadowColor: getShadowColor(context),
-                      //                         bgColor: themeMode == ThemeMode.dark?colorTuple.item1.bgColor!:getBgColor(themeProvider, colorTuple.item1.bgColor!),
-                      //
-                      //                         radius: radius),
-                      //                     child: getDetail(context, wrong.toString(),
-                      //                         AppAssets.wrongIcon, btnHeight),
-                      //                   )),
-                      //             ],
-                      //           ),
-                      //         ),
-                      //       ),
-                      //
-                      //       Visibility(child: SizedBox(height: getScreenPercentSize(context, 3),),visible: !isDetailView),
-                      //       Row(
-                      //         mainAxisAlignment: MainAxisAlignment.center,
-                      //         children: [
-                      //           getStarWidget(star, starSize, 0),
-                      //           SizedBox(width: getWidthPercentSize(context, 5)),
-                      //           getStarWidget(star, starSize, 1),
-                      //           SizedBox(width: getWidthPercentSize(context, 5)),
-                      //           getStarWidget(star, starSize, 2),
-                      //         ],
-                      //       ),
-                      //       new Spacer(),
-                      //       Row(
-                      //         mainAxisAlignment: MainAxisAlignment.center,
-                      //         crossAxisAlignment: CrossAxisAlignment.center,
-                      //         children: [
-                      //           getHomeButton(themeProvider,context, AppAssets.scoreShareIcon,(){
-                      //             shareClick();
-                      //           }),
-                      //           getHomeButton(themeProvider,context,'${getFolderName(context, colorTuple.item1.folderName!)}${AppAssets.scoreHomeIcon}' ,(){
-                      //             homeClick();
-                      //           },isFolder: true)
-                      //         ],
-                      //       ),
-                      //
-                      //
-                      //       Row(
-                      //         children: [
-                      //           Expanded(
-                      //             child: getButtonWidget(
-                      //                 context, "Restart", colorTuple.item1.primaryColor,
-                      //                 isBorder: true, () {
-                      //
-                      //
-                      //
-                      //               nextClick();
-                      //
-                      //
-                      //             },
-                      //                 textColor: Theme.of(context).textTheme.bodyText1!.color,
-                      //                 borderColor: Theme.of(context).textTheme.bodyText1!.color),
-                      //             flex: 1,
-                      //           ),
-                      //           Visibility(
-                      //               visible: colorTuple.item2 < defaultLevelSize,
-                      //               child: SizedBox(width: getHorizontalSpace(context))),
-                      //           Visibility(
-                      //             visible: colorTuple.item2 < defaultLevelSize,
-                      //             child: Expanded(
-                      //               child: Opacity(
-                      //                 opacity: star >= 2 ? 1 : 0.5,
-                      //                 child: getButtonWidget(
-                      //                     context, "Next", colorTuple.item1.primaryColor, () {
-                      //                   restartClick();
-                      //                 }, textColor: Colors.black),
-                      //               ),
-                      //               flex: 1,
-                      //             ),
-                      //           )
-                      //         ],
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
                     ),
                   ),
                 ),
@@ -452,42 +277,6 @@ class CommonScoreWidget extends StatelessWidget {
                       }, isFolder: true),
                     ],
                   ),
-
-                  // Row(
-                  //   children: [
-                  //     Expanded(
-                  //       child: getButtonWidget(
-                  //           context, "Restart", colorTuple.item1.primaryColor,
-                  //           isBorder: true, () {
-                  //
-                  //
-                  //
-                  //         nextClick();
-                  //
-                  //
-                  //       },
-                  //           textColor: Theme.of(context).textTheme.bodyText1!.color,
-                  //           borderColor: Theme.of(context).textTheme.bodyText1!.color),
-                  //       flex: 1,
-                  //     ),
-                  //     Visibility(
-                  //         visible: colorTuple.item2 < defaultLevelSize,
-                  //         child: SizedBox(width: getHorizontalSpace(context))),
-                  //     Visibility(
-                  //       visible: colorTuple.item2 < defaultLevelSize,
-                  //       child: Expanded(
-                  //         child: Opacity(
-                  //           opacity: star >= 2 ? 1 : 0.5,
-                  //           child: getButtonWidget(
-                  //               context, "Next", colorTuple.item1.primaryColor, () {
-                  //             restartClick();
-                  //           }, textColor: Colors.black),
-                  //         ),
-                  //         flex: 1,
-                  //       ),
-                  //     )
-                  //   ],
-                  // )
                 ],
               ),
             )

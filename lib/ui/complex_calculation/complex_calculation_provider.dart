@@ -17,19 +17,16 @@ class ComplexCalculationProvider extends GameProvider<ComplexModel> {
       required int this.level,
       required BuildContext this.context})
       : super(
-            gameCategoryType: GameCategoryType.complexCalculation,
-            c: context) {
+            gameCategoryType: GameCategoryType.complexCalculation, c: context) {
     startGame(level: level);
   }
 
   void checkResult(String answer) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
-
     if (timerStatus != TimerStatus.pause) {
-      result = answer;
       notifyListeners();
 
-      if ((result) == currentState.answer) {
+      if ((answer) == currentState.finalAnswer) {
         audioPlayer.playRightSound();
         rightAnswer();
 
@@ -47,19 +44,6 @@ class ComplexCalculationProvider extends GameProvider<ComplexModel> {
       }
 
       notifyListeners();
-
-      // if (result == currentState.finalAnswer) {
-      //   audioPlayer.playRightSound();
-      //   await Future.delayed(Duration(milliseconds: 300));
-      //   loadNewDataIfRequired(level: level==null?null:level);
-      //   if (timerStatus != TimerStatus.pause) {
-      //     restartTimer();
-      //   }
-      //   notifyListeners();
-      // } else {
-      //   audioPlayer.playWrongSound();
-      //   wrongAnswer();
-      // }
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:tuple/tuple.dart';
 import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
 import '../../utility/Constants.dart';
+import '../dashboard/dashboard_view.dart';
 import '../model/gradient_model.dart';
 import '../sound_player/audio_file.dart';
 import 'common_dual_score_widget.dart';
@@ -66,10 +67,10 @@ class CommonDualGameOverDialogView extends StatelessWidget {
           index: index,
           wrong: 1,
           homeClick: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardView(),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardView(),));
           },
           shareClick: () {
-            // share();
+            //share();
           },
         )),
         getButtonWidget(context, "Restart", colorTuple.item1.primaryColor, () {

@@ -55,15 +55,6 @@ class MathGridButton extends StatelessWidget {
                   : color,
           borderColor: Theme.of(context).textTheme.titleSmall!.color,
           radius: getScreenPercentSize(context, 2)),
-
-      // decoration: BoxDecoration(
-      //     border: Border.all(color: Theme.of(context).textTheme.subtitle2!.color!, width:1),
-      //     color: gridModel.isRemoved
-      //         ? color
-      //         : (gridModel.isActive
-      //             ? color
-      //             : Colors.transparent),
-      // ),
       child: Visibility(
         visible: !(gridModel.isRemoved),
         child: InkWell(

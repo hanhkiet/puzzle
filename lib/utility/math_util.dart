@@ -33,15 +33,15 @@ class MathUtil {
   }
 
   static int generateRandomAnswer(int min, int max) {
-    final _random = new Random();
-    int result = min + _random.nextInt(max - min);
+    final random = Random();
+    int result = min + random.nextInt(max - min);
     return result;
   }
 
   static String generateRandomSign() {
     var x = ['/', '*', '-', '+'];
-    final _random = new Random();
-    int result = _random.nextInt(4);
+    final random = Random();
+    int result = random.nextInt(4);
     return x[result];
   }
 
@@ -57,8 +57,9 @@ class MathUtil {
     while (listOfSign.length < count) {
       int row = Random().nextInt(4);
       int col = Random().nextInt(4);
-      if (listOfSign.length == 0 || list[row][col] != listOfSign.last)
+      if (listOfSign.isEmpty || list[row][col] != listOfSign.last) {
         listOfSign.add(list[row][col]);
+      }
     }
     return listOfSign;
   }
@@ -77,9 +78,9 @@ class MathUtil {
     while (listOfSign.length < count) {
       int row = Random().nextInt(max - min);
       int col = Random().nextInt(max - min);
-      if (listOfSign.length == 0 ||
-          list[row][col].toString() != listOfSign.last)
+      if (listOfSign.isEmpty || list[row][col].toString() != listOfSign.last) {
         listOfSign.add(list[row][col].toString());
+      }
     }
     return listOfSign;
   }
@@ -135,7 +136,7 @@ class MathUtil {
       }
     }
     listTemp.shuffle();
-    if (listTemp.length > 0) {
+    if (listTemp.isNotEmpty) {
       var x = listTemp[Random().nextInt(listTemp.length)];
       return Expression(
         firstOperand: x.keys.first,
@@ -181,7 +182,7 @@ class MathUtil {
     if (expression != null) {
       switch (firstSign != "" ? signList[1] : signList[0]) {
         case "+":
-          if (firstSign != "")
+          if (firstSign != "") {
             finalExpression = Expression(
                 firstOperand: expression.firstOperand,
                 operator1: expression.operator1,
@@ -189,7 +190,7 @@ class MathUtil {
                 operator2: "+",
                 thirdOperand: operand.toString(),
                 answer: expression.answer + operand);
-          else
+          } else {
             finalExpression = Expression(
                 firstOperand: operand.toString(),
                 operator1: "+",
@@ -197,6 +198,7 @@ class MathUtil {
                 operator2: expression.operator1,
                 thirdOperand: expression.secondOperand,
                 answer: operand + expression.answer);
+          }
           break;
         case "-":
           if (firstSign != "") {
@@ -226,7 +228,7 @@ class MathUtil {
           }
           break;
         case "*":
-          if (firstSign != "")
+          if (firstSign != "") {
             finalExpression = Expression(
                 firstOperand: expression.firstOperand,
                 operator1: expression.operator1,
@@ -234,7 +236,7 @@ class MathUtil {
                 operator2: "*",
                 thirdOperand: operand.toString(),
                 answer: expression.answer * operand);
-          else
+          } else {
             finalExpression = Expression(
                 firstOperand: operand.toString(),
                 operator1: "*",
@@ -242,6 +244,7 @@ class MathUtil {
                 operator2: expression.operator1,
                 thirdOperand: expression.secondOperand,
                 answer: operand * expression.answer);
+          }
 
           break;
         case "/":
@@ -474,9 +477,7 @@ class MathUtil {
   }
 }
 
-void main() {
-
-}
+void main() {}
 
 class Expression {
   final String firstOperand;

@@ -1,13 +1,10 @@
 import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-
 AdRequest request = AdRequest(
   keywords: <String>['foo', 'bar'],
   contentUrl: 'http://foo.com/bar.html',
   nonPersonalizedAds: true,
-
-
 );
 
 String getInterstitialAdUnitId() {
@@ -36,6 +33,3 @@ String getBannerAdUnitId() {
   }
   return "";
 }
-
-
-
