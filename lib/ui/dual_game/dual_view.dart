@@ -1,15 +1,15 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/ui/common/common_timer_progress.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
-import 'dart:math' as math;
 
 import '../../core/app_constants.dart';
 import '../../data/models/quiz_model.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_dual_button.dart';
 import '../common/common_info_text_view.dart';
@@ -191,8 +191,10 @@ class DualView extends StatelessWidget {
                                         .read<DualGameProvider>()
                                         .checkResult2(e);
 
-                                    print(
-                                        ("score2====${context.read<DualGameProvider>().score2}"));
+                                    if (kDebugMode) {
+                                      print(
+                                          ("score2====${context.read<DualGameProvider>().score2}"));
+                                    }
                                   },
                                   colorTuple: colorTuple,
                                 );

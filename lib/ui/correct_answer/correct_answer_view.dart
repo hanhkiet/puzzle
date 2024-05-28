@@ -1,11 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
+
 import '../../core/app_constants.dart';
 import '../../data/models/correct_answer.dart';
 import '../../data/random_find_missing_data.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -21,9 +23,9 @@ class CorrectAnswerView extends StatelessWidget {
   final Tuple2<GradientModel, int> colorTuple;
 
   const CorrectAnswerView({
-    Key? key,
+    super.key,
     required this.colorTuple,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +125,9 @@ class CorrectAnswerView extends StatelessWidget {
                         return Selector<CorrectAnswerProvider, CorrectAnswer>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               final list = [
                                 currentState.firstAns,

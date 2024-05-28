@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../data/models/mental_arithmetic.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 class MentalArithmeticQuestionView extends StatefulWidget {
   final MentalArithmetic currentState;

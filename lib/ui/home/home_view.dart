@@ -11,7 +11,7 @@ import '../../core/app_assets.dart';
 
 import '../../data/models/dashboard.dart';
 import '../../data/models/game_category.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/theme_provider.dart';
 import '../dashboard/dashboard_provider.dart';
 import '../model/gradient_model.dart';

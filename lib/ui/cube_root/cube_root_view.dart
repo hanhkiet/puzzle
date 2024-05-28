@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
@@ -6,7 +7,7 @@ import 'package:vsync_provider/vsync_provider.dart';
 import '../../core/app_constants.dart';
 import '../../data/models/cube_root.dart';
 import '../../data/random_find_missing_data.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -107,7 +108,9 @@ class CubeRootView extends StatelessWidget {
                         return Selector<CubeRootProvider, CubeRoot>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               final list = [
                                 currentState.firstAns,

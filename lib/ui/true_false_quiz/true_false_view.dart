@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
@@ -11,7 +12,7 @@ import 'package:vsync_provider/vsync_provider.dart';
 
 import '../../data/models/true_false_model.dart';
 import '../../data/random_option_data.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_button.dart';
 import '../common/common_main_widget.dart';
 
@@ -82,7 +83,9 @@ class TrueFalseView extends StatelessWidget {
                         return Selector<TrueFalseProvider, TrueFalseModel>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               return Container(
                                 margin: EdgeInsets.symmetric(

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/ui/magic_triangle/triangle_3x3.dart';
@@ -8,7 +9,7 @@ import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -95,8 +96,10 @@ class MagicTriangleView extends StatelessWidget {
                           Expanded(
                             child:
                                 LayoutBuilder(builder: (context, constraints) {
-                              print(
-                                  "size---${constraints.maxWidth}----${constraints.maxWidth}");
+                              if (kDebugMode) {
+                                print(
+                                    "size---${constraints.maxWidth}----${constraints.maxWidth}");
+                              }
                               return Stack(
                                 alignment: Alignment.center,
                                 children: <Widget>[

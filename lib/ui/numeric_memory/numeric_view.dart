@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/numeric_memory_pair.dart';
 import 'package:puzzle/ui/common/common_app_bar.dart';
@@ -8,11 +10,10 @@ import 'package:puzzle/ui/common/common_info_text_view.dart';
 import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/numeric_memory/numeric_button.dart';
-import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_main_widget.dart';
 import 'numeric_provider.dart';
 
@@ -66,7 +67,9 @@ class NumericMemoryView extends StatelessWidget {
                     snapshot(() {
                       isContinue = false;
                     });
-                    print("isContinue====$isContinue");
+                    if (kDebugMode) {
+                      print("isContinue====$isContinue");
+                    }
                     Future.delayed(
                       const Duration(seconds: 2),
                       () {
@@ -83,7 +86,9 @@ class NumericMemoryView extends StatelessWidget {
           gameCategoryType: GameCategoryType.numericMemory,
           level: colorTuple.item2,
           nextQuiz: () {
-            print("isNewData===true");
+            if (kDebugMode) {
+              print("isNewData===true");
+            }
             // Open answers
             snapshot(() {
               isContinue = false;

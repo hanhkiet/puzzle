@@ -5,7 +5,7 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../core/app_assets.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../model/gradient_model.dart';
 
 class CommonDualScoreWidget extends StatelessWidget {

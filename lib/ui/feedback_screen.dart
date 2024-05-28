@@ -6,7 +6,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/ui/resizer/fetch_pixels.dart';
 import 'package:puzzle/ui/resizer/widget_utils.dart';
-import 'package:puzzle/utility/Constants.dart';
+import 'package:puzzle/utility/constants.dart';
 
 import '../core/app_assets.dart';
 

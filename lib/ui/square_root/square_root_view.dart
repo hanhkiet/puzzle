@@ -1,19 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_assets.dart';
-import 'package:puzzle/data/random_find_missing_data.dart';
+import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/square_root.dart';
+import 'package:puzzle/data/random_find_missing_data.dart';
 import 'package:puzzle/ui/common/common_app_bar.dart';
 import 'package:puzzle/ui/common/common_info_text_view.dart';
 import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/square_root/square_root_provider.dart';
-import 'package:puzzle/core/app_constants.dart';
-import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_main_widget.dart';
 import '../common/common_vertical_button.dart';
 
@@ -94,7 +95,9 @@ class SquareRootView extends StatelessWidget {
                         return Selector<SquareRootProvider, SquareRoot>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               final list = [
                                 currentState.firstAns,

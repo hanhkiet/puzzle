@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 
 class CommonTriangleView extends StatelessWidget {

@@ -47,9 +47,13 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
 
           notifyListeners();
           if (currentState.availableItem == 0) {
-            print("oldScore===$oldScore====$currentScore");
+            if (kDebugMode) {
+              print("oldScore===$oldScore====$currentScore");
+            }
 
-            print("oldScore===$oldScore====$currentScore");
+            if (kDebugMode) {
+              print("oldScore===$oldScore====$currentScore");
+            }
 
             await Future.delayed(const Duration(milliseconds: 300));
             loadNewDataIfRequired(level: level ?? 1);

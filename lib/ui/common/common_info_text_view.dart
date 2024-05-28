@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/game_provider.dart';
 
 class CommonInfoTextView<T extends GameProvider> extends StatelessWidget {

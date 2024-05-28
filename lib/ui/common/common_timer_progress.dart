@@ -1,15 +1,19 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/core/color_scheme.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'dart:math' as math;
-import '../../utility/Constants.dart';
+
+import '../../utility/constants.dart';
 import '../app/game_provider.dart';
 
 class CommonTimerProgress<T extends GameProvider> extends StatelessWidget {
   const CommonTimerProgress({super.key, required this.color});
+
   final Color? color;
+
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<T>(context);

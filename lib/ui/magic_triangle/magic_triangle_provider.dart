@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../core/app_constants.dart';
 import '../../data/models/magic_triangle.dart';
@@ -69,7 +70,9 @@ class MagicTriangleProvider extends GameProvider<MagicTriangle> {
           notifyListeners();
         } else {
           audioPlayer.playWrongSound();
-          print("wrong---tue");
+          if (kDebugMode) {
+            print("wrong---tue");
+          }
         }
       }
       notifyListeners();

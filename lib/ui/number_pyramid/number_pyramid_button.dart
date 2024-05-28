@@ -1,12 +1,13 @@
+import 'package:figma_squircle/figma_squircle.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/core/color_scheme.dart';
 import 'package:puzzle/data/models/number_pyramid.dart';
 import 'package:puzzle/ui/number_pyramid/number_pyramid_provider.dart';
-import 'package:puzzle/utility/Constants.dart';
-import 'package:provider/provider.dart';
+import 'package:puzzle/utility/constants.dart';
 import 'package:tuple/tuple.dart';
-import 'package:figma_squircle/figma_squircle.dart';
 
 class PyramidNumberButton extends StatelessWidget {
   final NumPyramidCellModel numPyramidCellModel;
@@ -37,7 +38,9 @@ class PyramidNumberButton extends StatelessWidget {
     double btnHeight = (buttonHeight / 10);
     double fontSize = getPercentSize(btnHeight, 23);
 
-    print("screenSize ====$screenWidth-----$screenHeight--${(btnHeight)}");
+    if (kDebugMode) {
+      print("screenSize ====$screenWidth-----$screenHeight--${(btnHeight)}");
+    }
     if (screenHeight < screenWidth) {
       fontSize = getPercentSize((btnHeight), 30);
       //   fontSize = getScreenPercentSize(context, 1);

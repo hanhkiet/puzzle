@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 class CommonScoreView extends StatefulWidget {
   final int currentScore;

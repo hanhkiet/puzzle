@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:puzzle/core/color_scheme.dart';
 import 'package:tuple/tuple.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../model/gradient_model.dart';
 import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';

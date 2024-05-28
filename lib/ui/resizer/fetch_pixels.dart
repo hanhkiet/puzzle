@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'device_util.dart';
-
 class FetchPixels {
   static double pixelRatio = 0;
   static double width = 0;

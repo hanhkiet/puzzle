@@ -1,10 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/app_assets.dart';
 import '../../data/models/dashboard.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/theme_provider.dart';
 import '../common/common_tab_animation_view.dart';
 
@@ -29,8 +30,10 @@ class DashboardButtonView extends StatelessWidget {
     double circle = getPercentSize(height, 42);
     double iconSize = getPercentSize(circle, 62);
 
-    print(
-        "dashboard-----${AppAssets.assetFolderPath + dashboard.folder + AppAssets.homeIcon}");
+    if (kDebugMode) {
+      print(
+          "dashboard-----${AppAssets.assetFolderPath + dashboard.folder + AppAssets.homeIcon}");
+    }
     // print(
     //     "themeProvider---${themeProvider.folderName}---${themeMode}");
     return Consumer<ThemeProvider>(

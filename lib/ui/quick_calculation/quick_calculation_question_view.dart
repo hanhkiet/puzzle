@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/quick_calculation.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 class QuickCalculationQuestionView extends StatefulWidget {
   final QuickCalculation currentState;
@@ -25,6 +25,7 @@ class _QuickCalculationQuestionViewState
   late AnimationController _controller;
   late Animation<Alignment> alignmentTween;
   late Animation<double> _opacityAnimationOut;
+
   @override
   void initState() {
     super.initState();

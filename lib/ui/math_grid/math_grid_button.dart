@@ -1,12 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
-
 import 'package:tuple/tuple.dart';
 
 import '../../data/models/math_grid.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/theme_provider.dart';
 import '../sound_player/audio_file.dart';
 import 'math_grid_provider.dart';
@@ -33,11 +32,15 @@ class MathGridButton extends StatelessWidget {
     double width = screenWidth / 9;
     double fontSize = getPercentSize(width, 40);
 
-    print("screenSize ====$screenWidth-----$screenHeight");
+    if (kDebugMode) {
+      print("screenSize ====$screenWidth-----$screenHeight");
+    }
     if (screenHeight < screenWidth) {
       width = getScreenPercentSize(context, 0.3);
       fontSize = getScreenPercentSize(context, 1.7);
-      print("width ====$width---${getPercentSize(width, 100)}");
+      if (kDebugMode) {
+        print("width ====$width---${getPercentSize(width, 100)}");
+      }
     }
 
     Color color = "#383838".toColor();

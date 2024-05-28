@@ -29,8 +29,9 @@ class ComplexCalculationProvider extends GameProvider<ComplexModel> {
       if ((answer) == currentState.finalAnswer) {
         audioPlayer.playRightSound();
         rightAnswer();
-        if (timerStatus != TimerStatus.pause)
+        if (timerStatus != TimerStatus.pause) {
           increase(period: KeyUtil.complexCalculationPlusTime);
+        }
         rightCount = rightCount + 1;
       } else {
         wrongCount = wrongCount + 1;

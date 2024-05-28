@@ -1,5 +1,5 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'ads_info.dart';
@@ -30,7 +30,9 @@ class AdsFile {
     );
 
     if (size == null) {
-      print('Unable to get height of anchored banner.');
+      if (kDebugMode) {
+        print('Unable to get height of anchored banner.');
+      }
       return;
     }
 
@@ -40,7 +42,9 @@ class AdsFile {
       adUnitId: getBannerAdUnitId(),
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
-          print('$BannerAd loaded.');
+          if (kDebugMode) {
+            print('$BannerAd loaded.');
+          }
           setState(() {
             _anchoredBanner = ad as BannerAd?;
           });
@@ -49,11 +53,21 @@ class AdsFile {
           }
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          print('$BannerAd failedToLoad: $error');
+          if (kDebugMode) {
+            print('$BannerAd failedToLoad: $error');
+          }
           ad.dispose();
         },
-        onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
-        onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
+        onAdOpened: (ad) {
+          if (kDebugMode) {
+            print('$BannerAd onAdOpened.');
+          }
+        },
+        onAdClosed: (ad) {
+          if (kDebugMode) {
+            print('$BannerAd onAdClosed.');
+          }
+        },
       ),
     );
     return banner.load();
@@ -80,22 +94,31 @@ class AdsFile {
 
   void showInterstitialAd(Function function) {
     if (_interstitialAd == null) {
-      print('Warning: attempt to show interstitial before loaded.');
+      if (kDebugMode) {
+        print('Warning: attempt to show interstitial before loaded.');
+      }
 
       function();
 
       return;
     }
     _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (InterstitialAd ad) =>
-          print('ad onAdShowedFullScreenContent.'),
+      onAdShowedFullScreenContent: (InterstitialAd ad) {
+        if (kDebugMode) {
+          print('ad onAdShowedFullScreenContent.');
+        }
+      },
       onAdDismissedFullScreenContent: (InterstitialAd ad) {
-        print('$ad onAdDismissedFullScreenContent.');
+        if (kDebugMode) {
+          print('$ad onAdDismissedFullScreenContent.');
+        }
         ad.dispose();
         function();
       },
       onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
-        print('$ad onAdFailedToShowFullScreenContent: $error');
+        if (kDebugMode) {
+          print('$ad onAdFailedToShowFullScreenContent: $error');
+        }
         ad.dispose();
         createInterstitialAd();
       },
@@ -105,28 +128,37 @@ class AdsFile {
   }
 
   void showRewardedAd(Function function, Function function1) async {
-    bool _isRewarded = false;
+    bool isRewarded = false;
     if (_rewardedAd == null) {
       function1();
       // showToast(S.of(context!).videoError);
-      print('Warning: attempt to show rewarded before loaded.');
+      if (kDebugMode) {
+        print('Warning: attempt to show rewarded before loaded.');
+      }
       return;
     }
     _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
-      onAdShowedFullScreenContent: (RewardedAd ad) =>
-          print('ad onAdShowedFullScreenContent.'),
+      onAdShowedFullScreenContent: (RewardedAd ad) {
+        if (kDebugMode) {
+          print('ad onAdShowedFullScreenContent.');
+        }
+      },
       onAdDismissedFullScreenContent: (RewardedAd ad) {
-        print('$ad onAdDismissedFullScreenContent.');
+        if (kDebugMode) {
+          print('$ad onAdDismissedFullScreenContent.');
+        }
         ad.dispose();
 
-        if (_isRewarded) {
+        if (isRewarded) {
           function();
         } else {
           function1();
         }
       },
       onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
-        print('$ad onAdFailedToShowFullScreenContent: $error');
+        if (kDebugMode) {
+          print('$ad onAdFailedToShowFullScreenContent: $error');
+        }
         ad.dispose();
       },
     );
@@ -138,7 +170,7 @@ class AdsFile {
 
     _rewardedAd!.show(
         onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
-      _isRewarded = true;
+      isRewarded = true;
       _rewardedAd = null;
       // print('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
     });
@@ -151,11 +183,15 @@ class AdsFile {
         request: request,
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {
-            print('reward====$ad loaded.');
+            if (kDebugMode) {
+              print('reward====$ad loaded.');
+            }
             _rewardedAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
-            print('RewardedAd failed to load: $error');
+            if (kDebugMode) {
+              print('RewardedAd failed to load: $error');
+            }
             _rewardedAd = null;
             createRewardedAd();
           },
@@ -170,16 +206,24 @@ class AdsFile {
         request: request,
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
-            print('$ad loaded');
-            print('failed==== true');
+            if (kDebugMode) {
+              print('$ad loaded');
+            }
+            if (kDebugMode) {
+              print('failed==== true');
+            }
 
             _interstitialAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
-            print('InterstitialAd failed to load: $error.');
+            if (kDebugMode) {
+              print('InterstitialAd failed to load: $error.');
+            }
             // _numInterstitialLoadAttempts += 1;
             _interstitialAd = null;
-            print('failed==== loaded');
+            if (kDebugMode) {
+              print('failed==== loaded');
+            }
 
             // if (_numInterstitialLoadAttempts <= maxFailedLoadAttempts) {
             createInterstitialAd();
@@ -187,7 +231,7 @@ class AdsFile {
           },
         ));
   }
-  // }
+// }
 }
 
 getBanner(BuildContext context, AdsFile? adsFile) {
@@ -252,12 +296,12 @@ showBanner(BuildContext context, AdsFile adsFile) {
 }
 
 BannerAd? getBannerAd(AdsFile? adsFile) {
-  BannerAd? _anchoredBanner;
+  BannerAd? anchoredBanner;
   if (adsFile != null) {
     return (adsFile._anchoredBanner == null)
-        ? _anchoredBanner
+        ? anchoredBanner
         : adsFile._anchoredBanner!;
   } else {
-    return _anchoredBanner!;
+    return anchoredBanner!;
   }
 }

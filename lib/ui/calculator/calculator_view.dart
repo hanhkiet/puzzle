@@ -7,7 +7,7 @@ import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_back_button.dart';
 import '../common/common_clear_button.dart';
 import '../common/common_info_text_view.dart';

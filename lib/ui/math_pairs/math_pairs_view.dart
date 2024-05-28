@@ -4,7 +4,7 @@ import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -17,9 +17,9 @@ class MathPairsView extends StatelessWidget {
   final Tuple2<GradientModel, int> colorTuple;
 
   const MathPairsView({
-    Key? key,
+    super.key,
     required this.colorTuple,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/true_false_model.dart';
 import 'package:puzzle/ui/app/game_provider.dart';
@@ -26,14 +27,17 @@ class TrueFalseProvider extends GameProvider<TrueFalseModel> {
       result = answer;
       notifyListeners();
 
-      print("result====$result====${currentState.answer}");
+      if (kDebugMode) {
+        print("result====$result====${currentState.answer}");
+      }
 
       if ((result) == currentState.answer) {
         audioPlayer.playRightSound();
         rightAnswer();
         rightCount = rightCount + 1;
-        if (timerStatus != TimerStatus.pause)
+        if (timerStatus != TimerStatus.pause) {
           increase(period: KeyUtil.findMissingPlusTime);
+        }
         await Future.delayed(const Duration(milliseconds: 300));
         loadNewDataIfRequired(level: level);
         if (timerStatus != TimerStatus.pause) {

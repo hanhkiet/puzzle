@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
@@ -6,7 +7,7 @@ import 'package:vsync_provider/vsync_provider.dart';
 import '../../core/app_constants.dart';
 import '../../data/models/sign.dart';
 import '../../data/random_find_missing_data.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -40,7 +41,9 @@ class GuessSignView extends StatelessWidget {
 
     shuffle(list);
 
-    print("value===1");
+    if (kDebugMode) {
+      print("value===1");
+    }
     return MultiProvider(
       providers: [
         const VsyncProvider(),
@@ -135,7 +138,9 @@ class GuessSignView extends StatelessWidget {
                           Selector<GuessSignProvider, Sign>(
                               selector: (p0, p1) => p1.currentState,
                               builder: (context, provider, child) {
-                                print("valueG===true");
+                                if (kDebugMode) {
+                                  print("valueG===true");
+                                }
 
                                 return getTextWidget(
                                     Theme.of(context).textTheme.titleSmall!,
@@ -154,7 +159,9 @@ class GuessSignView extends StatelessWidget {
                         return Selector<GuessSignProvider, Sign>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, provider, child) {
-                              print("valueG===true");
+                              if (kDebugMode) {
+                                print("valueG===true");
+                              }
 
                               shuffle(list);
 

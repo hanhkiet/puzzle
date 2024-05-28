@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../data/models/magic_triangle.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../sound_player/audio_file.dart';
 import 'magic_triangle_provider.dart';
 

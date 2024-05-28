@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/numeric_memory_pair.dart';
-import 'package:puzzle/utility/Constants.dart';
+import 'package:puzzle/utility/constants.dart';
 import 'package:tuple/tuple.dart';
 
 class NumericMemoryButton extends StatelessWidget {
@@ -11,7 +12,8 @@ class NumericMemoryButton extends StatelessWidget {
   final bool isContinue;
   final Function function;
 
-  const NumericMemoryButton({super.key,
+  const NumericMemoryButton({
+    super.key,
     required this.mathPairs,
     required this.index,
     required this.height,
@@ -32,7 +34,9 @@ class NumericMemoryButton extends StatelessWidget {
         : Colors.transparent;
     return InkWell(
       onTap: () {
-        print("isContinue123===$isContinue");
+        if (kDebugMode) {
+          print("isContinue123===$isContinue");
+        }
         if (isContinue) {
           function();
         }

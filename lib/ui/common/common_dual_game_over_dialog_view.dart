@@ -3,7 +3,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../dashboard/dashboard_view.dart';
 import '../model/gradient_model.dart';
 import '../sound_player/audio_file.dart';
