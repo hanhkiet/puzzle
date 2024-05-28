@@ -29,14 +29,10 @@ jobs:
 
     - name: Clone Flutter Source Code
       run: git clone --depth 1 https://github.com/flutter/flutter.git
-      
+
     - name: Set up Flutter
       run: |
         cd flutter
-        flutter_branch=$(git rev-parse --abbrev-ref HEAD)
-        flutter_version=$(git describe --tags --abbrev=0)
-        echo "::set-output name=flutter_branch::$flutter_branch"
-        echo "::set-output name=flutter_version::$flutter_version"
         flutter/bin/flutter doctor -v
 
     - name: Build Flutter
