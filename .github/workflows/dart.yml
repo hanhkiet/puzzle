@@ -24,21 +24,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Clone Flutter Source Code
-      run: git clone --depth 1 https://github.com/flutter/flutter.git
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 'stable'
 
-    - name: Set up Flutter
-      run: |
-        cd flutter
-        flutter/bin/flutter doctor -v
+    - name: Get dependencies
+      run: flutter pub get
 
-    - name: Build Flutter
-      run: |
-        cd flutter
-        flutter/bin/flutter build apk --release
+    - name: Build APK
+      run: flutter build apk --release
 
-    - name: Build Flutter Project
-      run: flutter/bin/flutter build apk --release
+    # Optionally, you can upload the APK as an artifact
+    - name: Upload APK
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-release
+        path: build/app/outputs/flutter-apk/app-release.apk
