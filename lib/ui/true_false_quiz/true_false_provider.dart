@@ -32,7 +32,8 @@ class TrueFalseProvider extends GameProvider<TrueFalseModel> {
         audioPlayer.playRightSound();
         rightAnswer();
         rightCount = rightCount + 1;
-
+        if (timerStatus != TimerStatus.pause)
+          increase(period: KeyUtil.findMissingPlusTime);
         await Future.delayed(const Duration(milliseconds: 300));
         loadNewDataIfRequired(level: level);
         if (timerStatus != TimerStatus.pause) {

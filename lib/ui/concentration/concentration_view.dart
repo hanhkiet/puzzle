@@ -47,7 +47,6 @@ class ConcentrationView extends StatelessWidget {
               create: (context) => ConcentrationProvider(
                   vsync: VsyncProvider.of(context),
                   level: colorTuple.item2,
-                  isTimer: false,
                   nextQuiz: () {
                     print("isContinue====$isContinue");
                     snapshot(() {
@@ -61,19 +60,18 @@ class ConcentrationView extends StatelessWidget {
           gameCategoryType: GameCategoryType.concentration,
           level: colorTuple.item2,
           appBar: CommonAppBar<ConcentrationProvider>(
-              hint: false,
-              infoView: CommonInfoTextView<ConcentrationProvider>(
-                  gameCategoryType: GameCategoryType.concentration,
-                  folder: colorTuple.item1.folderName!,
-                  color: colorTuple.item1.cellColor!),
-              gameCategoryType: GameCategoryType.concentration,
-              colorTuple: colorTuple,
-              context: context,
-              isTimer: false),
+            hint: false,
+            infoView: CommonInfoTextView<ConcentrationProvider>(
+                gameCategoryType: GameCategoryType.concentration,
+                folder: colorTuple.item1.folderName!,
+                color: colorTuple.item1.cellColor!),
+            gameCategoryType: GameCategoryType.concentration,
+            colorTuple: colorTuple,
+            context: context,
+          ),
           child: CommonMainWidget<ConcentrationProvider>(
             gameCategoryType: GameCategoryType.concentration,
             color: colorTuple.item1.bgColor!,
-            isTimer: false,
             primaryColor: colorTuple.item1.primaryColor!,
             subChild: Container(
               margin: EdgeInsets.only(top: getPercentSize(mainHeight, 80)),

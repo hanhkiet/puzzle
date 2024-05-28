@@ -116,18 +116,6 @@ class FindMissingView extends StatelessWidget {
                                 ),
                               );
                             });
-
-                        // return ListView.builder(
-                        //   itemCount: list.length,
-                        //
-                        //   itemBuilder: (context, index) {
-                        //   return Container(
-                        //     height: btnHeight,
-                        //     decoration: getDefaultDecoration(
-                        //       bgColor: colorTuple.item1.backgroundColor
-                        //     ),
-                        //   );
-                        // },);
                       }),
                     ),
                   ],

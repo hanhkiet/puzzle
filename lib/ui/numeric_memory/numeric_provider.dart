@@ -11,22 +11,15 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
   int second = -1;
   int? level;
   BuildContext? context;
-  bool isTimer = true;
   Function? nextQuiz;
 
-  NumericMemoryProvider(
-      {required super.vsync,
-      required int this.level,
-      required BuildContext this.context,
-      required Function this.nextQuiz,
-      bool? isTimer})
-      : super(
-            gameCategoryType: GameCategoryType.numericMemory,
-            isTimer: isTimer,
-            c: context) {
-    this.isTimer = (isTimer == null) ? true : isTimer;
-
-    startGame(level: level, isTimer: isTimer);
+  NumericMemoryProvider({
+    required super.vsync,
+    required int this.level,
+    required BuildContext this.context,
+    required Function this.nextQuiz,
+  }) : super(gameCategoryType: GameCategoryType.numericMemory, c: context) {
+    startGame(level: level);
   }
 
   Future<void> checkResult(String mathPair, int index) async {
@@ -37,7 +30,8 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
     if (mathPair == currentState.answer) {
       audioPlayer.playRightSound();
       currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-      if (timerStatus != TimerStatus.pause) increase(period: 2);
+      if (timerStatus != TimerStatus.pause)
+        increase(period: KeyUtil.numericMemoryPlusTime);
       addCoin();
     } else {
       minusCoin();

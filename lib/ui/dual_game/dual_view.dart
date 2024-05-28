@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:puzzle/ui/common/common_timer_progress.dart';
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 import 'dart:math' as math;
@@ -64,12 +66,14 @@ class DualView extends StatelessWidget {
             isTopMargin: false,
             child: Column(
               children: [
+                // Player 1
                 Expanded(
                   flex: 1,
                   child: Transform.rotate(
                     angle: math.pi,
                     child: Column(
                       children: <Widget>[
+                        //Question title
                         Expanded(
                           flex: 1,
                           child: Center(
@@ -119,7 +123,7 @@ class DualView extends StatelessWidget {
                                           .checkResult1(e);
                                       if (kDebugMode) {
                                         print(
-                                          ("score1====${context.read<DualGameProvider>().score1}"));
+                                            ("score1====${context.read<DualGameProvider>().score1}"));
                                       }
                                     },
                                     colorTuple: colorTuple,
@@ -131,14 +135,16 @@ class DualView extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 1,
+                //just a divider with clock...
+                CommonTimerProgress<DualGameProvider>(
                   color: colorTuple.item1.primaryColor,
                 ),
+                // Player 2
                 Expanded(
                   flex: 1,
                   child: Column(
                     children: <Widget>[
+                      // Question title
                       Expanded(
                         flex: 1,
                         child: Center(

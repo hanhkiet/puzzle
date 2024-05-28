@@ -35,7 +35,8 @@ class QuickCalculationProvider extends GameProvider<QuickCalculation> {
         nextCurrentState = list[index + 1];
         currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
         addCoin();
-        if (timerStatus != TimerStatus.pause) increase();
+        if (timerStatus != TimerStatus.pause)
+          increase(period: KeyUtil.quickCalculationPlusTime);
         notifyListeners();
       } else if (result.length == currentState.answer.toString().length) {
         audioPlayer.playWrongSound();
