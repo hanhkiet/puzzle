@@ -109,10 +109,8 @@ class TimeProvider extends CoinProvider {
     dialogType = DialogType.non;
   }
 
-  void increase() {
-    // print("timerval===${_animationController.value}");
-    // _animationController.value = _animationController.value + 0.05;
-    // _animationController.reverse();
+  void increase({int period = 1}) {
+    currentTime += period;
   }
 
   @override

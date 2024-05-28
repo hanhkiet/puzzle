@@ -68,6 +68,7 @@ class CommonGameOverDialogView extends StatelessWidget {
       wrong: wrong,
       function: function,
       closeClick: () {
+        //updateFunction();
         Navigator.pop(context);
       },
       homeClick: () {
@@ -84,6 +85,8 @@ class CommonGameOverDialogView extends StatelessWidget {
           disposeInterstitialAd(adsFile);
           Navigator.pop(context, true);
         });*/
+        //updateFunction();
+        Navigator.pop(context, true);
       },
       nextClick: () {
         if (star >= 2) {
@@ -94,16 +97,17 @@ class CommonGameOverDialogView extends StatelessWidget {
             }
             Navigator.pop(context, true);
           });*/
+          //updateFunction();
+          if (colorTuple.item2 < defaultLevelSize) {
+            function(colorTuple.item2 + 1);
+          }
+          Navigator.pop(context, true);
         }
       },
       shareClick: () {
         share();
       },
     );
-
-    // return Container(
-    //   height: 400,
-    // );
   }
 
   share() async {

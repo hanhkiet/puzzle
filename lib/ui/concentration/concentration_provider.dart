@@ -13,7 +13,6 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
   int second = -1;
   int? level;
   BuildContext? context;
-  bool isTimer = true;
   Function? nextQuiz;
 
   ConcentrationProvider(
@@ -22,17 +21,12 @@ class ConcentrationProvider extends GameProvider<MathPairs> {
       required BuildContext this.context,
       required Function this.nextQuiz,
       bool? isTimer})
-      : super(
-            gameCategoryType: GameCategoryType.concentration,
-            isTimer: isTimer,
-            c: context) {
-    this.isTimer = (isTimer == null) ? true : isTimer;
-
+      : super(gameCategoryType: GameCategoryType.concentration, c: context) {
     if (kDebugMode) {
       print("start===true");
     }
 
-    startGame(level: level, isTimer: isTimer);
+    startGame(level: level);
   }
 
   Future<void> checkResult(Pair mathPair, int index) async {

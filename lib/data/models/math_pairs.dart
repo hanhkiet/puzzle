@@ -26,9 +26,7 @@ class Pair {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Pair &&
-          runtimeType == other.runtimeType &&
-          text == other.text;
+      other is Pair && runtimeType == other.runtimeType && text == other.text;
 
   @override
   int get hashCode => text.hashCode;

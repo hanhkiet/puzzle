@@ -320,28 +320,28 @@ class KeyUtil {
   static int quickCalculationPlusTime = 1;
 
   static int findMissingTimeOut = 20;
-  static int findMissingTime = 1;
+  static int findMissingPlusTime = 1;
 
   static int trueFalseTimeOut = 20;
-  static int trueFalseTime = 1;
+  static int trueFalsePlusTime = 1;
 
-  static int numericMemoryTimeOut = 5;
-  static int numericMemoryTime = 1;
+  static int numericMemoryTimeOut = 20;
+  static int numericMemoryPlusTime = 2;
 
   static int complexCalculationTimeOut = 20;
-  static int complexCalculationTime = 1;
+  static int complexCalculationPlusTime = 1;
 
   static int dualTimeOut = 20;
-  static int dualTime = 1;
+  static int dualPlusTime = 1;
 
-  static int mentalArithmeticTimeOut = 60;
+  static int mentalArithmeticTimeOut = 40;
   static int mentalArithmeticLocalTimeOut = 4;
   static int squareRootTimeOut = 10;
   static int cubeRootTimeOut = 10;
   static int mathGridTimeOut = 120;
 
   static int mathematicalPairsTimeOut = 60;
-  static int concentrationTimeOut = 10;
+  static int concentrationTimeOut = 60;
 
   static int magicTriangleTimeOut = 60;
   static int picturePuzzleTimeOut = 90;

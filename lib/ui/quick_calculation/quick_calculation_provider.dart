@@ -16,8 +16,7 @@ class QuickCalculationProvider extends GameProvider<QuickCalculation> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(
-            gameCategoryType: GameCategoryType.quickCalculation, c: context) {
+      : super(gameCategoryType: GameCategoryType.quickCalculation, c: context) {
     startGame(level: level);
     nextCurrentState = list[index + 1];
   }
@@ -36,7 +35,8 @@ class QuickCalculationProvider extends GameProvider<QuickCalculation> {
         nextCurrentState = list[index + 1];
         currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
         addCoin();
-        // if (/*time >= 0.0125*/ timerStatus != TimerStatus.pause) increase();
+        if (timerStatus != TimerStatus.pause)
+          increase(period: KeyUtil.quickCalculationPlusTime);
         notifyListeners();
       } else if (result.length == currentState.answer.toString().length) {
         audioPlayer.playWrongSound();

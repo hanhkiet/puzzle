@@ -41,7 +41,6 @@ class SquareRootView extends StatelessWidget {
       ],
       child: DialogListener<SquareRootProvider>(
         colorTuple: colorTuple,
-
         appBar: CommonAppBar<SquareRootProvider>(
             infoView: CommonInfoTextView<SquareRootProvider>(
                 gameCategoryType: GameCategoryType.squareRoot,
@@ -50,10 +49,8 @@ class SquareRootView extends StatelessWidget {
             gameCategoryType: GameCategoryType.squareRoot,
             colorTuple: colorTuple,
             context: context),
-
         gameCategoryType: GameCategoryType.squareRoot,
         level: colorTuple.item2,
-
         child: CommonMainWidget<SquareRootProvider>(
           gameCategoryType: GameCategoryType.squareRoot,
           color: colorTuple.item1.bgColor!,
@@ -127,18 +124,6 @@ class SquareRootView extends StatelessWidget {
                                 ),
                               );
                             });
-
-                        // return ListView.builder(
-                        //   itemCount: list.length,
-                        //
-                        //   itemBuilder: (context, index) {
-                        //   return Container(
-                        //     height: btnHeight,
-                        //     decoration: getDefaultDecoration(
-                        //       bgColor: colorTuple.item1.backgroundColor
-                        //     ),
-                        //   );
-                        // },);
                       }),
                     ),
                   ],
@@ -149,84 +134,6 @@ class SquareRootView extends StatelessWidget {
           context: context,
           isTopMargin: false,
         ),
-        // child: getCommonWidget(context: context,
-        //   isTopMargin: true,
-        //   child: Column(
-        //   children: <Widget>[
-        //
-        //     Expanded(flex: 1,
-        //       child: Row(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         children: [
-        //           SvgPicture.asset(
-        //             AppAssets.icRoot,
-        //             height: getPercentSize(remainHeight, 6),
-        //             color: Theme
-        //                 .of(context)
-        //                 .textTheme
-        //                 .subtitle2!.color,
-        //           ),
-        //           Selector<SquareRootProvider, SquareRoot>(
-        //               selector: (p0, p1) => p1.currentState,
-        //               builder: (context, currentState, child) {
-        //
-        //                 return getTextWidget(
-        //                     Theme.of(context).textTheme.subtitle2!,
-        //                     currentState.question,
-        //                     TextAlign.center,
-        //                     getPercentSize(remainHeight, 4));
-        //
-        //
-        //               }),
-        //         ],
-        //       ),
-        //     ),
-        //     Selector<SquareRootProvider, SquareRoot>(
-        //       selector: (p0, p1) => p1.currentState,
-        //       builder: (context, currentState, child) {
-        //
-        //         final list=[
-        //           currentState.firstAns,
-        //           currentState.secondAns,
-        //           currentState.thirdAns,
-        //           currentState.fourthAns,
-        //         ];
-        //
-        //         return GridView.count(
-        //           crossAxisCount: _crossAxisCount,
-        //           childAspectRatio: _aspectRatio,
-        //           shrinkWrap: true,
-        //           padding: EdgeInsets.symmetric(
-        //               horizontal: getHorizontalSpace(context),
-        //               vertical: getHorizontalSpace(context)),
-        //           crossAxisSpacing: _crossAxisSpacing,
-        //           mainAxisSpacing: _crossAxisSpacing,
-        //           primary: false,
-        //
-        //           children: List.generate(list.length, (index) {
-        //             String e = list[index];
-        //             return CommonNumberButton(
-        //               text: e,
-        //               is4Matrix: true,
-        //               totalHeight: remainHeight,
-        //               height: height,
-        //               onTab: () {
-        //                 context
-        //                     .read<SquareRootProvider>()
-        //                     .checkResult(e);
-        //               },
-        //               colorTuple: colorTuple,
-        //             );
-        //           }),
-        //         );
-        //
-        //
-        //       },
-        //     ),
-        //   ],
-        // ), subChild:   CommonInfoTextView<SquareRootProvider>(
-        //       folder: colorTuple.item1.folderName!,
-        //       gameCategoryType: GameCategoryType.SQUARE_ROOT,color: colorTuple.item1.cellColor!),),
       ),
     );
   }

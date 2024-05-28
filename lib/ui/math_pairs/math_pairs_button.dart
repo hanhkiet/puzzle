@@ -51,25 +51,9 @@ class MathPairsButton extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                   )),
-
-          // decoration: BoxDecoration(
-          //   borderRadius: BorderRadius.all(Radius.circular(24)),
-          //   border: mathPairs.isActive
-          //       ? null
-          //       : Border.all(color: colorTuple.item1),
-          //   gradient: mathPairs.isActive
-          //       ? LinearGradient(
-          //           colors: [colorTuple.item1, colorTuple.item2],
-          //           begin: Alignment.topCenter,
-          //           end: Alignment.bottomCenter,
-          //         )
-          //       : null,
-          // ),
-
           alignment: Alignment.center,
           child: FittedBox(
             fit: BoxFit.contain,
-
             child: getTextWidget(
                 Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: mathPairs.isActive ? Colors.black : null,
@@ -78,14 +62,6 @@ class MathPairsButton extends StatelessWidget {
                 mathPairs.text,
                 TextAlign.center,
                 getPercentSize(height, 20)),
-            // child: Text(
-            //   mathPairs.text,
-            //   style: Theme.of(context).textTheme.subtitle1!.copyWith(
-            //       fontSize: 24,
-            //       color: mathPairs.isActive
-            //           ? Theme.of(context).colorScheme.baseColor
-            //           : colorTuple.item1),
-            // ),
           ),
         ),
       ),

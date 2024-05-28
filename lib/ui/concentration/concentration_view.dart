@@ -47,7 +47,6 @@ class ConcentrationView extends StatelessWidget {
               create: (context) => ConcentrationProvider(
                   vsync: VsyncProvider.of(context),
                   level: colorTuple.item2,
-                  isTimer: false,
                   nextQuiz: () {
                     print("isContinue====$isContinue");
                     snapshot(() {
@@ -61,85 +60,18 @@ class ConcentrationView extends StatelessWidget {
           gameCategoryType: GameCategoryType.concentration,
           level: colorTuple.item2,
           appBar: CommonAppBar<ConcentrationProvider>(
-              hint: false,
-              infoView: CommonInfoTextView<ConcentrationProvider>(
-                  gameCategoryType: GameCategoryType.concentration,
-                  folder: colorTuple.item1.folderName!,
-                  color: colorTuple.item1.cellColor!),
-              gameCategoryType: GameCategoryType.concentration,
-              colorTuple: colorTuple,
-              context: context,
-              isTimer: false),
-          // child: getCommonWidget(
-          //   context: context,
-          //   isTopMargin: false,
-          //   child: StatefulBuilder(
-          //     builder: (context, setState) {
-          //       return Column(
-          //         children: <Widget>[
-          //           Expanded(
-          //             flex: 1,
-          //             child: Center(
-          //               child: Consumer<ConcentrationProvider>(
-          //                   builder: (context, provider, child) {
-          //                 return GridView.count(
-          //                   crossAxisCount: _crossAxisCount,
-          //                   childAspectRatio: _aspectRatio,
-          //                   shrinkWrap: true,
-          //                   padding: EdgeInsets.symmetric(
-          //                       horizontal: getHorizontalSpace(context) / 2,
-          //                       vertical: getHorizontalSpace(context)),
-          //                   crossAxisSpacing: _crossAxisSpacing,
-          //                   mainAxisSpacing: _crossAxisSpacing,
-          //                   primary: false,
-          //                   children: List.generate(
-          //                       provider.currentState.list.length,
-          //                       (index) {
-          //                     return ConcentrationButton(
-          //                       height: height,
-          //                       mathPairs:
-          //                       provider.currentState.list[index],
-          //                       index: index,
-          //                       isContinue: isContinue,
-          //                       colorTuple: Tuple2(colorTuple.item1.primaryColor!,
-          //                           colorTuple.item1.primaryColor!),
-          //                     );
-          //                   }),
-          //                 );
-          //               }),
-          //             ),
-          //           ),
-          //           Visibility(
-          //             visible: !isContinue,
-          //             child: Container(
-          //               margin: EdgeInsets.symmetric(
-          //                   horizontal: getHorizontalSpace(context)),
-          //               child: getButtonWidget(
-          //                   context, "Continue", colorTuple.item1.primaryColor, () {
-          //
-          //                     setState((){
-          //                       isContinue = true;
-          //
-          //                     });
-          //
-          //               }, textColor: Colors.black),
-          //             ),
-          //           ),
-          //         ],
-          //       );
-          //     }
-          //   ),
-          //   subChild:
-          //   CommonInfoTextView<ConcentrationProvider>(
-          //       folder: colorTuple.item1.folderName!,
-          //       gameCategoryType: GameCategoryType.CONCENTRATION,
-          //       color: colorTuple.item1.cellColor!),
-          // ),
-
+            hint: false,
+            infoView: CommonInfoTextView<ConcentrationProvider>(
+                gameCategoryType: GameCategoryType.concentration,
+                folder: colorTuple.item1.folderName!,
+                color: colorTuple.item1.cellColor!),
+            gameCategoryType: GameCategoryType.concentration,
+            colorTuple: colorTuple,
+            context: context,
+          ),
           child: CommonMainWidget<ConcentrationProvider>(
             gameCategoryType: GameCategoryType.concentration,
             color: colorTuple.item1.bgColor!,
-            isTimer: false,
             primaryColor: colorTuple.item1.primaryColor!,
             subChild: Container(
               margin: EdgeInsets.only(top: getPercentSize(mainHeight, 80)),

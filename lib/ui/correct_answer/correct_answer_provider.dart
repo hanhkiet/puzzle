@@ -40,23 +40,5 @@ class CorrectAnswerProvider extends GameProvider<CorrectAnswer> {
         wrongAnswer();
       }
     }
-
-    // if (timerStatus != TimerStatus.pause) {
-    //   result = answer;
-    //   notifyListeners();
-    //   if (int.parse(result) == currentState.answer) {
-    //     audioPlayer.playRightSound();
-    //
-    //     await Future.delayed(Duration(milliseconds: 300));
-    //     loadNewDataIfRequired(level: level==null?null:level);
-    //     if (timerStatus != TimerStatus.pause) {
-    //       restartTimer();
-    //     }
-    //     notifyListeners();
-    //   } else {
-    //     audioPlayer.playWrongSound();
-    //     wrongAnswer();
-    //   }
-    // }
   }
 }

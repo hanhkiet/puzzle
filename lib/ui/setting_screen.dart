@@ -122,7 +122,6 @@ class _SettingScreen extends State<SettingScreen> {
     BuildContext context,
   ) {
     return Expanded(
-      flex: 1,
       child: SizedBox(
         width: double.infinity,
         height: double.infinity,
@@ -163,8 +162,7 @@ class _SettingScreen extends State<SettingScreen> {
                             builder: (context, value, child) {
                               return FlutterSwitch(
                                 value: soundOn.value,
-                                inactiveColor:
-                                    lighten(KeyUtil.primaryColor1, 0.09),
+                                inactiveColor: KeyUtil.backgroundColor2,
                                 inactiveToggleColor: Colors.white,
                                 activeColor: KeyUtil.primaryColor1,
                                 width: FetchPixels.getPixelHeight(130),
@@ -203,8 +201,7 @@ class _SettingScreen extends State<SettingScreen> {
                             builder: (context, value, child) {
                               return FlutterSwitch(
                                 value: vibrateOn.value,
-                                inactiveColor:
-                                    lighten(KeyUtil.primaryColor1, 0.09),
+                                inactiveColor: KeyUtil.backgroundColor2,
                                 inactiveToggleColor: Colors.white,
                                 activeColor: KeyUtil.primaryColor1,
                                 width: FetchPixels.getPixelHeight(130),
@@ -255,8 +252,7 @@ class _SettingScreen extends State<SettingScreen> {
                             builder: (context, value, child) {
                               return FlutterSwitch(
                                 value: darkMode.value,
-                                inactiveColor:
-                                    lighten(KeyUtil.primaryColor1, 0.09),
+                                inactiveColor: KeyUtil.backgroundColor2,
                                 inactiveToggleColor: Colors.white,
                                 activeColor: KeyUtil.primaryColor1,
                                 width: FetchPixels.getPixelHeight(130),
@@ -280,7 +276,7 @@ class _SettingScreen extends State<SettingScreen> {
                 ],
               ),
             ),
-            verSpace,
+            /*verSpace,
             getDivider(),
             getCell(
                 string: "Share",
@@ -336,7 +332,7 @@ class _SettingScreen extends State<SettingScreen> {
                 string: "Privacy Policy",
                 function: () async {
                   _launchURL();
-                }),
+                }),*/
           ],
         ),
       ),
@@ -405,105 +401,5 @@ class _SettingScreen extends State<SettingScreen> {
     // );
     return getCustomFont(string, 30, theme.color!, 1,
         fontWeight: FontWeight.w600);
-  }
-}
-
-class SliderThumbShape extends SliderComponentShape {
-  /// Create a slider thumb that draws a circle.
-
-  SliderThumbShape(
-    this.setColor, {
-    this.enabledThumbRadius = 7.5,
-    this.disabledThumbRadius,
-    this.elevation = 1.0,
-    this.pressedElevation = 6.0,
-  });
-
-  /// The preferred radius of the round thumb shape when the slider is enabled.
-  ///
-  /// If it is not provided, then the material default of 10 is used.
-  ///
-  Color setColor = Colors.white;
-  final double? enabledThumbRadius;
-
-  /// The preferred radius of the round thumb shape when the slider is disabled.
-  ///
-  /// If no disabledRadius is provided, then it is equal to the
-  /// [enabledThumbRadius]
-  final double? disabledThumbRadius;
-
-  double? get _disabledThumbRadius => disabledThumbRadius ?? enabledThumbRadius;
-
-  /// The resting elevation adds shadow to the unpressed thumb.
-  ///
-  /// The default is 1.
-  ///
-  /// Use 0 for no shadow. The higher the value, the larger the shadow. For
-  /// example, a value of 12 will create a very large shadow.
-  ///
-  final double elevation;
-
-  /// The pressed elevation adds shadow to the pressed thumb.
-  ///
-  /// The default is 6.
-  ///
-  /// Use 0 for no shadow. The higher the value, the larger the shadow. For
-  /// example, a value of 12 will create a very large shadow.
-  final double pressedElevation;
-
-  @override
-  Size getPreferredSize(bool isEnabled, bool isDiscrete) {
-    return Size.fromRadius(
-        isEnabled == true ? enabledThumbRadius! : _disabledThumbRadius!);
-  }
-
-  @override
-  void paint(
-    PaintingContext context,
-    Offset center, {
-    Animation<double>? activationAnimation,
-    @required Animation<double>? enableAnimation,
-    bool? isDiscrete,
-    TextPainter? labelPainter,
-    RenderBox? parentBox,
-    @required SliderThemeData? sliderTheme,
-    TextDirection? textDirection,
-    double? value,
-    double? textScaleFactor,
-    Size? sizeWithOverflow,
-  }) {
-    assert(enableAnimation != null);
-    assert(sliderTheme != null);
-    assert(sliderTheme!.disabledThumbColor != null);
-    assert(sliderTheme!.thumbColor != null);
-    assert(!sizeWithOverflow!.isEmpty);
-
-    final Canvas canvas = context.canvas;
-    final Tween<double> radiusTween = Tween<double>(
-      begin: _disabledThumbRadius,
-      end: enabledThumbRadius,
-    );
-
-    final double radius = radiusTween.evaluate(enableAnimation!);
-
-    {
-      Paint paint = Paint()..color = Colors.white;
-      paint.strokeWidth = 5;
-      paint.style = PaintingStyle.stroke;
-      canvas.drawCircle(
-        center,
-        radius,
-        paint,
-      );
-      {
-        Paint paint = Paint()..color = setColor;
-        paint.style = PaintingStyle.fill;
-        canvas.drawCircle(
-          center,
-          radius,
-          paint,
-        );
-      }
-    }
   }
 }

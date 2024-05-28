@@ -86,6 +86,7 @@ class DialogInfoUtil {
             dec: "Select the correct number to finish the equation.",
             correctAnswerScore: KeyUtil.numericMemoryScore,
             wrongAnswerScore: KeyUtil.numericMemoryScoreMinus,
+            plusSeconds: 2,
             colorTuple: tuple1);
       case GameCategoryType.concentration:
         return GameInfoDialog(
@@ -140,6 +141,7 @@ class DialogInfoUtil {
           dec:
               "Solve simple equation one by one. Faster you solve, more time will be given to solve next equation.",
           correctAnswerScore: KeyUtil.quickCalculationScore,
+          plusSeconds: 1,
           wrongAnswerScore: KeyUtil.quickCalculationScoreMinus,
         );
       case GameCategoryType.mathGrid:

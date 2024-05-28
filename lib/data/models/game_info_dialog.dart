@@ -8,14 +8,15 @@ class GameInfoDialog {
   final String dec;
   final double correctAnswerScore;
   final double wrongAnswerScore;
-  final Tuple2<Color,Color> colorTuple;
+  final int? plusSeconds;
+  final Tuple2<Color, Color> colorTuple;
 
-  GameInfoDialog({
-    required this.title,
-    required this.image,
-    required this.dec,
-    required this.correctAnswerScore,
-    required this.wrongAnswerScore,
-    required this.colorTuple,
-  });
+  GameInfoDialog(
+      {required this.title,
+      required this.image,
+      required this.dec,
+      required this.correctAnswerScore,
+      required this.wrongAnswerScore,
+      required this.colorTuple,
+      this.plusSeconds});
 }

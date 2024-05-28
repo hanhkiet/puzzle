@@ -37,7 +37,6 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
   Widget build(BuildContext context) {
     final model = Provider.of<T>(context);
 
-    bool isDetailView = true;
     // bool isDetailView = isDetailWidget(gameCategoryType!);
 
     double appBarHeight = getScreenPercentSize(context, 25);
@@ -164,24 +163,21 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: margin),
                         child: Stack(
                           children: [
-                            Opacity(
-                              // ignore: dead_code
-                              opacity: isDetailView ? 1 : 0,
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: getTextWidget(
-                                    Theme.of(context)
-                                        .textTheme
-                                        .titleSmall!
-                                        .copyWith(fontWeight: FontWeight.w500),
-                                    'Level : ${model.levelNo}',
-                                    TextAlign.center,
-                                    getPercentSize(mainHeight, 6)),
-                              ),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: getTextWidget(
+                                  Theme.of(context)
+                                      .textTheme
+                                      .titleSmall!
+                                      .copyWith(fontWeight: FontWeight.w500),
+                                  'Level : ${model.levelNo}',
+                                  TextAlign.center,
+                                  getPercentSize(mainHeight, 6)),
                             ),
                             Align(
                               alignment: Alignment.topRight,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -220,38 +216,46 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: getScreenPercentSize(context, 1.5),
+                                    width: getScreenPercentSize(context, 1.5),
                                   ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SvgPicture.asset(
-                                        AppAssets.icCoin,
-                                        height: getPercentSize(mainHeight, 7),
-                                        width: getPercentSize(mainHeight, 7),
-                                      ),
-                                      SizedBox(
-                                        width:
-                                            getWidthPercentSize(context, 1.2),
-                                      ),
-                                      Selector<T, int>(
-                                        builder: (context, value, child) {
-                                          return getTextWidget(
-                                              Theme.of(context)
-                                                  .textTheme
-                                                  .titleSmall!
-                                                  .copyWith(
-                                                      fontWeight:
-                                                          FontWeight.w600),
-                                              value.toString(),
-                                              TextAlign.center,
-                                              getPercentSize(mainHeight, 6));
-                                        },
-                                        selector: (p0, p1) {
-                                          return p1.coin;
-                                        },
-                                      )
-                                    ],
+                                  SizedBox(
+                                    width: getWidthPercentSize(context, 30),
+                                    height: getScreenPercentSize(context, 5),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        SvgPicture.asset(
+                                          AppAssets.icCoin,
+                                          height: getPercentSize(mainHeight, 7),
+                                          width: getPercentSize(mainHeight, 7),
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              getWidthPercentSize(context, 1.2),
+                                        ),
+                                        Selector<T, int>(
+                                          builder: (context, value, child) {
+                                            return Flexible(
+                                              child: getTextWidget(
+                                                  Theme.of(context)
+                                                      .textTheme
+                                                      .titleSmall!
+                                                      .copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                  value.toString(),
+                                                  TextAlign.center,
+                                                  getPercentSize(
+                                                      mainHeight, 6)),
+                                            );
+                                          },
+                                          selector: (p0, p1) {
+                                            return p1.coin;
+                                          },
+                                        )
+                                      ],
+                                    ),
                                   )
                                 ],
                               ),

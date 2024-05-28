@@ -31,16 +31,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late AnimationController animationController;
-  late Animation bgColorTween;
-  late Animation<double> elevationTween;
-  late Animation<double> subtitleVisibilityTween;
-  late Animation<double> radiusTween;
-  late Animation<double> heightTween;
-  late Animation<TextStyle> textStyleTween;
-  late Animation<double> outlineImageBottomPositionTween;
-  late Animation<double> fillImageBottomPositionTween;
-  late Animation<double> outlineImageRightPositionTween;
-  late Animation<double> fillImageRightPositionTween;
+  late Animation<Offset> leftHomeItemSlidePositionTween;
+  late Animation<Offset> rightHomeItemSlidePositionTween;
   late bool isGamePageOpen;
   Tuple2<Dashboard, double>? tuple2;
   //AdsFile? adsFile;
@@ -49,72 +41,16 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   void initState() {
     tuple2 = widget.tuple2;
     isGamePageOpen = false;
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 0));
-    bgColorTween =
-        ColorTween(begin: Colors.black, end: const Color(0xFF212121)).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.8,
-          1.0,
-          curve: Curves.easeIn,
-        ),
-      ),
-    );
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
 
-    elevationTween = Tween(begin: 0.0, end: 4.0).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.8,
-          1.0,
-          curve: Curves.easeIn,
-        ),
-      ),
-    );
-    subtitleVisibilityTween = Tween(begin: 1.0, end: 0.0).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.0,
-          0.5,
-          curve: Curves.easeIn,
-        ),
-      ),
-    );
-    radiusTween = Tween(begin: 0.0, end: 18.0).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: const Interval(
-          0.8,
-          1.0,
-          curve: Curves.easeIn,
-        ),
-      ),
-    );
-    heightTween = Tween(begin: 183.0 + tuple2!.item2, end: 56.0 + tuple2!.item2)
-        .animate(animationController);
-    textStyleTween = TextStyleTween(
-        begin: const TextStyle(
-          fontSize: 28.0,
-          fontWeight: FontWeight.bold,
-        ),
-        end: const TextStyle(
-          fontSize: 24.0,
-          fontWeight: FontWeight.bold,
-        )).animate(animationController);
-
-    outlineImageBottomPositionTween =
-        Tween(begin: 56.0, end: 56.0).animate(animationController);
-    outlineImageRightPositionTween =
-        Tween(begin: -40.0, end: -150.0).animate(animationController);
-    fillImageBottomPositionTween =
-        Tween(begin: 54.0, end: 136.0).animate(animationController);
-    fillImageRightPositionTween =
-        Tween(begin: -54.0, end: -240.0).animate(animationController);
-
-    setState(() {});
+    leftHomeItemSlidePositionTween =
+        Tween<Offset>(begin: const Offset(-2, 0), end: Offset.zero)
+            .animate(animationController);
+    rightHomeItemSlidePositionTween =
+        Tween<Offset>(begin: const Offset(2, 0), end: Offset.zero)
+            .animate(animationController);
+    animationController.forward();
     super.initState();
   }
 
@@ -211,12 +147,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                               childAspectRatio: aspectRatio,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
-
-                              // padding: EdgeInsets.only(
-                              //   left: getHorizontalSpace(context),
-                              //   right: getHorizontalSpace(context),
-                              //   bottom: getHorizontalSpace(context),
-                              // ),
                               crossAxisSpacing: crossAxisSpacing,
                               mainAxisSpacing: crossAxisSpacing,
                               primary: false,
@@ -224,32 +154,44 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                   top: getScreenPercentSize(context, 4)),
                               children: Provider.of<DashboardProvider>(context)
                                   .getGameByPuzzleType(tuple2!.item1.puzzleType)
-                                  .map((e) => HomeButtonView(
-                                      title: e.name,
-                                      icon: e.icon,
-                                      tuple2: tuple2!,
-                                      score: e.scoreboard.highestScore,
-                                      colorTuple: tuple2!.item1.colorTuple,
-                                      opacity: tuple2!.item1.opacity,
-                                      gameCategoryType: e.gameCategoryType,
-                                      onTab: () {
-                                        if (e.gameCategoryType ==
-                                            GameCategoryType.dualGame) {
-                                          showDuelDialog(
-                                              themeProvider, context);
-                                        } else {
-                                          Navigator.pushNamedAndRemoveUntil(
-                                            context,
-                                            KeyUtil.level,
-                                            ModalRoute.withName(KeyUtil.home),
-                                            arguments:
-                                                Tuple2<GameCategory, Dashboard>(
-                                                    e, tuple2!.item1),
-                                          ).then((value) {
-                                            dashboardProvider.getCoin();
-                                          });
-                                        }
-                                      }))
+                                  .asMap()
+                                  .entries
+                                  .map(
+                                    (e) => SlideTransition(
+                                      position: e.key % 2 == 0
+                                          ? leftHomeItemSlidePositionTween
+                                          : rightHomeItemSlidePositionTween,
+                                      child: HomeButtonView(
+                                          title: e.value.name,
+                                          icon: e.value.icon,
+                                          tuple2: tuple2!,
+                                          score:
+                                              e.value.scoreboard.highestScore,
+                                          colorTuple: tuple2!.item1.colorTuple,
+                                          opacity: tuple2!.item1.opacity,
+                                          gameCategoryType:
+                                              e.value.gameCategoryType,
+                                          onTab: () {
+                                            if (e.value.gameCategoryType ==
+                                                GameCategoryType.dualGame) {
+                                              showDuelDialog(
+                                                  themeProvider, context);
+                                            } else {
+                                              Navigator.pushNamedAndRemoveUntil(
+                                                context,
+                                                KeyUtil.level,
+                                                ModalRoute.withName(
+                                                    KeyUtil.home),
+                                                arguments: Tuple2<GameCategory,
+                                                        Dashboard>(
+                                                    e.value, tuple2!.item1),
+                                              ).then((value) {
+                                                dashboardProvider.getCoin();
+                                              });
+                                            }
+                                          }),
+                                    ),
+                                  )
                                   .toList()),
                         ],
                       ),
@@ -324,7 +266,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         width: getWidthPercentSize(context, 60),
         height: cellHeight,
         margin: const EdgeInsets.all(5),
-
         child: Stack(
           children: [
             SizedBox(

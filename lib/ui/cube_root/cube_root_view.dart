@@ -40,7 +40,6 @@ class CubeRootView extends StatelessWidget {
       ],
       child: DialogListener<CubeRootProvider>(
         colorTuple: colorTuple,
-
         appBar: CommonAppBar<CubeRootProvider>(
             infoView: CommonInfoTextView<CubeRootProvider>(
                 gameCategoryType: GameCategoryType.cubeRoot,
@@ -49,7 +48,6 @@ class CubeRootView extends StatelessWidget {
             gameCategoryType: GameCategoryType.cubeRoot,
             colorTuple: colorTuple,
             context: context),
-
         gameCategoryType: GameCategoryType.cubeRoot,
         level: colorTuple.item2,
         child: CommonMainWidget<CubeRootProvider>(
@@ -91,8 +89,7 @@ class CubeRootView extends StatelessWidget {
                           // ),
                           Selector<CubeRootProvider, CubeRoot>(
                               selector: (p0, p1) => p1.currentState,
-                              builder:
-                                  (context, calculatorProvider, child) {
+                              builder: (context, calculatorProvider, child) {
                                 return getTextWidget(
                                     Theme.of(context).textTheme.titleSmall!,
                                     calculatorProvider.question,
@@ -125,8 +122,7 @@ class CubeRootView extends StatelessWidget {
                                 margin: EdgeInsets.symmetric(
                                     vertical: getPercentSize(height1, 10)),
                                 child: Column(
-                                  children:
-                                      List.generate(list.length, (index) {
+                                  children: List.generate(list.length, (index) {
                                     String e = list[index];
                                     return CommonVerticalButton(
                                         text: e,
@@ -163,106 +159,6 @@ class CubeRootView extends StatelessWidget {
           context: context,
           isTopMargin: false,
         ),
-        // child: getCommonWidget(context: context,
-        //   isTopMargin: true,
-        //   child: Column(
-        //   children: <Widget>[
-        //
-        //     Expanded(flex: 1,
-        //       child: Row(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         children: [
-        //           // Center(
-        //           //   child: Container(
-        //           //     margin: EdgeInsets.only(right: getWidthPercentSize(context, 15)),
-        //           //
-        //           //     child: Image.asset(AppAssets.icCubeRootIcon,height: getPercentSize(remainHeight, 6),
-        //           //       color: Theme
-        //           //           .of(context)
-        //           //           .textTheme
-        //           //           .subtitle2!.color,
-        //           //     ),
-        //           //   ),
-        //           // ),
-        //           getTextWidget(
-        //           Theme.of(context).textTheme.subtitle2!,
-        //       '∛',
-        //       TextAlign.start,
-        //       getPercentSize(remainHeight, 6)),
-        //
-        //           // SvgPicture.asset(
-        //           //   AppAssets.icRoot,
-        //           //   height: getPercentSize(remainHeight, 6),
-        //           //   color: Theme
-        //           //       .of(context)
-        //           //       .textTheme
-        //           //       .subtitle2!.color,
-        //           // ),
-        //           Center(
-        //             child: Container(
-        //               // margin: EdgeInsets.only(left: getWidthPercentSize(context, 1),top: getPercentSize(remainHeight, 1)),
-        //               child: Selector<CubeRootProvider, CubeRoot>(
-        //                   selector: (p0, p1) => p1.currentState,
-        //                   builder: (context, currentState, child) {
-        //
-        //                     print("currentState===${currentState.question}");
-        //
-        //                     return getTextWidget(
-        //                         Theme.of(context).textTheme.subtitle2!,
-        //                         currentState.question,
-        //                         TextAlign.start,
-        //                         getPercentSize(remainHeight, 4));
-        //
-        //
-        //                   }),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //     Selector<CubeRootProvider, CubeRoot>(
-        //       selector: (p0, p1) => p1.currentState,
-        //       builder: (context, currentState, child) {
-        //
-        //         final list=[
-        //           currentState.firstAns,
-        //           currentState.secondAns,
-        //           currentState.thirdAns,
-        //           currentState.fourthAns,
-        //         ];
-        //
-        //         shuffle(list);
-        //         return GridView.count(
-        //           crossAxisCount: _crossAxisCount,
-        //           childAspectRatio: _aspectRatio,
-        //           shrinkWrap: true,
-        //           padding: EdgeInsets.symmetric(
-        //               horizontal: getHorizontalSpace(context),
-        //               vertical: getHorizontalSpace(context)),
-        //           crossAxisSpacing: _crossAxisSpacing,
-        //           mainAxisSpacing: _crossAxisSpacing,
-        //           primary: false,
-        //
-        //           children: List.generate(list.length, (index) {
-        //             String e = list[index];
-        //             return CommonNumberButton(
-        //               text: e,
-        //               is4Matrix: true,
-        //               totalHeight: remainHeight,
-        //               height: height,
-        //               onTab: () {
-        //                 context.read<CubeRootProvider>().checkResult(e);
-        //               },
-        //               colorTuple: colorTuple,
-        //             );
-        //           }),
-        //         );
-        //       },
-        //     ),
-        //   ],
-        // ), subChild:   CommonInfoTextView<CubeRootProvider>(
-        //       folder: colorTuple.item1.folderName!,
-        //       gameCategoryType: GameCategoryType.CUBE_ROOT,color: colorTuple.item1.cellColor!),),
       ),
     );
   }

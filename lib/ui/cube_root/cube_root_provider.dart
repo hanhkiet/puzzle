@@ -33,7 +33,7 @@ class CubeRootProvider extends GameProvider<CubeRoot> {
       rightAnswer();
       audioPlayer.playRightSound();
       rightCount = rightCount + 1;
-
+      if (timerStatus != TimerStatus.pause) increase(period: 1);
       addCoin();
       await Future.delayed(const Duration(milliseconds: 300));
       loadNewDataIfRequired(level: level);

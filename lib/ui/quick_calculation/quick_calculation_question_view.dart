@@ -23,14 +23,21 @@ class QuickCalculationQuestionView extends StatefulWidget {
 class _QuickCalculationQuestionViewState
     extends State<QuickCalculationQuestionView> with TickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<Alignment> alignmentTween;
+  late Animation<double> _opacityAnimationOut;
   @override
   void initState() {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 200),
       vsync: this,
-    )..forward();
+    );
+    alignmentTween =
+        Tween<Alignment>(begin: Alignment.topLeft, end: Alignment.center)
+            .animate(_controller);
+    _opacityAnimationOut =
+        Tween<double>(begin: 0.8, end: 0).animate(_controller);
   }
 
   @override
@@ -45,67 +52,33 @@ class _QuickCalculationQuestionViewState
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Center(
-          child: getTextWidget(
-              Theme.of(context).textTheme.titleSmall!,
-              widget.currentState.question,
-              TextAlign.center,
-              getPercentSize(getRemainHeight(context: context), 4)),
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (context, child) {
+            return Align(
+              alignment: alignmentTween.value,
+              child: getTextWidget(
+                  Theme.of(context).textTheme.titleSmall!,
+                  widget.currentState.question,
+                  TextAlign.center,
+                  getPercentSize(getRemainHeight(context: context), 4)),
+            );
+          },
         ),
-
-        // AnimatedBuilder(
-        //   animation: _animation,
-        //   builder: (context, child) {
-        //     return Align(
-        //       alignment: _animation.value,
-        //       child:  getTextWidget(
-        //           Theme
-        //               .of(context)
-        //               .textTheme
-        //               .subtitle2!,
-        //           widget.currentState.question,
-        //           TextAlign.center,
-        //           getPercentSize(
-        //               getRemainHeight(context: context),4)),
-        //
-        //
-        //     );
-        //   },
-        // ),
-        // Align(
-        //   alignment: Alignment.centerRight,
-        //   child: FadeTransition(
-        //     opacity: _opacityAnimationOut,
-        //     child: getTextWidget(
-        //         Theme
-        //             .of(context)
-        //             .textTheme
-        //             .subtitle2!,
-        //         widget.previousCurrentState?.question ?? "",
-        //         TextAlign.center,
-        //         getPercentSize(
-        //             getRemainHeight(context: context),4)),
-        //
-        //
-        //   ),
-        // ),
-        // Align(
-        //   alignment: Alignment.topLeft,
-        //   child: FadeTransition(
-        //     opacity: _opacityAnimationIn,
-        //     child:  getTextWidget(
-        //         Theme
-        //             .of(context)
-        //             .textTheme
-        //             .caption!.copyWith(color: Colors.grey),
-        //         widget.nextCurrentState.question,
-        //         TextAlign.center,
-        //         getPercentSize(
-        //             getRemainHeight(context: context),2)),
-        //
-        //
-        //   ),
-        // ),
+        Align(
+          alignment: Alignment.center,
+          child: FadeTransition(
+            opacity: _opacityAnimationOut,
+            child: getTextWidget(
+                Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: Colors.grey),
+                widget.previousCurrentState?.question ?? "",
+                TextAlign.center,
+                getPercentSize(getRemainHeight(context: context), 4)),
+          ),
+        ),
       ],
     );
   }

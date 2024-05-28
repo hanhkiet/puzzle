@@ -44,28 +44,17 @@ class QuickCalculationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double remainHeight =getRemainHeight(context: context);
-    // int _crossAxisCount = 3;
-    // double height = getPercentSize(remainHeight, 75) / 4;
-    //
-    // double _crossAxisSpacing = getPercentSize(height, 12);
-    // var widthItem = (getWidthPercentSize(context, 100) -
-    //     ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-    //     _crossAxisCount;
-    //
-    // double _aspectRatio = widthItem / height;
-
     double remainHeight = getRemainHeight(context: context);
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
     double height1 = getScreenPercentSize(context, 57);
     double height = getScreenPercentSize(context, 57) / 5.3;
 
-    double _crossAxisSpacing = getPercentSize(height, 30);
+    double crossAxisSpacing = getPercentSize(height, 30);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
     var margin = getHorizontalSpace(context);
     double mainHeight = getMainHeight(context);
     return MultiProvider(
@@ -89,222 +78,6 @@ class QuickCalculationView extends StatelessWidget {
             context: context),
         gameCategoryType: GameCategoryType.quickCalculation,
         level: colorTuple.item2,
-        // child: getCommonWidget(context: context, child: Column(
-        //   children: <Widget>[
-        //
-        //     Expanded(flex: 1,
-        //       child: Column(
-        //         crossAxisAlignment: CrossAxisAlignment.start,
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         children: [
-        //
-        //           getTextWidget(
-        //               Theme
-        //                   .of(context)
-        //                   .textTheme
-        //                   .caption!.copyWith(color: Colors.grey),
-        //               "NEXT",
-        //               TextAlign.center,
-        //               getPercentSize(
-        //                   remainHeight, 1.8)),
-        //
-        //
-        //           Row(
-        //             children: [
-        //               Expanded(
-        //                 child: Container(
-        //                   height: getPercentSize(remainHeight, 10),
-        //
-        //                   child: Selector<
-        //                       QuickCalculationProvider,
-        //                       Tuple3<QuickCalculation, QuickCalculation,
-        //                           QuickCalculation?>>(
-        //                     selector: (p0, p1) => Tuple3(
-        //                         p1.currentState,
-        //                         p1.nextCurrentState,
-        //                         p1.previousCurrentState),
-        //                     builder: (context, tuple3, child) {
-        //                       return QuickCalculationQuestionView(
-        //                           currentState: tuple3.item1,
-        //                         nextCurrentState: tuple3.item2,
-        //                         previousCurrentState: tuple3.item3,
-        //                       );
-        //                     },
-        //                   ),
-        //                 ),
-        //               ),
-        //               SizedBox(width: getWidthPercentSize(context, 2)),
-        //
-        //
-        //               getTextWidget(
-        //                   Theme
-        //                       .of(context)
-        //                       .textTheme
-        //                       .subtitle2!,
-        //                   " = ",
-        //                   TextAlign.center,
-        //                   getPercentSize(
-        //                       remainHeight, 4)),
-        //
-        //
-        //
-        //               SizedBox(width: getWidthPercentSize(context, 2)),
-        //               Selector<QuickCalculationProvider,
-        //                   Tuple2<double, double>>(
-        //                 selector: (p0, p1) =>
-        //                     Tuple2(p1.currentScore, p1.oldScore),
-        //                 builder: (context, tuple2, child) {
-        //                   return CommonWrongAnswerAnimationView(
-        //                     currentScore: tuple2.item1.toInt(),
-        //                     oldScore: tuple2.item2.toInt(),
-        //                     child: child!,
-        //                   );
-        //                 },
-        //                 child: CommonNeumorphicView(
-        //                   color: colorTuple.item1.cellColor!,
-        //                   // width: getWidthPercentSize(context, 13),
-        //                   // height: getWidthPercentSize(context, 13),
-        //                   height: getPercentSize(
-        //                       remainHeight, 7),
-        //                   width:getPercentSize(
-        //                       remainHeight, 7),
-        //                   child: Selector<QuickCalculationProvider,
-        //
-        //                       String>(
-        //                       selector: (p0, p1) => p1.result,
-        //                       builder: (context, result, chikld) {
-        //                         return getTextWidget(
-        //                             Theme
-        //                                 .of(context)
-        //                                 .textTheme
-        //                                 .subtitle2!.copyWith(color: colorTuple.item1.primaryColor!),
-        //                             result.length > 0 ? result:"?",
-        //                             TextAlign.center,
-        //                             getPercentSize(
-        //                                 remainHeight, 4));
-        //                       }),
-        //                 ),
-        //               ),
-        //               SizedBox(width: getWidthPercentSize(context, 15)),
-        //
-        //             ],
-        //           ),
-        //
-        //         ],
-        //       ),
-        //     ),
-        //     Builder(builder: (context) {
-        //       // return GridView(
-        //       //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //       //       crossAxisCount: 3),
-        //       //   padding: const EdgeInsets.only(bottom: 24),
-        //       //   shrinkWrap: true,
-        //       //   physics: NeverScrollableScrollPhysics(),
-        //       //   children: [
-        //       //     ...[
-        //       //       "7",
-        //       //       "8",
-        //       //       "9",
-        //       //       "4",
-        //       //       "5",
-        //       //       "6",
-        //       //       "1",
-        //       //       "2",
-        //       //       "3",
-        //       //       "Clear",
-        //       //       "0",
-        //       //       "Back"
-        //       //     ].map(
-        //       //           (e) {
-        //       //         if (e == "Clear") {
-        //       //           return CommonClearButton(
-        //       //               text: "Clear",
-        //       //               onTab: () {
-        //       //                 context
-        //       //                     .read<QuickCalculationProvider>()
-        //       //                     .clearResult();
-        //       //               });
-        //       //         } else if (e == "Back") {
-        //       //           return CommonBackButton(onTab: () {
-        //       //             context
-        //       //                 .read<QuickCalculationProvider>()
-        //       //                 .backPress();
-        //       //           });
-        //       //         } else {
-        //       //           return CommonNumberButton(
-        //       //             text: e,
-        //       //             onTab: () {
-        //       //               context
-        //       //                   .read<QuickCalculationProvider>()
-        //       //                   .checkResult(e);
-        //       //             },
-        //       //             colorTuple: Tuple2(colorTuple.item1,colorTuple.item2),
-        //       //           );
-        //       //         }
-        //       //       },
-        //       //     )
-        //       //   ],
-        //       // );
-        //
-        //       return GridView.count(
-        //         crossAxisCount: _crossAxisCount,
-        //         childAspectRatio: _aspectRatio,
-        //         shrinkWrap: true,
-        //         padding: EdgeInsets.only(
-        //           left: getHorizontalSpace(
-        //               context),right: getHorizontalSpace(
-        //             context),bottom: getHorizontalSpace(
-        //             context),
-        //         ),
-        //         crossAxisSpacing: _crossAxisSpacing,
-        //         mainAxisSpacing: _crossAxisSpacing,
-        //         primary: false,
-        //         // padding: EdgeInsets.only(top: getScreenPercentSize(context, 4)),
-        //         children:
-        //         List.generate(list.length, (index) {
-        //           String e = list[index];
-        //           if (e == "Clear") {
-        //             return CommonClearButton(
-        //                 text: "Clear",
-        //                 height: height,
-        //                 onTab: () {
-        //                   context
-        //                       .read<
-        //                       QuickCalculationProvider>()
-        //                       .clearResult();
-        //                 });
-        //           } else if (e == "Back") {
-        //             return CommonBackButton(
-        //               onTab: () {
-        //                 context.read<
-        //                     QuickCalculationProvider>()
-        //                     .backPress();
-        //               },
-        //               height: height,
-        //             );
-        //           } else {
-        //             return CommonNumberButton(
-        //               text: e,
-        //               totalHeight: remainHeight,
-        //               height: height,
-        //               onTab: () {
-        //                 context
-        //                                   .read<QuickCalculationProvider>()
-        //                                   .checkResult(e);
-        //               },
-        //               colorTuple: colorTuple,
-        //             );
-        //           }
-        //         }),
-        //       );
-        //     }),
-        //
-        //
-        //   ],
-        // ), subChild: CommonInfoTextView<QuickCalculationProvider>(
-        //     folder: colorTuple.item1.folderName!,
-        //     gameCategoryType: GameCategoryType.QUICK_CALCULATION,color: colorTuple.item1.cellColor!),),
-
         child: CommonMainWidget<QuickCalculationProvider>(
           gameCategoryType: GameCategoryType.quickCalculation,
           color: colorTuple.item1.bgColor!,
@@ -336,35 +109,6 @@ class QuickCalculationView extends StatelessWidget {
                             ),
                             Stack(
                               children: [
-                                // Container(
-                                //   child: Selector<
-                                //       QuickCalculationProvider,
-                                //       Tuple3<
-                                //           QuickCalculation,
-                                //           QuickCalculation,
-                                //           QuickCalculation?>>(
-                                //     selector: (p0, p1) => Tuple3(
-                                //         p1.currentState,
-                                //         p1.nextCurrentState,
-                                //         p1.previousCurrentState),
-                                //     builder: (context, tuple3, child) {
-                                //       return  Align(
-                                //         alignment: Alignment.topLeft,
-                                //         child: getTextWidget(
-                                //             Theme
-                                //                 .of(context)
-                                //                 .textTheme
-                                //                 .caption!.copyWith(color: Colors.grey),
-                                //             tuple3.item2.question,
-                                //             TextAlign.center,
-                                //             getPercentSize(
-                                //                 getRemainHeight(context: context),2)),
-                                //       )
-                                //       ;
-                                //     },
-                                //   ),
-                                // ),
-
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -416,7 +160,7 @@ class QuickCalculationView extends StatelessWidget {
                                                 QuickCalculationProvider,
                                                 String>(
                                             selector: (p0, p1) => p1.result,
-                                            builder: (context, result, chikld) {
+                                            builder: (context, result, child) {
                                               return getTextWidget(
                                                   Theme.of(context)
                                                       .textTheme
@@ -444,16 +188,16 @@ class QuickCalculationView extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Builder(builder: (context) {
                         return GridView.count(
-                          crossAxisCount: _crossAxisCount,
-                          childAspectRatio: _aspectRatio,
+                          crossAxisCount: crossAxisCount,
+                          childAspectRatio: aspectRatio,
                           shrinkWrap: true,
                           padding: EdgeInsets.only(
                             right: (margin * 2),
                             left: (margin * 2),
                             bottom: getHorizontalSpace(context),
                           ),
-                          crossAxisSpacing: _crossAxisSpacing,
-                          mainAxisSpacing: _crossAxisSpacing,
+                          crossAxisSpacing: crossAxisSpacing,
+                          mainAxisSpacing: crossAxisSpacing,
                           primary: false,
                           // padding: EdgeInsets.only(top: getScreenPercentSize(context, 4)),
                           children: List.generate(list.length, (index) {
@@ -495,40 +239,6 @@ class QuickCalculationView extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Container(
-                //   margin: EdgeInsets.only(top: getPercentSize(height1, 17)),
-                //   child: Selector<QuickCalculationProvider,
-                //       Tuple2<double, double>>(
-                //     selector: (p0, p1) =>
-                //         Tuple2(p1.currentScore, p1.oldScore),
-                //     builder: (context, tuple2, child) {
-                //       return CommonWrongAnswerAnimationView(
-                //         currentScore: tuple2.item1.toInt(),
-                //         oldScore: tuple2.item2.toInt(),
-                //         child: child!,
-                //       );
-                //     },
-                //     child: CommonNeumorphicView(
-                //       isLarge: true,
-                //       isMargin: false,
-                //       height: getPercentSize(height1, 12),
-                //       color: getBackGroundColor(context),
-                //       child: Selector<QuickCalculationProvider, String>(
-                //         selector: (p0, p1) => p1.result,
-                //         builder: (context, result, child) {
-                //           return getTextWidget(
-                //               Theme.of(context)
-                //                   .textTheme
-                //                   .subtitle2!
-                //                   .copyWith(fontWeight: FontWeight.w600),
-                //               result.length > 0 ? result : '?',
-                //               TextAlign.center,
-                //               getPercentSize(height1, 7));
-                //         },
-                //       ),
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           ),

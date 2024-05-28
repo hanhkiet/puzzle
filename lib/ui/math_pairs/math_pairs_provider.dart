@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 
-
 import '../../core/app_constants.dart';
 import '../../data/models/math_pairs.dart';
 import '../app/game_provider.dart';
@@ -17,9 +16,7 @@ class MathPairsProvider extends GameProvider<MathPairs> {
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
-      : super(
-            gameCategoryType: GameCategoryType.mathPairs,
-            c: context) {
+      : super(gameCategoryType: GameCategoryType.mathPairs, c: context) {
     startGame(level: level);
   }
 
@@ -56,10 +53,8 @@ class MathPairsProvider extends GameProvider<MathPairs> {
             }
           } else {
             audioPlayer.playWrongSound();
-            minusCoin();
             wrongAnswer();
-            currentState.list[first].isActive = false;
-            currentState.list[index].isActive = false;
+            resetActive(index);
             first = -1;
             notifyListeners();
           }
@@ -72,5 +67,10 @@ class MathPairsProvider extends GameProvider<MathPairs> {
         notifyListeners();
       }
     }
+  }
+
+  void resetActive(int index) {
+    currentState.list[first].isActive = false;
+    currentState.list[index].isActive = false;
   }
 }

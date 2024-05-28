@@ -26,15 +26,15 @@ class MathPairsView extends StatelessWidget {
     double remainHeight = getRemainHeight(context: context);
     double mainHeight = getMainHeight(context);
 
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
     double height = getPercentSize(remainHeight, 75) / 5;
 
-    double _crossAxisSpacing = getPercentSize(height, 14);
+    double crossAxisSpacing = getPercentSize(height, 14);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
 
     return MultiProvider(
       providers: [
@@ -58,66 +58,6 @@ class MathPairsView extends StatelessWidget {
             gameCategoryType: GameCategoryType.mathPairs,
             colorTuple: colorTuple,
             context: context),
-
-        // child:getCommonWidget(context: context,
-        //
-        //   child: Column(
-        //     children: <Widget>[
-        //
-        //
-        //       Expanded(
-        //         flex: 1,
-        //         child: Center(
-        //           child: Consumer<MathPairsProvider>(
-        //               builder: (context, mathPairsProvider, child) {
-        //
-        //                 return GridView.count(
-        //                   crossAxisCount: _crossAxisCount,
-        //                   childAspectRatio: _aspectRatio,
-        //                   shrinkWrap: true,
-        //                   padding: EdgeInsets.symmetric(
-        //                       horizontal: getHorizontalSpace(context)/2,
-        //                       vertical: getHorizontalSpace(context)),
-        //                   crossAxisSpacing: _crossAxisSpacing,
-        //                   mainAxisSpacing: _crossAxisSpacing,
-        //                   primary: false,
-        //                   children:
-        //                   List.generate( mathPairsProvider.currentState.list.length, (index) {
-        //                     return MathPairsButton(
-        //                       height: height,
-        //                                 mathPairs: mathPairsProvider
-        //                                     .currentState.list[index],
-        //                                 index: index,
-        //                                 colorTuple: Tuple2(colorTuple.item1.primaryColor!,colorTuple.item1.primaryColor!),
-        //                               );
-        //                   }),
-        //                 );
-        //                 // return GridView.builder(
-        //                 //     gridDelegate:
-        //                 //     SliverGridDelegateWithFixedCrossAxisCount(
-        //                 //         crossAxisCount: 3, childAspectRatio: 1.2),
-        //                 //     padding:  EdgeInsets.only(bottom: getPercentSize(getRemainHeight(context: context),5)),
-        //                 //     shrinkWrap: true,
-        //                 //     itemCount:
-        //                 //     mathPairsProvider.currentState.list.length,
-        //                 //     physics: NeverScrollableScrollPhysics(),
-        //                 //     itemBuilder: (BuildContext context, int index) {
-        //                 //       return MathPairsButton(
-        //                 //         mathPairs: mathPairsProvider
-        //                 //             .currentState.list[index],
-        //                 //         index: index,
-        //                 //         colorTuple: Tuple2(colorTuple.item1.primaryColor!,colorTuple.item1.primaryColor!),
-        //                 //       );
-        //                 //     });
-        //               }),
-        //         ),
-        //       ),
-        //     ],
-        //   ), subChild:   CommonInfoTextView<MathPairsProvider>(
-        //       folder: colorTuple.item1.folderName!,
-        //
-        //       gameCategoryType: GameCategoryType.MATH_PAIRS,color: colorTuple.item1.cellColor!),),
-
         child: CommonMainWidget<MathPairsProvider>(
           gameCategoryType: GameCategoryType.mathPairs,
           color: colorTuple.item1.bgColor!,
@@ -130,14 +70,14 @@ class MathPairsView extends StatelessWidget {
                 child: Consumer<MathPairsProvider>(
                     builder: (context, mathPairsProvider, child) {
                   return GridView.count(
-                    crossAxisCount: _crossAxisCount,
-                    childAspectRatio: _aspectRatio,
+                    crossAxisCount: crossAxisCount,
+                    childAspectRatio: aspectRatio,
                     shrinkWrap: true,
                     padding: EdgeInsets.symmetric(
                         horizontal: getHorizontalSpace(context),
                         vertical: (getHorizontalSpace(context) * 2.5)),
-                    crossAxisSpacing: _crossAxisSpacing,
-                    mainAxisSpacing: _crossAxisSpacing,
+                    crossAxisSpacing: crossAxisSpacing,
+                    mainAxisSpacing: crossAxisSpacing,
                     primary: false,
                     children: List.generate(
                         mathPairsProvider.currentState.list.length, (index) {
@@ -155,23 +95,6 @@ class MathPairsView extends StatelessWidget {
                       );
                     }),
                   );
-                  // return GridView.builder(
-                  //     gridDelegate:
-                  //     SliverGridDelegateWithFixedCrossAxisCount(
-                  //         crossAxisCount: 3, childAspectRatio: 1.2),
-                  //     padding:  EdgeInsets.only(bottom: getPercentSize(getRemainHeight(context: context),5)),
-                  //     shrinkWrap: true,
-                  //     itemCount:
-                  //     mathPairsProvider.currentState.list.length,
-                  //     physics: NeverScrollableScrollPhysics(),
-                  //     itemBuilder: (BuildContext context, int index) {
-                  //       return MathPairsButton(
-                  //         mathPairs: mathPairsProvider
-                  //             .currentState.list[index],
-                  //         index: index,
-                  //         colorTuple: Tuple2(colorTuple.item1.primaryColor!,colorTuple.item1.primaryColor!),
-                  //       );
-                  //     });
                 }),
               ),
             ),

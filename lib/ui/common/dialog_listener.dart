@@ -187,8 +187,7 @@ class _DialogListenerState<T extends GameProvider>
                   context.read<T>().startGame(level: widget.level);
                 }
               } else {
-                context.read<T>().updateScore();
-                Navigator.pop(context);
+                context.read<T>().pauseResumeGame();
               }
             });
             break;

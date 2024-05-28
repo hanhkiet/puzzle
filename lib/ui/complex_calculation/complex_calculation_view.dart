@@ -56,7 +56,6 @@ class ComplexCalculationView extends StatelessWidget {
             gameCategoryType: GameCategoryType.complexCalculation,
             colorTuple: colorTuple,
             context: context),
-
         child: CommonMainWidget<ComplexCalculationProvider>(
           gameCategoryType: GameCategoryType.complexCalculation,
           color: colorTuple.item1.bgColor!,
@@ -117,18 +116,6 @@ class ComplexCalculationView extends StatelessWidget {
                                 ),
                               );
                             });
-
-                        // return ListView.builder(
-                        //   itemCount: list.length,
-                        //
-                        //   itemBuilder: (context, index) {
-                        //   return Container(
-                        //     height: btnHeight,
-                        //     decoration: getDefaultDecoration(
-                        //       bgColor: colorTuple.item1.backgroundColor
-                        //     ),
-                        //   );
-                        // },);
                       }),
                     ),
                   ],
@@ -139,74 +126,6 @@ class ComplexCalculationView extends StatelessWidget {
           context: context,
           isTopMargin: false,
         ),
-        // child: getCommonWidget(
-        //     context: context,
-        //     isTopMargin: false,
-        //     child: Column(
-        //       children: <Widget>[
-        //         Expanded(
-        //           child: Center(
-        //             child: Row(
-        //               mainAxisAlignment: MainAxisAlignment.center,
-        //               children: [
-        //                 Selector<ComplexCalculationProvider, ComplexModel>(
-        //                     selector: (p0, p1) => p1.currentState,
-        //                     builder: (context, calculatorProvider, child) {
-        //                       return getTextWidget(
-        //                           Theme
-        //                               .of(context)
-        //                               .textTheme
-        //                               .subtitle2!,
-        //                           calculatorProvider
-        //                               .question!,
-        //                           TextAlign.center,
-        //                           getPercentSize(
-        //                               remainHeight, 4));
-        //                     }),
-        //
-        //
-        //               ],
-        //             ),
-        //           ),
-        //           flex: 1,
-        //         ),
-        //         Selector<ComplexCalculationProvider, ComplexModel>(
-        //             selector: (p0, p1) => p1.currentState,
-        //             builder: (context, currentState, child) {
-        //
-        //               final list=currentState.optionList;
-        //               return GridView.count(
-        //                 crossAxisCount: _crossAxisCount,
-        //                 childAspectRatio: _aspectRatio,
-        //                 shrinkWrap: true,
-        //                 padding: EdgeInsets.symmetric(
-        //                     horizontal: getHorizontalSpace(context),
-        //                     vertical: getHorizontalSpace(context)),
-        //                 crossAxisSpacing: _crossAxisSpacing,
-        //                 mainAxisSpacing: _crossAxisSpacing,
-        //                 primary: false,
-        //
-        //                 children: List.generate(list.length, (index) {
-        //                   String e = list[index];
-        //                   return CommonNumberButton(
-        //                     is4Matrix: true,
-        //                     text: e,
-        //                     totalHeight: remainHeight,
-        //                     height: height,
-        //                     onTab: () {
-        //                       context.read<ComplexCalculationProvider>().checkResult(e);
-        //                     },
-        //                     colorTuple: colorTuple,
-        //                   );
-        //                 }),
-        //               );
-        //             }),
-        //       ],
-        //     ),
-        //     subChild: CommonInfoTextView<ComplexCalculationProvider>(
-        //         gameCategoryType: GameCategoryType.COMPLEX_CALCULATION,
-        //         folder: colorTuple.item1.folderName!,
-        //         color: colorTuple.item1.cellColor!)),
       ),
     );
   }

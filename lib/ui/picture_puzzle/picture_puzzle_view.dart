@@ -56,18 +56,18 @@ class PicturePuzzleView extends StatelessWidget {
     //
     // double mainHeight = getMainHeight(context);
     double remainHeight = getRemainHeight(context: context);
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
 
     double height1 = getScreenPercentSize(context, 42);
     double height = height1 / 4.5;
     double radius = getPercentSize(height, 35);
 
-    double _crossAxisSpacing = getPercentSize(height, 20);
+    double crossAxisSpacing = getPercentSize(height, 20);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
     var margin = getHorizontalSpace(context);
 
     double mainHeight = getMainHeight(context);
@@ -92,10 +92,8 @@ class PicturePuzzleView extends StatelessWidget {
             gameCategoryType: GameCategoryType.picturePuzzle,
             colorTuple: colorTuple,
             context: context),
-
         gameCategoryType: GameCategoryType.picturePuzzle,
         level: colorTuple.item2,
-
         child: CommonMainWidget<PicturePuzzleProvider>(
           gameCategoryType: GameCategoryType.picturePuzzle,
           color: colorTuple.item1.bgColor!,
@@ -105,7 +103,7 @@ class PicturePuzzleView extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: getPercentSize(remainHeight, 2),
+                  height: getPercentSize(remainHeight, 4),
                 ),
                 Expanded(
                   flex: 1,
@@ -140,7 +138,6 @@ class PicturePuzzleView extends StatelessWidget {
                         );
                       }),
                 ),
-
                 Container(
                   height: height1,
                   decoration: getCommonDecoration(context),
@@ -148,15 +145,15 @@ class PicturePuzzleView extends StatelessWidget {
                   child: Builder(builder: (context) {
                     return Center(
                       child: GridView.count(
-                        crossAxisCount: _crossAxisCount,
-                        childAspectRatio: _aspectRatio,
+                        crossAxisCount: crossAxisCount,
+                        childAspectRatio: aspectRatio,
                         shrinkWrap: true,
                         padding: EdgeInsets.only(
                           right: (margin * 2),
                           left: (margin * 2),
                         ),
-                        crossAxisSpacing: _crossAxisSpacing,
-                        mainAxisSpacing: _crossAxisSpacing,
+                        crossAxisSpacing: crossAxisSpacing,
+                        mainAxisSpacing: crossAxisSpacing,
                         primary: false,
                         // padding: EdgeInsets.only(top: getScreenPercentSize(context, 4)),
                         children: List.generate(list.length, (index) {
@@ -200,156 +197,12 @@ class PicturePuzzleView extends StatelessWidget {
                     );
                   }),
                 ),
-                // Builder(builder: (context) {
-                //   return GridView.count(
-                //     crossAxisCount: _crossAxisCount,
-                //     childAspectRatio: _aspectRatio,
-                //     shrinkWrap: true,
-                //     padding: EdgeInsets.symmetric(
-                //         horizontal: getHorizontalSpace(
-                //             context),
-                //         vertical: getHorizontalSpace(
-                //             context)),
-                //     crossAxisSpacing: _crossAxisSpacing,
-                //     mainAxisSpacing: _crossAxisSpacing,
-                //     primary: false,
-                //     children:
-                //     List.generate(list.length, (index) {
-                //       String e = list[index];
-                //       if (e == "Clear") {
-                //         return CommonClearButton(
-                //             text: "Clear",
-                //             height: height,
-                //             onTab: () {
-                //               context
-                //                   .read<PicturePuzzleProvider>()
-                //                   .clearResult();
-                //             });
-                //       } else if (e == "Back") {
-                //         return CommonBackButton(
-                //           onTab: () {
-                //             context.read<
-                //                 PicturePuzzleProvider>()
-                //                 .backPress();
-                //           },
-                //           height: height,
-                //         );
-                //       } else {
-                //         return
-                //           CommonNumberButton(
-                //             text: e,
-                //             isDarken: false,
-                //             totalHeight: remainHeight,
-                //             height: height,
-                //             colorTuple: colorTuple,
-                //             onTab: () {
-                //               context.read<PicturePuzzleProvider>().checkGameResult(e);
-                //             },
-                //           );
-                //       }
-                //     }),
-                //   );
-                // }),
               ],
             ),
           ),
           context: context,
           isTopMargin: false,
         ),
-        // child: getCommonWidget(context: context,isTopMargin: true, child: Column(
-        //   children: <Widget>[
-        //
-        //     SizedBox(height: getPercentSize(remainHeight, 2),),
-        //     Expanded(
-        //       flex: 1,
-        //       child: Selector<PicturePuzzleProvider, PicturePuzzle>(
-        //           selector: (p0, p1) => p1.currentState,
-        //           builder: (context, provider, child) {
-        //             return Column(
-        //               mainAxisAlignment: MainAxisAlignment.center,
-        //               children: provider.list.mapIndexed((index, list) {
-        //                 return Expanded(
-        //                   flex: 1,
-        //                   child: Padding(
-        //                     padding: EdgeInsets.symmetric(
-        //                         // vertical:0),
-        //                         vertical: index == 3 ? 6 : 12),
-        //                     child: Row(
-        //                       crossAxisAlignment:
-        //                       CrossAxisAlignment.center,
-        //                       mainAxisAlignment: MainAxisAlignment.center,
-        //                       children: list.shapeList.map((subList) {
-        //                         return PicturePuzzleButton(
-        //                           picturePuzzleShape: subList,
-        //                           shapeColor: colorTuple.item1.primaryColor!,
-        //                           colorTuple: Tuple2(
-        //                               colorTuple.item1.cellColor!,colorTuple.item1.primaryColor!
-        //                           ),
-        //                         );
-        //                       }).toList(),
-        //                     ),
-        //                   ),
-        //                 );
-        //               }).toList(),
-        //             );
-        //           }),
-        //     ),
-        //
-        //     Builder(builder: (context) {
-        //       return GridView.count(
-        //         crossAxisCount: _crossAxisCount,
-        //         childAspectRatio: _aspectRatio,
-        //         shrinkWrap: true,
-        //         padding: EdgeInsets.symmetric(
-        //             horizontal: getHorizontalSpace(
-        //                 context),
-        //             vertical: getHorizontalSpace(
-        //                 context)),
-        //         crossAxisSpacing: _crossAxisSpacing,
-        //         mainAxisSpacing: _crossAxisSpacing,
-        //         primary: false,
-        //         children:
-        //         List.generate(list.length, (index) {
-        //           String e = list[index];
-        //           if (e == "Clear") {
-        //             return CommonClearButton(
-        //                 text: "Clear",
-        //                 height: height,
-        //                 onTab: () {
-        //                   context
-        //                       .read<PicturePuzzleProvider>()
-        //                       .clearResult();
-        //                 });
-        //           } else if (e == "Back") {
-        //             return CommonBackButton(
-        //               onTab: () {
-        //                 context.read<
-        //                     PicturePuzzleProvider>()
-        //                     .backPress();
-        //               },
-        //               height: height,
-        //             );
-        //           } else {
-        //             return
-        //               CommonNumberButton(
-        //               text: e,
-        //                 isDarken: false,
-        //                 totalHeight: remainHeight,
-        //                   height: height,
-        //               colorTuple: colorTuple,
-        //               onTab: () {
-        //                 context.read<PicturePuzzleProvider>().checkGameResult(e);
-        //               },
-        //             );
-        //           }
-        //         }),
-        //       );
-        //     }),
-        //   ],
-        // ), subChild:  CommonInfoTextView<PicturePuzzleProvider>(
-        //     folder: colorTuple.item1.folderName!,
-        //
-        //     gameCategoryType: GameCategoryType.PICTURE_PUZZLE,color: colorTuple.item1.cellColor!),),
       ),
     );
   }

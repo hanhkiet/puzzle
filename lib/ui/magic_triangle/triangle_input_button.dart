@@ -54,9 +54,7 @@ class TriangleInputButton extends StatelessWidget {
                   radius: radius,
                   bgColor: colorTuple.item2,
                   borderColor: input.isActive ? colorTuple.item1 : null),
-
           alignment: Alignment.center,
-
           child: getTextWidget(
               Theme.of(context)
                   .textTheme
@@ -65,11 +63,6 @@ class TriangleInputButton extends StatelessWidget {
               input.value.toString(),
               TextAlign.center,
               getPercentSize(cellHeight, 45)),
-          // child: Text(
-          //   input.value.toString(),
-          //   style: Theme.of(context).textTheme.subtitle2!
-          //       .copyWith(fontSize: 30, color: Colors.white),
-          // ),
         ),
       ),
     );

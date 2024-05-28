@@ -94,8 +94,10 @@ Widget getTextWidget(
     {String? hint}) {
   return Text(
     text,
+    maxLines: 2,
     style: TextStyle(
         decoration: TextDecoration.none,
+        overflow: TextOverflow.ellipsis,
         fontSize: textSizes,
         color: textStyle.color,
         fontFamily: textStyle.fontFamily,

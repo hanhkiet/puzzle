@@ -21,6 +21,7 @@ class AppAudioPlayer {
   }
 
   void playWrongSound() {
+    playAudio(wrongSound);
     if (_isVibrate!) {
       Vibrate.vibrate();
     }

@@ -22,6 +22,7 @@ class TriangleInput3x3 extends StatelessWidget {
     double remainHeight = getRemainHeight(context: context);
 
     double space = getPercentSize(remainHeight, 3.5);
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
