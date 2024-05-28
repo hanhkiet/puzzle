@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/mental_arithmetic.dart';
 import 'package:puzzle/ui/common/common_app_bar.dart';
@@ -12,11 +13,10 @@ import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/mental_arithmetic/mental_arithmetic_provider.dart';
 import 'package:puzzle/ui/mental_arithmetic/mental_arithmetic_question_view.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
-import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_main_widget.dart';
 
 class MentalArithmeticView extends StatelessWidget {
@@ -45,16 +45,16 @@ class MentalArithmeticView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double remainHeight = getRemainHeight(context: context);
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
     double height1 = getScreenPercentSize(context, 57);
     double height = getScreenPercentSize(context, 57) / 5.3;
 
-    double _crossAxisSpacing = getPercentSize(height, 30);
+    double crossAxisSpacing = getPercentSize(height, 30);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
     var margin = getHorizontalSpace(context);
     double mainHeight = getMainHeight(context);
     return MultiProvider(
@@ -111,16 +111,16 @@ class MentalArithmeticView extends StatelessWidget {
                       alignment: Alignment.bottomCenter,
                       child: Builder(builder: (context) {
                         return GridView.count(
-                          crossAxisCount: _crossAxisCount,
-                          childAspectRatio: _aspectRatio,
+                          crossAxisCount: crossAxisCount,
+                          childAspectRatio: aspectRatio,
                           shrinkWrap: true,
                           padding: EdgeInsets.only(
                             right: (margin * 2),
                             left: (margin * 2),
                             bottom: getHorizontalSpace(context),
                           ),
-                          crossAxisSpacing: _crossAxisSpacing,
-                          mainAxisSpacing: _crossAxisSpacing,
+                          crossAxisSpacing: crossAxisSpacing,
+                          mainAxisSpacing: crossAxisSpacing,
                           primary: false,
                           // padding: EdgeInsets.only(top: getScreenPercentSize(context, 4)),
                           children: List.generate(list.length, (index) {

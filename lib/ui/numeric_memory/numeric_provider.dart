@@ -1,5 +1,7 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/numeric_memory_pair.dart';
 import 'package:puzzle/ui/app/game_provider.dart';
@@ -25,13 +27,16 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
   Future<void> checkResult(String mathPair, int index) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
 
-    print("mathPair===$mathPair===${currentState.answer}");
+    if (kDebugMode) {
+      print("mathPair===$mathPair===${currentState.answer}");
+    }
 
     if (mathPair == currentState.answer) {
       audioPlayer.playRightSound();
       currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
-      if (timerStatus != TimerStatus.pause)
+      if (timerStatus != TimerStatus.pause) {
         increase(period: KeyUtil.numericMemoryPlusTime);
+      }
       addCoin();
     } else {
       minusCoin();

@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-AdRequest request = AdRequest(
+AdRequest request = const AdRequest(
   keywords: <String>['foo', 'bar'],
   contentUrl: 'http://foo.com/bar.html',
   nonPersonalizedAds: true,

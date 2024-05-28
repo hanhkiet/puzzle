@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:figma_squircle/figma_squircle.dart';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -287,17 +287,23 @@ getDefaultIconWidget(BuildContext context,
     bool? changeFolderName}) {
   double size = getScreenPercentSize(context, 3.5);
 
-  print("folderName====$folder");
+  if (kDebugMode) {
+    print("folderName====$folder");
+  }
 
   if (folder != null && changeFolderName == null) {
     folder = getFolderName(context, folder);
 
-    print("folderqw---$folder---$icon");
+    if (kDebugMode) {
+      print("folderqw---$folder---$icon");
+    }
   } else {
     folder = AppAssets.assetFolderPath + folder!;
   }
 
-  print("folder====$folder---$icon");
+  if (kDebugMode) {
+    print("folder====$folder---$icon");
+  }
   return InkWell(
     onTap: () {
       if (function != null) {

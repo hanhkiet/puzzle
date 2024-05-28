@@ -9,7 +9,7 @@ import '../../ads/ads_file.dart';
 import '../../core/app_assets.dart';
 import '../../data/models/dashboard.dart';
 import '../../data/models/game_category.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/theme_provider.dart';
 import '../model/gradient_model.dart';
 
@@ -72,15 +72,15 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
 
     double margin = getHorizontalSpace(context);
 
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
     double height = getWidthPercentSize(context, 100) / 4;
 
-    double _crossAxisSpacing = getScreenPercentSize(context, 3.5);
+    double crossAxisSpacing = getScreenPercentSize(context, 3.5);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
     ThemeProvider themeProvider = Provider.of(context);
 
     return PopScope(
@@ -139,11 +139,11 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                       vertical: getScreenPercentSize(context, 3),
                       horizontal: getWidthPercentSize(context, 3)),
                   child: GridView.count(
-                    crossAxisCount: _crossAxisCount,
-                    childAspectRatio: _aspectRatio,
+                    crossAxisCount: crossAxisCount,
+                    childAspectRatio: aspectRatio,
                     shrinkWrap: true,
-                    crossAxisSpacing: _crossAxisSpacing,
-                    mainAxisSpacing: _crossAxisSpacing,
+                    crossAxisSpacing: crossAxisSpacing,
+                    mainAxisSpacing: crossAxisSpacing,
                     primary: false,
                     padding: EdgeInsets.symmetric(
                         vertical: getScreenPercentSize(context, 2.3),

@@ -2,22 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_share/flutter_share.dart';
-
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
-import 'package:puzzle/ui/common/rate_dialog_view.dart';
-import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/resizer/fetch_pixels.dart';
 import 'package:puzzle/ui/resizer/widget_utils.dart';
-import 'package:puzzle/utility/Constants.dart';
-import 'package:tuple/tuple.dart';
+import 'package:puzzle/utility/constants.dart';
 
 import '../core/app_assets.dart';
 import 'app/theme_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'common/common_alert_dialog.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -337,12 +330,6 @@ class _SettingScreen extends State<SettingScreen> {
         ),
       ),
     );
-  }
-
-  _launchURL() async {
-    if (!await launchUrl(Uri.parse(privacyURL))) {
-      throw 'Could not launch $privacyURL';
-    }
   }
 
   share() async {

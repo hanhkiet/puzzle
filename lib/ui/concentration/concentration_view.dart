@@ -1,11 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_app_bar.dart';
 import '../common/common_info_text_view.dart';
 import '../common/common_main_widget.dart';
@@ -29,15 +29,15 @@ class ConcentrationView extends StatelessWidget {
     double remainHeight = getRemainHeight(context: context);
     double mainHeight = getMainHeight(context);
 
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
     double height = getPercentSize(remainHeight, 65) / 5;
 
-    double _crossAxisSpacing = getPercentSize(height, 14);
+    double crossAxisSpacing = getPercentSize(height, 14);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
 
     return StatefulBuilder(builder: (context, snapshot) {
       return MultiProvider(
@@ -48,7 +48,9 @@ class ConcentrationView extends StatelessWidget {
                   vsync: VsyncProvider.of(context),
                   level: colorTuple.item2,
                   nextQuiz: () {
-                    print("isContinue====$isContinue");
+                    if (kDebugMode) {
+                      print("isContinue====$isContinue");
+                    }
                     snapshot(() {
                       isContinue = false;
                     });
@@ -94,14 +96,14 @@ class ConcentrationView extends StatelessWidget {
                             child: Consumer<ConcentrationProvider>(
                                 builder: (context, provider, child) {
                               return GridView.count(
-                                crossAxisCount: _crossAxisCount,
-                                childAspectRatio: _aspectRatio,
+                                crossAxisCount: crossAxisCount,
+                                childAspectRatio: aspectRatio,
                                 shrinkWrap: true,
                                 padding: EdgeInsets.symmetric(
                                     horizontal: getHorizontalSpace(context),
                                     vertical: getHorizontalSpace(context)),
-                                crossAxisSpacing: _crossAxisSpacing,
-                                mainAxisSpacing: _crossAxisSpacing,
+                                crossAxisSpacing: crossAxisSpacing,
+                                mainAxisSpacing: crossAxisSpacing,
                                 primary: false,
                                 children: List.generate(
                                     provider.currentState.list.length, (index) {

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:puzzle/core/app_assets.dart';
 import 'package:puzzle/core/app_constants.dart';
-import 'package:puzzle/utility/Constants.dart';
+import 'package:puzzle/utility/constants.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

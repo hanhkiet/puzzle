@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../sound_player/audio_file.dart';
 import 'common_tab_animation_view.dart';
 

@@ -17,7 +17,7 @@ class AppTheme {
           systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         colorScheme: const ColorScheme.light(
-            background: Colors.white, brightness: Brightness.light));
+            surface: Colors.white, brightness: Brightness.light));
   }
 
   static ThemeData get darkTheme {
@@ -35,7 +35,7 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle.light,
       ),
       colorScheme: const ColorScheme.dark(
-        background: Colors.black,
+        surface: Colors.black,
         brightness: Brightness.dark,
       ),
     );

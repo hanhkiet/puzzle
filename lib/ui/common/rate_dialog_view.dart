@@ -5,7 +5,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../feedback_screen.dart';
 import '../model/gradient_model.dart';
 import '../resizer/fetch_pixels.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../data/models/correct_answer.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 class CorrectAnswerQuestionView extends StatelessWidget {
   final Question question;

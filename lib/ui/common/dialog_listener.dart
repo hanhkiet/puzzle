@@ -5,7 +5,7 @@ import 'package:puzzle/core/color_scheme.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../app/game_provider.dart';
 import '../model/gradient_model.dart';
 import '../numeric_memory/numeric_view.dart';

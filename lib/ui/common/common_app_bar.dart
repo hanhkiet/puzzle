@@ -4,7 +4,7 @@ import 'package:tuple/tuple.dart';
 
 import '../../core/app_assets.dart';
 import '../../core/app_constants.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../../utility/dialog_info_util.dart';
 import '../app/game_provider.dart';
 import '../model/gradient_model.dart';

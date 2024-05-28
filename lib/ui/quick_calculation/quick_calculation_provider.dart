@@ -1,7 +1,8 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
-import 'package:puzzle/data/models/quick_calculation.dart';
 import 'package:puzzle/core/app_constants.dart';
+import 'package:puzzle/data/models/quick_calculation.dart';
 import 'package:puzzle/ui/app/game_provider.dart';
 
 import '../sound_player/audio_file.dart';
@@ -35,8 +36,9 @@ class QuickCalculationProvider extends GameProvider<QuickCalculation> {
         nextCurrentState = list[index + 1];
         currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
         addCoin();
-        if (timerStatus != TimerStatus.pause)
+        if (timerStatus != TimerStatus.pause) {
           increase(period: KeyUtil.quickCalculationPlusTime);
+        }
         notifyListeners();
       } else if (result.length == currentState.answer.toString().length) {
         audioPlayer.playWrongSound();

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../data/models/math_pairs.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../sound_player/audio_file.dart';
 import 'concentration_provider.dart';
 

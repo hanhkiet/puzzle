@@ -1,14 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:puzzle/core/app_constants.dart';
+import 'package:puzzle/ui/common/common_app_bar.dart';
 import 'package:puzzle/ui/common/common_back_button.dart';
 import 'package:puzzle/ui/common/common_clear_button.dart';
-import 'package:puzzle/ui/common/common_app_bar.dart';
 import 'package:puzzle/ui/common/common_info_text_view.dart';
 import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/number_pyramid/number_pyramid_provider.dart';
-import 'package:puzzle/core/app_constants.dart';
-import 'package:puzzle/utility/Constants.dart';
-import 'package:provider/provider.dart';
+import 'package:puzzle/utility/constants.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
@@ -42,18 +43,18 @@ class NumberPyramidView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double remainHeight = getRemainHeight(context: context);
-    int _crossAxisCount = 3;
+    int crossAxisCount = 3;
 
     double height1 = getScreenPercentSize(context, 42);
     double height = height1 / 4.5;
     double radius = getPercentSize(height, 35);
 
-    double _crossAxisSpacing = getPercentSize(height, 20);
+    double crossAxisSpacing = getPercentSize(height, 20);
     var widthItem = (getWidthPercentSize(context, 100) -
-            ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-        _crossAxisCount;
+            ((crossAxisCount - 1) * crossAxisSpacing)) /
+        crossAxisCount;
 
-    double _aspectRatio = widthItem / height;
+    double aspectRatio = widthItem / height;
     var margin = getHorizontalSpace(context);
 
     double mainHeight = getMainHeight(context);
@@ -86,7 +87,6 @@ class NumberPyramidView extends StatelessWidget {
             gameCategoryType: GameCategoryType.numberPyramid,
             colorTuple: colorTuple1,
             context: context),
-
         child: CommonMainWidget<NumberPyramidProvider>(
           gameCategoryType: GameCategoryType.numberPyramid,
           color: colorTuple1.item1.bgColor!,
@@ -104,8 +104,10 @@ class NumberPyramidView extends StatelessWidget {
                     return Center(
                       child: Consumer<NumberPyramidProvider>(
                           builder: (context, numberPyramidProvider, child) {
-                        print(
-                            "value---${numberPyramidProvider.currentState.list[10]}");
+                        if (kDebugMode) {
+                          print(
+                              "value---${numberPyramidProvider.currentState.list[10]}");
+                        }
                         return Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -468,15 +470,15 @@ class NumberPyramidView extends StatelessWidget {
                   child: Builder(builder: (context) {
                     return Center(
                       child: GridView.count(
-                        crossAxisCount: _crossAxisCount,
-                        childAspectRatio: _aspectRatio,
+                        crossAxisCount: crossAxisCount,
+                        childAspectRatio: aspectRatio,
                         shrinkWrap: true,
                         padding: EdgeInsets.only(
                           right: (margin * 2),
                           left: (margin * 2),
                         ),
-                        crossAxisSpacing: _crossAxisSpacing,
-                        mainAxisSpacing: _crossAxisSpacing,
+                        crossAxisSpacing: crossAxisSpacing,
+                        mainAxisSpacing: crossAxisSpacing,
                         primary: false,
                         // padding: EdgeInsets.only(top: getScreenPercentSize(context, 4)),
                         children: List.generate(list.length, (index) {

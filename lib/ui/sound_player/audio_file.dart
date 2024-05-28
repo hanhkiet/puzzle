@@ -1,6 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:puzzle/utility/Constants.dart';
+import 'package:puzzle/utility/constants.dart';
 import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 class AppAudioPlayer {

@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:puzzle/ui/magic_triangle/triangle_input_button.dart';
 import 'package:tuple/tuple.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import 'magic_triangle_provider.dart';
 
 class Triangle4x4 extends StatelessWidget {

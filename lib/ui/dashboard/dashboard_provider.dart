@@ -7,7 +7,7 @@ import 'package:puzzle/ui/app/coin_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../data/models/game_category.dart';
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 
 class DashboardProvider extends CoinProvider {
   int _overallScore = 0;

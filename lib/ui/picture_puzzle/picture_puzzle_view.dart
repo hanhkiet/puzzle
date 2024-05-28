@@ -1,20 +1,20 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/picture_puzzle.dart';
+import 'package:puzzle/ui/common/common_app_bar.dart';
 import 'package:puzzle/ui/common/common_back_button.dart';
 import 'package:puzzle/ui/common/common_clear_button.dart';
-import 'package:puzzle/ui/common/common_app_bar.dart';
 import 'package:puzzle/ui/common/common_info_text_view.dart';
 import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
-import 'package:puzzle/ui/picture_puzzle/picture_puzzle_provider.dart';
-import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/ui/picture_puzzle/picture_puzzle_button.dart';
-import 'package:provider/provider.dart';
+import 'package:puzzle/ui/picture_puzzle/picture_puzzle_provider.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
-import 'package:collection/collection.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import '../common/common_main_widget.dart';
 import '../common/common_number_button.dart';
 

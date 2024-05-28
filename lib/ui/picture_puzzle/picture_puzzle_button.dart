@@ -1,10 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/picture_puzzle.dart';
 import 'package:puzzle/ui/picture_puzzle/circle_shape.dart';
 import 'package:puzzle/ui/picture_puzzle/picture_puzzle_answer_button.dart';
 import 'package:puzzle/ui/picture_puzzle/square_shape.dart';
-import 'package:puzzle/utility/Constants.dart';
+import 'package:puzzle/utility/constants.dart';
 import 'package:tuple/tuple.dart';
+
 import 'triangle_shape.dart';
 
 class PicturePuzzleButton extends StatelessWidget {
@@ -26,7 +28,9 @@ class PicturePuzzleButton extends StatelessWidget {
 
     double width = getWidthPercentSize(context, 100) / 15;
 
-    print("screenSize ====$screenWidth-----$screenHeight");
+    if (kDebugMode) {
+      print("screenSize ====$screenWidth-----$screenHeight");
+    }
     if (screenHeight < screenWidth) {
       width = getScreenPercentSize(context, 2);
     }

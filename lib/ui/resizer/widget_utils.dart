@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:puzzle/core/app_assets.dart';
 
-import '../../utility/Constants.dart';
+import '../../utility/constants.dart';
 import 'fetch_pixels.dart';
 
 void showCustomToast(String texts, BuildContext context) {
