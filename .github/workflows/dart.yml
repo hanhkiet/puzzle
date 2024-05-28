@@ -20,16 +20,29 @@ on:
       - 'android/**'
 
 jobs:
-   buildandroid:
-    name: Build Android
+  build-android:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: '17.x'
-      - run: git clone https://github.com/flutter/flutter.git --depth 1 -b v3.3.1 _flutter
-      - run: echo "::add-path::$GITHUB_WORKSPACE/_flutter/bin"
-      - run: flutter pub get
-        working-directory: ./
-      - run: flutter build apk --release
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Clone Flutter Source Code
+      run: git clone --branch v3.3.0 --depth 1 https://github.com/flutter/flutter.git
+
+    - name: Set up Flutter
+      run: |
+        cd flutter
+        flutter_branch=$(git rev-parse --abbrev-ref HEAD)
+        flutter_version=$(git describe --tags --abbrev=0)
+        echo "::set-output name=flutter_branch::$flutter_branch"
+        echo "::set-output name=flutter_version::$flutter_version"
+        flutter/bin/flutter doctor -v
+
+    - name: Build Flutter
+      run: |
+        cd flutter
+        flutter/bin/flutter build apk --release
+
+    - name: Build Flutter Project
+      run: flutter/bin/flutter build apk --release
