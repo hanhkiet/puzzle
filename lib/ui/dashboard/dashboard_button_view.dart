@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -88,7 +89,7 @@ class DashboardButtonView extends StatelessWidget {
                             Theme.of(context).textTheme.titleSmall!.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
-                            dashboard.title,
+                            dashboard.title.tr(),
                             TextAlign.center,
                             getPercentSize(height, 12))
                       ],

@@ -83,57 +83,6 @@ class CommonButton extends StatelessWidget {
         ),
       ),
     );
-
-    // AudioPlayer audioPlayer = new AudioPlayer(context);
-    //
-    // double radius = getCommonRadius(context);
-    //
-    // return CommonTabAnimationView(
-    //   onTab:(){
-    //     onTab();
-    //
-    //     audioPlayer.playTickSound();
-    //
-    //
-    //   },
-    //   child: ClipRRect(
-    //     borderRadius: BorderRadius.circular(radius),
-    //     child: Container(
-    //         alignment: Alignment.center,
-    //         // height: height,
-    //         decoration: getDefaultDecoration(radius: radius,bgColor: color,isShadow: true,),
-    //         child: Stack(
-    //           children: [
-    //             Align(
-    //               alignment: Alignment.centerRight,
-    //               child: LayoutBuilder(builder: (context, constraints) {
-    //                 return Transform.translate(
-    //                   offset: Offset(-constraints.maxHeight / 2.1, 15),
-    //                   child: Transform.scale(
-    //                     scale: is4Matrix? constraints.maxHeight / 5:constraints.maxHeight / 20,
-    //                     alignment: Alignment.topCenter,
-    //                     child: getTextWidget(Theme.of(context).textTheme.subtitle1!.copyWith(
-    //                       color: Colors.white.withOpacity(0.1)
-    //                           ,fontWeight: FontWeight.bold
-    //                     ),text,TextAlign.center,
-    //                         is4Matrix? getPercentSize(height, 2):getPercentSize(height, 15)),
-    //                   ),
-    //                 );
-    //               }),
-    //             ),
-    //             Align(
-    //               alignment: Alignment.center,
-    //               child: getTextWidget(Theme.of(context).textTheme.subtitle1!.copyWith(
-    //                   color: (color == Colors.red)?Colors.white:Colors.black,
-    //                 fontWeight: FontWeight.bold
-    //               ),text.toUpperCase(),TextAlign.center,
-    //                   getPercentSize(height, 15)
-    //               ),
-    //             ),
-    //           ],
-    //         )),
-    //   ),
-    // );
   }
 }
 

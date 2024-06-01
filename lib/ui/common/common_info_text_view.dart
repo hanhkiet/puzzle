@@ -29,22 +29,12 @@ class CommonInfoTextView<T extends GameProvider> extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(right: getScreenPercentSize(context, 1)),
-
       child: Consumer<T>(builder: (context, provider, child) {
         return getDefaultIconWidget(context,
             icon: AppAssets.infoIcon, folder: folder, function: () {
           provider.showInfoDialog();
         });
       }),
-      // child: getDefaultIconWidget(context,
-      //     folder: folder,
-      //     icon: AppAssets.infoIcon,
-      //     function: () {
-      //       context.read<T>().showInfoDialog();
-      //     }),
-      // child: SvgPicture.asset(
-      //
-      //   getFolderName(context, folder)+ AppAssets.infoIcon,height: getScreenPercentSize(context, 2.5),width: getScreenPercentSize(context, 2.5),),
     );
   }
 }

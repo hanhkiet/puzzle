@@ -22,27 +22,6 @@ class CommonBackButton extends StatelessWidget {
 
     double radius = btnRadius ?? getCommonCalculatorRadius(context);
 
-    // return CommonTabAnimationView(
-    //   onTab: (){
-    //     onTab();
-    //     audioPlayer.playTickSound();
-    //   },
-    //   child: Container(
-    //       alignment: Alignment.center,
-    //       // color: Theme.of(context).colorScheme.cardBgColor,
-    //       decoration: getDefaultDecoration(isShadow: themeMode==ThemeMode.light?true:false,shadowColor: getShadowColor(context),
-    //           bgColor: getBgColor(themeProvider, Theme.of(context).scaffoldBackgroundColor),radius: radius),
-    //
-    //
-    //       child: Center(
-    //         child: Icon(
-    //           Icons.backspace,
-    //           size: getPercentSize(height, 20 ),
-    //           color: Theme.of(context).colorScheme.crossColor,
-    //         ),
-    //       )),
-    // );
-
     return CommonTabAnimationView(
         onTab: () {
           onTab();

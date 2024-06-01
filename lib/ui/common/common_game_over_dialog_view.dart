@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_share/flutter_share.dart';
@@ -112,9 +113,10 @@ class CommonGameOverDialogView extends StatelessWidget {
 
   share() async {
     await FlutterShare.share(
-        title: 'Math Games',
-        text: 'Your highest score is $score\n ${getAppLink()}',
+        title: 'Math Games'.tr(),
+        text:
+            'Your highest score is'.tr(args: [score.toString(), getAppLink()]),
         linkUrl: '',
-        chooserTitle: 'Share');
+        chooserTitle: 'Share'.tr());
   }
 }

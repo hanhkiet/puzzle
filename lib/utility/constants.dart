@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -905,7 +906,7 @@ Widget getHintButtonWidget(
                       Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontWeight: FontWeight.w500,
                           color: textColor ?? Colors.white),
-                      'Use 10 coin',
+                      'Use 10 coin'.tr(),
                       TextAlign.center,
                       (fontSize / 1.2))
                 ],

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -170,7 +171,7 @@ class CommonMainWidget<T extends GameProvider> extends StatelessWidget {
                                       .textTheme
                                       .titleSmall!
                                       .copyWith(fontWeight: FontWeight.w500),
-                                  'Level : ${model.levelNo}',
+                                  'Level'.tr(args: [model.levelNo.toString()]),
                                   TextAlign.center,
                                   getPercentSize(mainHeight, 6)),
                             ),

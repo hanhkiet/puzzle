@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_constants.dart';
@@ -21,7 +22,7 @@ class CommonInfoDialogView extends StatelessWidget {
         DialogInfoUtil.getInfoDialogData(gameCategoryType);
 
     String plusSecondString = gameInfoDialog.plusSeconds != null
-        ? " and ${gameInfoDialog.plusSeconds} second(s)"
+        ? " and second(s)".tr(args: [gameInfoDialog.plusSeconds.toString()])
         : "";
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -64,7 +65,7 @@ class CommonInfoDialogView extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .copyWith(fontWeight: FontWeight.w700),
-                      "${gameInfoDialog.correctAnswerScore} point$plusSecondString",
+                      "${gameInfoDialog.correctAnswerScore} ${"point".tr()}$plusSecondString",
                       TextAlign.center,
                       getScreenPercentSize(context, 2)),
                   SizedBox(
@@ -75,7 +76,7 @@ class CommonInfoDialogView extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .copyWith(fontWeight: FontWeight.w700),
-                      "${gameInfoDialog.wrongAnswerScore} point",
+                      "${gameInfoDialog.wrongAnswerScore} ${"point".tr()}",
                       TextAlign.center,
                       getScreenPercentSize(context, 2)),
                 ],
@@ -89,7 +90,7 @@ class CommonInfoDialogView extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .copyWith(fontWeight: FontWeight.w700),
-                      "for correct answer",
+                      "for correct answer".tr(),
                       TextAlign.center,
                       getScreenPercentSize(context, 2)),
                   SizedBox(
@@ -100,7 +101,7 @@ class CommonInfoDialogView extends StatelessWidget {
                           .textTheme
                           .bodyLarge!
                           .copyWith(fontWeight: FontWeight.w700),
-                      "for wrong answer",
+                      "for wrong answer".tr(),
                       TextAlign.center,
                       getScreenPercentSize(context, 2)),
                 ],
@@ -109,7 +110,7 @@ class CommonInfoDialogView extends StatelessWidget {
           ),
           SizedBox(height: getScreenPercentSize(context, 5)),
           Center(
-            child: getButtonWidget(context, "Got It !", color, () {
+            child: getButtonWidget(context, "Got It !".tr(), color, () {
               Navigator.pop(context);
             }, textColor: Colors.black),
           ),

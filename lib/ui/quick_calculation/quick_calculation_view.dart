@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/quick_calculation.dart';
 import 'package:puzzle/ui/common/common_back_button.dart';
@@ -103,7 +104,7 @@ class QuickCalculationView extends StatelessWidget {
                                       .textTheme
                                       .bodySmall!
                                       .copyWith(color: Colors.grey),
-                                  "NEXT",
+                                  "NEXT".tr(),
                                   TextAlign.center,
                                   getPercentSize(remainHeight, 1.8)),
                             ),
@@ -204,7 +205,7 @@ class QuickCalculationView extends StatelessWidget {
                             String e = list[index];
                             if (e == "Clear") {
                               return CommonClearButton(
-                                  text: "Clear",
+                                  text: "Clear".tr(),
                                   height: height,
                                   onTab: () {
                                     context

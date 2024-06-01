@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:puzzle/core/app_constants.dart';
@@ -23,7 +24,8 @@ class CommonDualScoreWidget extends StatelessWidget {
   final Function shareClick;
   final Tuple2<GradientModel, int> colorTuple;
 
-  const CommonDualScoreWidget({super.key,
+  const CommonDualScoreWidget({
+    super.key,
     required this.context,
     required this.shareClick,
     required this.homeClick,
@@ -97,7 +99,7 @@ class CommonDualScoreWidget extends StatelessWidget {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(fontWeight: FontWeight.w600),
-                                '${index + 1}/20\nQuiz',
+                                '${index + 1}/20\n${"Quiz".tr()}',
                                 TextAlign.center,
                                 getPercentSize(circle, 15)),
                           )
@@ -168,7 +170,7 @@ class CommonDualScoreWidget extends StatelessWidget {
                                         .copyWith(
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    "Player 1",
+                                    "Player".tr(args: ["1"]),
                                     TextAlign.center,
                                     getPercentSize(scoreHeight, 12)),
                               ],
@@ -202,7 +204,7 @@ class CommonDualScoreWidget extends StatelessWidget {
                                         .copyWith(
                                           fontWeight: FontWeight.w500,
                                         ),
-                                    "Player 2",
+                                    "Player".tr(args: ["2"]),
                                     TextAlign.center,
                                     getPercentSize(scoreHeight, 12)),
                               ],

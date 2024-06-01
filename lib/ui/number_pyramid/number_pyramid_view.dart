@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -485,7 +486,7 @@ class NumberPyramidView extends StatelessWidget {
                           String e = list[index];
                           if (e == "Done") {
                             return CommonClearButton(
-                                text: "Done",
+                                text: "Done".tr(),
                                 height: height,
                                 btnRadius: radius,
                                 onTab: () {

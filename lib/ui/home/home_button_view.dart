@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -22,8 +23,6 @@ class HomeButtonView extends StatelessWidget {
   final Tuple2<Color, Color> colorTuple;
   final double opacity;
   final Tuple2<Dashboard, double> tuple2;
-
-
 
   const HomeButtonView({
     super.key,
@@ -49,7 +48,6 @@ class HomeButtonView extends StatelessWidget {
       child: Consumer<ThemeProvider>(
         builder: (context, value, child) {
           return Stack(
-
             children: [
               Container(
                 width: double.infinity,
@@ -118,8 +116,7 @@ class HomeButtonView extends StatelessWidget {
                                                   remainHeight, 10),
                                               fontWeight: FontWeight.w600),
                                       maxLines: 2,
-                                    )
-                                ),
+                                    )),
                           ],
                         ),
                       ),
@@ -138,7 +135,7 @@ class HomeButtonView extends StatelessWidget {
                             Theme.of(context).textTheme.titleSmall!.copyWith(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold),
-                            'Play',
+                            'Play'.tr(),
                             TextAlign.center,
                             getPercentSize(remainHeight, 9)),
                       ),
@@ -155,7 +152,6 @@ class HomeButtonView extends StatelessWidget {
               ),
             ],
           );
-
         },
       ),
     );

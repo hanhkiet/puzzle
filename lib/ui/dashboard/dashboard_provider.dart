@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:puzzle/core/app_assets.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/score_board.dart';
@@ -32,7 +33,7 @@ class DashboardProvider extends CoinProvider {
       case PuzzleType.mathPuzzle:
         list.add(GameCategory(
           1,
-          "Calculator",
+          "Calculator".tr(),
           keyCalculator,
           GameCategoryType.calculator,
           KeyUtil.calculator,
@@ -41,7 +42,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
             2,
-            "Guess the sign?",
+            "Guess The Sign".tr(),
             keySign,
             GameCategoryType.guessSign,
             KeyUtil.guessSign,
@@ -49,7 +50,7 @@ class DashboardProvider extends CoinProvider {
             AppAssets.icGuessTheSign));
         list.add(GameCategory(
           3,
-          "Correct answer",
+          "Correct Answer".tr(),
           keyCorrectAnswer,
           GameCategoryType.correctAnswer,
           KeyUtil.correctAnswer,
@@ -58,7 +59,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           4,
-          "Quick calculation",
+          "Quick Calculation".tr(),
           keyQuickCalculation,
           GameCategoryType.quickCalculation,
           KeyUtil.quickCalculation,
@@ -67,7 +68,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           5,
-          "Find Missing",
+          "Find Missing".tr(),
           keyFindMissingCalculation,
           GameCategoryType.findMissing,
           KeyUtil.findMissing,
@@ -77,7 +78,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           6,
-          "True False",
+          "True False".tr(),
           keyTrueFalseCalculation,
           GameCategoryType.trueFalse,
           KeyUtil.trueFalse,
@@ -87,7 +88,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           7,
-          "Complex Calculation",
+          "Complex Calculation".tr(),
           keyComplexGame,
           GameCategoryType.complexCalculation,
           KeyUtil.complexCalculation,
@@ -97,7 +98,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           8,
-          "Dual Game",
+          "Dual Game".tr(),
           keyDualGame,
           GameCategoryType.dualGame,
           KeyUtil.dualGame,
@@ -108,7 +109,7 @@ class DashboardProvider extends CoinProvider {
       case PuzzleType.memoryPuzzle:
         list.add(GameCategory(
           9,
-          "Mental arithmetic",
+          "Mental Arithmetic".tr(),
           keyMentalArithmetic,
           GameCategoryType.mentalArithmetic,
           KeyUtil.mentalArithmetic,
@@ -118,7 +119,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           10,
-          "Square root",
+          "Square Root".tr(),
           keySquareRoot,
           GameCategoryType.squareRoot,
           KeyUtil.squareRoot,
@@ -127,7 +128,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           11,
-          "Math Grid",
+          "Math Grid".tr(),
           keyMathMachine,
           GameCategoryType.mathGrid,
           KeyUtil.mathGrid,
@@ -136,7 +137,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           12,
-          "Mathematical pairs",
+          "Mathematical Pairs".tr(),
           keyMathPairs,
           GameCategoryType.mathPairs,
           KeyUtil.mathPairs,
@@ -146,7 +147,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           13,
-          "Cube Root",
+          "Cube Root".tr(),
           keyCubeRoot,
           GameCategoryType.cubeRoot,
           KeyUtil.cubeRoot,
@@ -156,7 +157,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           14,
-          "Concentration",
+          "Concentration".tr(),
           keyConcentration,
           GameCategoryType.concentration,
           KeyUtil.concentration,
@@ -167,7 +168,7 @@ class DashboardProvider extends CoinProvider {
       case PuzzleType.brainPuzzle:
         list.add(GameCategory(
           15,
-          "Magic triangle",
+          "Magic Triangle".tr(),
           keyMagicTriangle,
           GameCategoryType.magicTriangle,
           KeyUtil.magicTriangle,
@@ -176,7 +177,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           16,
-          "Picture Puzzle",
+          "Picture Puzzle".tr(),
           keyPicturePuzzle,
           GameCategoryType.picturePuzzle,
           KeyUtil.picturePuzzle,
@@ -185,7 +186,7 @@ class DashboardProvider extends CoinProvider {
         ));
         list.add(GameCategory(
           17,
-          "Number Pyramid",
+          "Number Pyramid".tr(),
           keyNumberPyramid,
           GameCategoryType.numberPyramid,
           KeyUtil.numberPyramid,
@@ -195,7 +196,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           18,
-          "Numeric Memory",
+          "Numeric Memory".tr(),
           keyNumericMemory,
           GameCategoryType.numericMemory,
           KeyUtil.numericMemory,

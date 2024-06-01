@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tuple/tuple.dart';
 
@@ -49,7 +50,7 @@ class CommonDualGameOverDialogView extends StatelessWidget {
                   .textTheme
                   .bodyLarge!
                   .copyWith(fontWeight: FontWeight.bold),
-              "Game Over!!!",
+              "Game Over!!!".tr(),
               TextAlign.center,
               getScreenPercentSize(context, 3)),
         ),
@@ -67,13 +68,18 @@ class CommonDualGameOverDialogView extends StatelessWidget {
           index: index,
           wrong: 1,
           homeClick: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardView(),));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DashboardView(),
+                ));
           },
           shareClick: () {
             //share();
           },
         )),
-        getButtonWidget(context, "Restart", colorTuple.item1.primaryColor, () {
+        getButtonWidget(context, "Restart".tr(), colorTuple.item1.primaryColor,
+            () {
           Navigator.pop(context, true);
         }, textColor: Colors.black),
       ],

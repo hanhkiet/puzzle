@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -83,7 +84,7 @@ class _FeedbackScreen extends State<FeedbackScreen> {
                 buildExpandedData(edgeInsets, starSize, selection, context),
                 getButtonWidget(
                   context,
-                  "Submit Feedback",
+                  "Submit Feedback".tr(),
                   KeyUtil.primaryColor1,
                   () async {
                     if (rate >= 3) {
@@ -130,13 +131,15 @@ class _FeedbackScreen extends State<FeedbackScreen> {
         padding: edgeInsets,
         children: [
           getVerSpace(FetchPixels.getPixelHeight(90)),
-          getCustomFont("Give Feedback", 53, fontColor, 1,
+          getCustomFont("Give Feedback".tr(), 53, fontColor, 1,
               fontWeight: FontWeight.w900),
           getVerSpace(FetchPixels.getPixelHeight(25)),
-          getCustomFont("Give your feedback about our app", 35, fontColor, 1,
+          getCustomFont(
+              "Give your feedback about our app".tr(), 35, fontColor, 1,
               fontWeight: FontWeight.w500),
           getVerSpace(FetchPixels.getPixelHeight(100)),
-          getCustomFont("Are you satisfied with this app?", 35, fontColor, 1,
+          getCustomFont(
+              "Are you satisfied with this app?".tr(), 35, fontColor, 1,
               fontWeight: FontWeight.w800),
           getVerSpace(FetchPixels.getPixelHeight(45)),
           RatingBar(
@@ -162,10 +165,10 @@ class _FeedbackScreen extends State<FeedbackScreen> {
                 });
               }),
           getVerSpace(FetchPixels.getPixelHeight(140)),
-          getCustomFont("Tell us what can be improved!", 35, fontColor, 1,
+          getCustomFont("Tell us what can be improved!".tr(), 35, fontColor, 1,
               fontWeight: FontWeight.w800),
           getVerSpace(FetchPixels.getPixelHeight(40)),
-          getDefaultTextFiled(context, "Write your feedback...",
+          getDefaultTextFiled(context, "Write your feedback...".tr(),
               feedbackController, fontColor, Colors.grey,
               minLines: true)
         ],
