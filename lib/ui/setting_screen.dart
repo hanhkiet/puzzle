@@ -273,6 +273,9 @@ class _SettingScreen extends State<SettingScreen> {
                 ],
               ),
             ),
+            verSpace,
+            getDivider(),
+            verSpace,
             getTitleText("Language".tr()),
             verSpace,
             SizedBox(

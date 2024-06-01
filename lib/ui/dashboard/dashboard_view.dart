@@ -94,7 +94,9 @@ class _DashboardViewState extends State<DashboardView>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Expanded(
-                            child: getScoreWidget(context),
+                            child: getScoreWidget(
+                              context,
+                            ),
                             flex: 1,
                           ),
                           getSettingWidget(context),

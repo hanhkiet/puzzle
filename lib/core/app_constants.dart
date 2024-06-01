@@ -45,7 +45,7 @@ enum DialogType {
 
 class KeyUtil {
   static const isDarkMode = "isDarkMode";
-  static const isVietnamese = "isVietnamese";
+  static const isEnglish = "isEnglish";
   static const String splash = 'Splash';
   static const String dashboard = 'Dashboard';
   static const String home = 'Home';

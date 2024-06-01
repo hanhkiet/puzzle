@@ -5,14 +5,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 Locale viLocale = const Locale('vi');
 Locale enLocale = const Locale('en');
-Locale appLocale = const Locale('en');
+Locale appLocale = const Locale('vi');
 
 class LanguageProvider extends ChangeNotifier {
   final SharedPreferences sharedPreferences;
   LanguageProvider({required this.sharedPreferences}) {
-    appLocale = sharedPreferences.getBool(KeyUtil.isVietnamese) ?? false
-        ? viLocale
-        : enLocale;
+    appLocale = sharedPreferences.getBool(KeyUtil.isEnglish) ?? false
+        ? enLocale
+        : viLocale;
   }
 
   void changeLocale(BuildContext context) async {
@@ -23,7 +23,6 @@ class LanguageProvider extends ChangeNotifier {
     }
     context.setLocale(appLocale);
     notifyListeners();
-    await sharedPreferences.setBool(
-        KeyUtil.isVietnamese, appLocale == viLocale);
+    await sharedPreferences.setBool(KeyUtil.isEnglish, appLocale == enLocale);
   }
 }

@@ -256,7 +256,7 @@ getHeaderWidget(BuildContext context, String title, String content,
 getFolderName(BuildContext context, String folderName) {
   if (themeMode == ThemeMode.dark) {
     folderName = folderName.replaceAll("/", "");
-    folderName = "${folderName}Dark/";
+    folderName = "${folderName}_dark/";
   }
 
 //   if(kIsWeb){
@@ -474,13 +474,11 @@ getSettingWidget(BuildContext context, {Function? function}) {
   );
 }
 
-getScoreWidget(BuildContext context, {Color? color, bool? isCenter}) {
+getScoreWidget(BuildContext context, {bool? isCenter}) {
   return Row(
     mainAxisAlignment:
         (isCenter != null) ? MainAxisAlignment.center : MainAxisAlignment.start,
-    crossAxisAlignment: (isCenter != null)
-        ? CrossAxisAlignment.center
-        : CrossAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       getTrophyIcon(context),
       SizedBox(
@@ -491,7 +489,7 @@ getScoreWidget(BuildContext context, {Color? color, bool? isCenter}) {
             Theme.of(context)
                 .textTheme
                 .titleSmall!
-                .copyWith(fontWeight: FontWeight.w600, color: color),
+                .copyWith(fontWeight: FontWeight.w600),
             model.coin.toString(),
             TextAlign.start,
             FetchPixels.getPixelHeight(53)),
