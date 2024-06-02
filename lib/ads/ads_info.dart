@@ -2,34 +2,34 @@ import 'dart:io';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 AdRequest request = const AdRequest(
-  keywords: <String>['foo', 'bar'],
-  contentUrl: 'http://foo.com/bar.html',
   nonPersonalizedAds: true,
 );
-
+String interstitialAdId = "ca-app-pub-8948935600533196/5722260964";
 String getInterstitialAdUnitId() {
   if (Platform.isIOS) {
-    return 'ca-app-pub-3940256099942544/4411468910';
+    return interstitialAdId;
   } else if (Platform.isAndroid) {
-    return 'ca-app-pub-3940256099942544/1033173712';
+    return interstitialAdId;
   }
   return "";
 }
 
+String rewardAdId = "ca-app-pub-8948935600533196/2205687788";
 String getRewardBasedVideoAdUnitId() {
   if (Platform.isIOS) {
-    return 'ca-app-pub-3940256099942544/1712485313';
+    return rewardAdId;
   } else if (Platform.isAndroid) {
-    return 'ca-app-pub-3940256099942544/5224354917';
+    return rewardAdId;
   }
   return "";
 }
 
+String bannerAdId = "ca-app-pub-8948935600533196/5530689278";
 String getBannerAdUnitId() {
   if (Platform.isIOS) {
-    return 'ca-app-pub-3940256099942544/2934735716';
+    return bannerAdId;
   } else if (Platform.isAndroid) {
-    return 'ca-app-pub-3940256099942544/6300978111';
+    return bannerAdId;
   }
   return "";
 }

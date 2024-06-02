@@ -172,7 +172,7 @@ class AdsFile {
         onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
       isRewarded = true;
       _rewardedAd = null;
-      // print('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
+      print('$ad with reward $RewardItem(${reward.amount}, ${reward.type})');
     });
   }
 
@@ -201,6 +201,7 @@ class AdsFile {
   void createInterstitialAd() {
     // if(!isAppPurchased  ) {
     // if(!isAppPurchased  && isAdsPermission) {
+
     InterstitialAd.load(
         adUnitId: getInterstitialAdUnitId(),
         request: request,

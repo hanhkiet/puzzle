@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:puzzle/data/models/dashboard.dart';
 import 'package:tuple/tuple.dart';
@@ -44,7 +45,7 @@ enum DialogType {
 
 class KeyUtil {
   static const isDarkMode = "isDarkMode";
-
+  static const isEnglish = "isEnglish";
   static const String splash = 'Splash';
   static const String dashboard = 'Dashboard';
   static const String home = 'Home';
@@ -90,7 +91,8 @@ class KeyUtil {
         colorTuple: const Tuple2(Color(0xff4895EF), Color(0xff3f37c9)),
         opacity: 0.07,
         outlineIcon: AppAssets.icMathPuzzleOutline,
-        subtitle: "Each game with simple calculation with different approach.",
+        subtitle:
+            "Each game with simple calculation with different approach.".tr(),
         title: "Math Puzzle",
         gridColor: bgColor1,
         fillIconColor: const Color(0xff4895ef),
@@ -109,7 +111,8 @@ class KeyUtil {
         outlineIcon: AppAssets.icMemoryPuzzleOutline,
         gridColor: bgColor2,
         subtitle:
-            "Memorise numbers & signs before applying calculation to them.",
+            "Memorise numbers & signs before applying calculation to them."
+                .tr(),
         title: "Memory Puzzle",
         fillIconColor: const Color(0xff9f2beb),
         outlineIconColor: const Color(0xff560BAD),
@@ -125,7 +128,8 @@ class KeyUtil {
         opacity: 0.12,
         outlineIcon: AppAssets.icTrainBrainOutline,
         subtitle:
-            "Enhance logical thinking, concentration and core cognitive skills.",
+            "Enhance logical thinking, concentration and core cognitive skills."
+                .tr(),
         title: "Train Your Brain",
         folder: themeBlueFolder,
         fillIconColor: const Color(0xfff72585),

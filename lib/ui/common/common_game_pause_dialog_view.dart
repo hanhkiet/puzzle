@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tuple/tuple.dart';
@@ -45,7 +46,6 @@ class CommonGamePauseDialogView extends StatelessWidget {
           ),
         ),
         SizedBox(height: getScreenPercentSize(context, 1.8)),
-
         getTextWidget(
             Theme.of(context)
                 .textTheme
@@ -54,9 +54,7 @@ class CommonGamePauseDialogView extends StatelessWidget {
             gameInfoDialog.title,
             TextAlign.center,
             getScreenPercentSize(context, 2.5)),
-
         SizedBox(height: getScreenPercentSize(context, 4)),
-
         getTextWidget(
             Theme.of(context)
                 .textTheme
@@ -66,21 +64,18 @@ class CommonGamePauseDialogView extends StatelessWidget {
             TextAlign.center,
             getScreenPercentSize(context, 6)),
         SizedBox(height: getScreenPercentSize(context, 1)),
-
         getTextWidget(
             Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
-            "Your current score",
+            "Your current score".tr(),
             TextAlign.center,
             getScreenPercentSize(context, 2.2)),
-
         SizedBox(height: getScreenPercentSize(context, 5)),
-
         Row(
           children: [
             Expanded(
-              child: getButtonWidget(context, "Resume".toUpperCase(),
+              child: getButtonWidget(context, "Resume".tr().toUpperCase(),
                   colorTuple.item1.primaryColor, () {
                 Navigator.pop(context, true);
               }, textColor: Colors.black),
@@ -108,75 +103,6 @@ class CommonGamePauseDialogView extends StatelessWidget {
             )
           ],
         ),
-
-        // Row(
-        //   children: [
-        //     Expanded(
-        //       child: Card(
-        //         elevation: 2,
-        //         shape: RoundedRectangleBorder(
-        //           borderRadius: BorderRadius.circular(12),
-        //         ),
-        //         child: InkWell(
-        //           onTap: () {
-        //             Navigator.pop(context, true);
-        //           },
-        //           borderRadius: BorderRadius.all(Radius.circular(12)),
-        //           child: ClipRRect(
-        //             borderRadius: BorderRadius.circular(12),
-        //             child: Container(
-        //                 height: 44,
-        //                 alignment: Alignment.center,
-        //                 decoration: BoxDecoration(
-        //                   gradient: LinearGradient(
-        //                     colors: [Color(0xffF48C06), Color(0xffD00000)],
-        //                     begin: Alignment.topCenter,
-        //                     end: Alignment.bottomCenter,
-        //                   ),
-        //                 ),
-        //                 child: Text("RESUME",
-        //                     style: Theme.of(context)
-        //                         .textTheme
-        //                         .subtitle1!
-        //                         .copyWith(fontSize: 18, color: Colors.white))),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //     SizedBox(width: 6),
-        //     Card(
-        //       shape: RoundedRectangleBorder(
-        //         borderRadius: BorderRadius.circular(12),
-        //       ),
-        //       elevation: 2,
-        //       child: InkWell(
-        //         onTap: () {
-        //           Navigator.pop(context, false);
-        //         },
-        //         borderRadius: BorderRadius.all(Radius.circular(12)),
-        //         child: ClipRRect(
-        //           borderRadius: BorderRadius.circular(12),
-        //           child: Container(
-        //             alignment: Alignment.center,
-        //             height: 44,
-        //             width: 44,
-        //             decoration: BoxDecoration(
-        //               gradient: LinearGradient(
-        //                 colors: [Color(0xffF48C06), Color(0xffD00000)],
-        //                 begin: Alignment.topCenter,
-        //                 end: Alignment.bottomCenter,
-        //               ),
-        //             ),
-        //             child: Icon(
-        //               Icons.refresh,
-        //               color: Colors.white,
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // )
       ],
     );
   }

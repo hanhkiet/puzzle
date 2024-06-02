@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -145,7 +146,7 @@ class CommonScoreWidget extends StatelessWidget {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(fontWeight: FontWeight.w600),
-                                '$currentLevel/$totalLevel\nLevel',
+                                '$currentLevel/$totalLevel\n${"level".tr()}',
                                 TextAlign.center,
                                 getPercentSize(circle, 15)),
                           ),
@@ -208,7 +209,7 @@ class CommonScoreWidget extends StatelessWidget {
                             .textTheme
                             .bodyLarge!
                             .copyWith(fontWeight: FontWeight.bold),
-                        "Game Over!!!",
+                        "Game Over!!!".tr(),
                         TextAlign.center,
                         getScreenPercentSize(context, 3.5)),
                   ),
@@ -240,7 +241,7 @@ class CommonScoreWidget extends StatelessWidget {
                   getTextWidget(
                       Theme.of(context).textTheme.titleSmall!.copyWith(
                           fontWeight: FontWeight.w500, color: Colors.grey),
-                      'Your Score',
+                      'Your Score'.tr(),
                       TextAlign.center,
                       getPercentSize(scoreHeight, 12)),
 

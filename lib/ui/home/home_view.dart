@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:provider/provider.dart';
+import 'package:puzzle/ads/ads_file.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:tuple/tuple.dart';
 
@@ -35,10 +37,14 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late Animation<Offset> rightHomeItemSlidePositionTween;
   late bool isGamePageOpen;
   Tuple2<Dashboard, double>? tuple2;
-  //AdsFile? adsFile;
+  AdsFile? adsFile;
 
   @override
   void initState() {
+    Future.delayed(Duration.zero, () {
+      adsFile = AdsFile(context);
+      adsFile!.createAnchoredBanner(context, setState);
+    });
     tuple2 = widget.tuple2;
     isGamePageOpen = false;
     animationController = AnimationController(
@@ -52,6 +58,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             .animate(animationController);
     animationController.forward();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    disposeBannerAd(adsFile);
   }
 
   @override
@@ -201,7 +214,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
             ),
           ),
-          //getBanner(context, adsFile)
+          getBanner(context, adsFile)
         ],
       ),
     );
@@ -235,7 +248,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                               .textTheme
                               .titleMedium!
                               .copyWith(fontWeight: FontWeight.w600),
-                          "Select Difficulty",
+                          "Select Difficulty".tr(),
                           TextAlign.center,
                           getScreenPercentSize(context, 2)),
                       Container(
@@ -244,9 +257,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         margin: EdgeInsets.symmetric(
                             vertical: margin, horizontal: 5),
                       ),
-                      getCell('Easy', true, easyQuiz, themeProvider),
-                      getCell('Medium', false, mediumQuiz, themeProvider),
-                      getCell('Hard', false, hardQuiz, themeProvider),
+                      getCell('Easy'.tr(), true, easyQuiz, themeProvider),
+                      getCell('Medium'.tr(), false, mediumQuiz, themeProvider),
+                      getCell('Hard'.tr(), false, hardQuiz, themeProvider),
                       SizedBox(
                         height: margin,
                       ),

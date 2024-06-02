@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -5,9 +6,11 @@ import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
+import 'package:puzzle/ui/app/language_provider.dart';
 import 'package:puzzle/ui/resizer/fetch_pixels.dart';
 import 'package:puzzle/ui/resizer/widget_utils.dart';
 import 'package:puzzle/utility/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/app_assets.dart';
 import 'app/theme_provider.dart';
@@ -35,7 +38,7 @@ class _SettingScreen extends State<SettingScreen> {
   ValueNotifier soundOn = ValueNotifier(false);
   ValueNotifier darkMode = ValueNotifier(false);
   ValueNotifier vibrateOn = ValueNotifier(false);
-
+  ValueNotifier vietnamese = ValueNotifier(false);
   @override
   void initState() {
     super.initState();
@@ -49,6 +52,7 @@ class _SettingScreen extends State<SettingScreen> {
     Future.delayed(Duration.zero, () {
       darkMode.value = Theme.of(context).brightness != Brightness.light;
     });
+    vietnamese.value = appLocale == viLocale;
   }
 
   double fontTitleSize = 30;
@@ -86,7 +90,7 @@ class _SettingScreen extends State<SettingScreen> {
                     Expanded(
                         child: Center(
                             child: getCustomFont(
-                                'Settings', 35, theme.color!, 1,
+                                'Settings'.tr(), 35, theme.color!, 1,
                                 fontWeight: FontWeight.w600))),
                   ],
                 ),
@@ -126,7 +130,7 @@ class _SettingScreen extends State<SettingScreen> {
               height: FetchPixels.getPixelHeight(30),
             ),
             verSpace,
-            getTitleText("Sound"),
+            getTitleText("Sound".tr()),
             verSpace,
             SizedBox(
               height: FetchPixels.getPixelHeight(125),
@@ -148,7 +152,7 @@ class _SettingScreen extends State<SettingScreen> {
                         children: [
                           Expanded(
                             flex: 1,
-                            child: getSubTitleFonts("Sound"),
+                            child: getSubTitleFonts("Sound".tr()),
                           ),
                           ValueListenableBuilder(
                             valueListenable: soundOn,
@@ -187,7 +191,7 @@ class _SettingScreen extends State<SettingScreen> {
                         children: [
                           Expanded(
                             flex: 1,
-                            child: getSubTitleFonts("Vibration"),
+                            child: getSubTitleFonts("Vibration".tr()),
                           ),
                           ValueListenableBuilder(
                             valueListenable: vibrateOn,
@@ -216,7 +220,7 @@ class _SettingScreen extends State<SettingScreen> {
             verSpace,
             getDivider(),
             verSpace,
-            getTitleText("Theme"),
+            getTitleText("Theme".tr()),
             verSpace,
             SizedBox(
               height: FetchPixels.getPixelHeight(125),
@@ -238,7 +242,7 @@ class _SettingScreen extends State<SettingScreen> {
                         children: [
                           Expanded(
                             flex: 1,
-                            child: getSubTitleFonts("Dark Mode"),
+                            child: getSubTitleFonts("Dark Mode".tr()),
                           ),
                           ValueListenableBuilder(
                             valueListenable: darkMode,
@@ -256,7 +260,65 @@ class _SettingScreen extends State<SettingScreen> {
                                 },
                               );
                             },
-                          )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  getHorSpace(FetchPixels.getDefaultHorSpace(context)),
+                  Expanded(
+                    flex: 1,
+                    child: Container(),
+                  ),
+                ],
+              ),
+            ),
+            verSpace,
+            getDivider(),
+            verSpace,
+            getTitleText("Language".tr()),
+            verSpace,
+            SizedBox(
+              height: FetchPixels.getPixelHeight(125),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: FetchPixels.getPixelWidth(30)),
+                      decoration: getDefaultDecoration(
+                          radius: FetchPixels.getPixelHeight(30),
+                          borderColor: Colors.grey,
+                          bgColor: null),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: getSubTitleFonts("Vietnamese".tr()),
+                          ),
+                          ValueListenableBuilder(
+                            valueListenable: vietnamese,
+                            builder: (context, value, child) {
+                              return FlutterSwitch(
+                                value: vietnamese.value,
+                                inactiveColor: KeyUtil.backgroundColor2,
+                                inactiveToggleColor: Colors.white,
+                                activeColor: KeyUtil.primaryColor1,
+                                width: FetchPixels.getPixelHeight(130),
+                                height: FetchPixels.getPixelHeight(75),
+                                onToggle: (val) {
+                                  context
+                                      .read<LanguageProvider>()
+                                      .changeLocale(context);
+                                  vietnamese.value = val;
+                                },
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -334,10 +396,10 @@ class _SettingScreen extends State<SettingScreen> {
 
   share() async {
     await FlutterShare.share(
-        title: 'Math Games',
+        title: 'Math Puzzle',
         text: getAppLink(),
         linkUrl: '',
-        chooserTitle: 'Share');
+        chooserTitle: 'Share'.tr());
   }
 
   getCell({required String string, required Function function}) {
@@ -378,14 +440,6 @@ class _SettingScreen extends State<SettingScreen> {
 
   getTitleText(String string) {
     TextStyle theme = Theme.of(context).textTheme.titleSmall!;
-
-    // return getCustomFont(
-    //   string,
-    //   52,
-    //   Colors.black,
-    //   1,
-    //   fontWeight: FontWeight.bold,
-    // );
     return getCustomFont(string, 30, theme.color!, 1,
         fontWeight: FontWeight.w600);
   }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
@@ -127,7 +128,7 @@ class MentalArithmeticView extends StatelessWidget {
                             String e = list[index];
                             if (e == "Clear") {
                               return CommonClearButton(
-                                  text: "Clear",
+                                  text: "Clear".tr(),
                                   height: height,
                                   onTab: () {
                                     context

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -134,7 +135,7 @@ class ConcentrationView extends StatelessWidget {
                           child: Container(
                             margin: EdgeInsets.symmetric(
                                 horizontal: (getHorizontalSpace(context))),
-                            child: getButtonWidget(context, "Continue",
+                            child: getButtonWidget(context, "Continue".tr(),
                                 colorTuple.item1.primaryColor, () {
                               setState(() {
                                 isContinue = true;

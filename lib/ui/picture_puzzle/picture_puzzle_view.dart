@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
@@ -43,18 +44,6 @@ class PicturePuzzleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // double remainHeight =getRemainHeight(context: context);
-    // int _crossAxisCount = 3;
-    // double height = getPercentSize(remainHeight, 75) / 5.5;
-    //
-    // double _crossAxisSpacing = getPercentSize(height, 12);
-    // var widthItem = (getWidthPercentSize(context, 100) -
-    //     ((_crossAxisCount - 1) * _crossAxisSpacing)) /
-    //     _crossAxisCount;
-    //
-    // double _aspectRatio = widthItem / height;
-    //
-    // double mainHeight = getMainHeight(context);
     double remainHeight = getRemainHeight(context: context);
     int crossAxisCount = 3;
 
@@ -160,7 +149,7 @@ class PicturePuzzleView extends StatelessWidget {
                           String e = list[index];
                           if (e == "Clear") {
                             return CommonClearButton(
-                                text: "Clear",
+                                text: "Clear".tr(),
                                 btnRadius: radius,
                                 height: height,
                                 onTab: () {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tuple/tuple.dart';
@@ -37,34 +38,29 @@ class CommonGameExitDialogView extends StatelessWidget {
           ),
         ),
         SizedBox(height: getScreenPercentSize(context, 1.8)),
-
         getTextWidget(
             Theme.of(context)
                 .textTheme
                 .bodyLarge!
                 .copyWith(fontWeight: FontWeight.bold),
-            "Quit!!!",
+            "Quit!!!".tr(),
             TextAlign.center,
             getScreenPercentSize(context, 2.5)),
-
         SizedBox(height: getScreenPercentSize(context, 1.5)),
-
         getTextWidget(
             Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontWeight: FontWeight.w400,
                 ),
-            "Are you sure you want to quit the game?",
+            "Are you sure you want to quit the game?".tr(),
             TextAlign.center,
             getScreenPercentSize(context, 2.2)),
-
         SizedBox(height: getScreenPercentSize(context, 3)),
-
         Row(
           children: [
             Expanded(
               flex: 1,
               child: getButtonWidget(
-                  context, "Yes", colorTuple.item1.primaryColor, () {
+                  context, "Yes".tr(), colorTuple.item1.primaryColor, () {
                 Navigator.pop(context, true);
               },
                   textColor: darken(colorTuple.item1.primaryColor!),
@@ -76,7 +72,7 @@ class CommonGameExitDialogView extends StatelessWidget {
             Expanded(
               flex: 1,
               child: getButtonWidget(
-                  context, "No", colorTuple.item1.primaryColor, () {
+                  context, "No".tr(), colorTuple.item1.primaryColor, () {
                 Navigator.pop(context, false);
               }, textColor: Colors.black),
             ),

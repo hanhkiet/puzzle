@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -211,7 +212,7 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                                               .copyWith(
                                                   fontWeight: FontWeight.w500,
                                                   color: Colors.black),
-                                          'Level',
+                                          'level'.tr(),
                                           TextAlign.center,
                                           getPercentSize(height, 15)),
                                     ),
@@ -220,24 +221,6 @@ class _LevelViewState extends State<LevelView> with TickerProviderStateMixin {
                               ),
                             ),
                             onTap: () {
-                              /*GradientModel model = GradientModel();
-                              model.primaryColor = tuple2.item2.primaryColor;
-                              model.gridColor = tuple2.item2.gridColor;
-
-                              model.cellColor = getBgColor(
-                                  themeProvider, tuple2.item2.bgColor);
-                              model.folderName = tuple2.item2.folder;
-                              model.bgColor = tuple2.item2.bgColor;
-                              model.backgroundColor =
-                                  tuple2.item2.backgroundColor;
-                              Navigator.pushNamed(
-                                context,
-                                tuple2.item1.routePath,
-                                arguments: Tuple2(model, (index + 1)),
-                              ).then((value) {
-                                isGamePageOpen = false;
-                              });*/
-
                               showInterstitialAd(adsFile, () {
                                 GradientModel model = GradientModel();
                                 model.primaryColor = tuple2.item2.primaryColor;

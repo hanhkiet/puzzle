@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -28,21 +29,6 @@ class RateViewDialog extends StatelessWidget {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Align(
-          //   alignment: Alignment.topRight,
-          //   child:  GestureDetector(
-          //     onTap: (){
-          //       Navigator.pop(context, false);
-          //     },
-          //     child: SvgPicture.asset(
-          //       getFolderName(context, colorTuple.item1.folderName!)+AppAssets.closeIcon,
-          //
-          //       width: iconSize,
-          //       height: iconSize,
-          //     ),
-          //   ),
-          // ),
-
           Container(
             padding: EdgeInsets.symmetric(
                 horizontal: FetchPixels.getPixelWidth(80),
@@ -52,28 +38,24 @@ class RateViewDialog extends StatelessWidget {
               child: Image.asset("${AppAssets.assetPath}rate.png"),
             ),
           ),
-
           getTextWidget(
               Theme.of(context)
                   .textTheme
                   .bodyLarge!
                   .copyWith(fontWeight: FontWeight.bold),
-              "Give Your Opinion",
+              "Give Your Opinion".tr(),
               TextAlign.center,
               getScreenPercentSize(context, 2.5)),
-
           SizedBox(height: getScreenPercentSize(context, 1.5)),
-
           getTextWidget(
               Theme.of(context).textTheme.bodyLarge!.copyWith(
                     fontWeight: FontWeight.w400,
                   ),
-              "Make better math goal for you,and would love to know how would rate our app?",
+              "Make better math goal for you,and would love to know how would rate our app?"
+                  .tr(),
               TextAlign.center,
               getScreenPercentSize(context, 1.8)),
-
           SizedBox(height: getScreenPercentSize(context, 3)),
-
           RatingBar(
               itemCount: 5,
               itemPadding: EdgeInsets.symmetric(
@@ -96,14 +78,13 @@ class RateViewDialog extends StatelessWidget {
                   rate = rating;
                 });
               }),
-
           SizedBox(height: getScreenPercentSize(context, 5)),
           Row(
             children: [
               Expanded(
                 flex: 1,
                 child: getButtonWidget(
-                    context, "Cancel", colorTuple.item1.primaryColor, () {
+                    context, "Cancel".tr(), colorTuple.item1.primaryColor, () {
                   Navigator.pop(context);
                 }, textColor: darken(KeyUtil.primaryColor1), isBorder: true),
               ),
@@ -112,9 +93,8 @@ class RateViewDialog extends StatelessWidget {
               ),
               Expanded(
                 flex: 1,
-                child: getButtonWidget(
-                    context, "Submit", darken(colorTuple.item1.primaryColor!),
-                    () async {
+                child: getButtonWidget(context, "Submit".tr(),
+                    darken(colorTuple.item1.primaryColor!), () async {
                   if (rate >= 3) {
                     Navigator.pop(context);
 

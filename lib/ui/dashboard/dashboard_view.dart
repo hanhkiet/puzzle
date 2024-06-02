@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -73,119 +74,122 @@ class _DashboardViewState extends State<DashboardView>
     setStatusBarColor(Theme.of(context).scaffoldBackgroundColor);
 
     return PopScope(
-        child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle(
-            systemNavigationBarIconBrightness: Theme.of(context).brightness,
-          ),
-          child: Scaffold(
-            appBar: getNoneAppBar(context),
-            body: SafeArea(
-              bottom: true,
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: margin),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(height: getVerticalSpace(context)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Expanded(
-                              child: getScoreWidget(context),
-                              flex: 1,
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          systemNavigationBarIconBrightness: Theme.of(context).brightness,
+        ),
+        child: Scaffold(
+          appBar: getNoneAppBar(context),
+          body: SafeArea(
+            bottom: true,
+            child: Stack(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: margin),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: getVerticalSpace(context)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Expanded(
+                            child: getScoreWidget(
+                              context,
                             ),
-                            getSettingWidget(context),
-                          ],
-                        ),
-                        SizedBox(height: getVerticalSpace(context)),
-                        // SizedBox(height: getScreenPercentSize(context, 3),),
+                            flex: 1,
+                          ),
+                          getSettingWidget(context),
+                        ],
+                      ),
+                      SizedBox(height: getVerticalSpace(context)),
+                      // SizedBox(height: getScreenPercentSize(context, 3),),
 
-                        getHeaderWidget(context, 'Math Games',
-                            'Train Your Brain, Improve Your Math Skill'),
+                      getHeaderWidget(context, 'Math Puzzle',
+                          'Train Your Brain, Improve Your Math Skill'.tr()),
 
-                        // SizedBox(height: getScreenPercentSize(context, 5),),
-                        SizedBox(height: FetchPixels.getPixelHeight(120)),
+                      // SizedBox(height: getScreenPercentSize(context, 5),),
+                      SizedBox(height: FetchPixels.getPixelHeight(120)),
 
-                        Expanded(
-                          child: NotificationListener<
-                              OverscrollIndicatorNotification>(
-                            onNotification:
-                                (OverscrollIndicatorNotification overscroll) {
-                              overscroll.disallowIndicator();
-                              return true;
-                            },
-                            child: SingleChildScrollView(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[
-                                  DashboardButtonView(
-                                    dashboard: KeyUtil.dashboardItems[0],
-                                    position: _offsetLeftEnter,
-                                    margin: margin,
-                                    onTab: () {
-                                      Navigator.pushNamedAndRemoveUntil(
-                                        context,
-                                        KeyUtil.home,
-                                        ModalRoute.withName(KeyUtil.dashboard),
-                                        arguments: Tuple2(
-                                            getItem(0, themeProvider),
-                                            MediaQuery.of(context).padding.top),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: verticalSpace),
-                                  DashboardButtonView(
-                                    dashboard: KeyUtil.dashboardItems[1],
-                                    position: _offsetRightEnter,
-                                    margin: margin,
-                                    onTab: () {
-                                      Navigator.pushNamedAndRemoveUntil(
-                                        context,
-                                        KeyUtil.home,
-                                        ModalRoute.withName(KeyUtil.dashboard),
-                                        arguments: Tuple2(
-                                            getItem(1, themeProvider),
-                                            MediaQuery.of(context).padding.top),
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(height: verticalSpace),
-                                  DashboardButtonView(
-                                    dashboard: KeyUtil.dashboardItems[2],
-                                    position: _offsetLeftEnter,
-                                    margin: margin,
-                                    onTab: () {
-                                      Navigator.pushNamedAndRemoveUntil(
-                                        context,
-                                        KeyUtil.home,
-                                        ModalRoute.withName(KeyUtil.dashboard),
-                                        arguments: Tuple2(
-                                            getItem(2, themeProvider),
-                                            MediaQuery.of(context).padding.top),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
+                      Expanded(
+                        child: NotificationListener<
+                            OverscrollIndicatorNotification>(
+                          onNotification:
+                              (OverscrollIndicatorNotification overscroll) {
+                            overscroll.disallowIndicator();
+                            return true;
+                          },
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                DashboardButtonView(
+                                  dashboard: KeyUtil.dashboardItems[0],
+                                  position: _offsetLeftEnter,
+                                  margin: margin,
+                                  onTab: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      KeyUtil.home,
+                                      ModalRoute.withName(KeyUtil.dashboard),
+                                      arguments: Tuple2(
+                                          getItem(0, themeProvider),
+                                          MediaQuery.of(context).padding.top),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: verticalSpace),
+                                DashboardButtonView(
+                                  dashboard: KeyUtil.dashboardItems[1],
+                                  position: _offsetRightEnter,
+                                  margin: margin,
+                                  onTab: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      KeyUtil.home,
+                                      ModalRoute.withName(KeyUtil.dashboard),
+                                      arguments: Tuple2(
+                                          getItem(1, themeProvider),
+                                          MediaQuery.of(context).padding.top),
+                                    );
+                                  },
+                                ),
+                                SizedBox(height: verticalSpace),
+                                DashboardButtonView(
+                                  dashboard: KeyUtil.dashboardItems[2],
+                                  position: _offsetLeftEnter,
+                                  margin: margin,
+                                  onTab: () {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      KeyUtil.home,
+                                      ModalRoute.withName(KeyUtil.dashboard),
+                                      arguments: Tuple2(
+                                          getItem(2, themeProvider),
+                                          MediaQuery.of(context).padding.top),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
-        onPopInvoked: (didPop) {
-          if(didPop) {
-            exitApp();
-          }
-        },);
+      ),
+      onPopInvoked: (didPop) {
+        if (didPop) {
+          exitApp();
+        }
+      },
+    );
   }
 
   Dashboard getItem(int i, ThemeProvider themeProvider) {

@@ -78,13 +78,13 @@ class _DialogListenerState<T extends GameProvider>
           ),
           barrierDismissible: false,
         ).then((value) {
-          isDialogOpen = false;
           context.read<T>().updateScore();
           if (value != null && value) {
             context.read<T>().startGame(level: widget.level);
           } else {
             Navigator.pop(context);
           }
+          isDialogOpen = false;
         });
       } else {
         int level = context.read<T>().levelNo;
@@ -117,7 +117,6 @@ class _DialogListenerState<T extends GameProvider>
               if (kDebugMode) {
                 print("level===$level");
               }
-              isDialogOpen = false;
               context.read<T>().updateScore();
               if (value != null && value) {
                 if (widget.gameCategoryType == GameCategoryType.numericMemory) {
@@ -141,6 +140,7 @@ class _DialogListenerState<T extends GameProvider>
               } else {
                 Navigator.pop(context);
               }
+              isDialogOpen = false;
             });
             break;
           case DialogType.info:
@@ -161,8 +161,8 @@ class _DialogListenerState<T extends GameProvider>
               enableDrag: false,
               isScrollControlled: true,
             ).then((value) {
-              isDialogOpen = false;
               context.read<T>().gotItFromInfoDialog(widget.level);
+              isDialogOpen = false;
             });
             break;
           case DialogType.pause:
@@ -178,7 +178,6 @@ class _DialogListenerState<T extends GameProvider>
               ),
               barrierDismissible: false,
             ).then((value) {
-              isDialogOpen = false;
               if (value != null) {
                 if (value) {
                   context.read<T>().pauseResumeGame();
@@ -189,6 +188,7 @@ class _DialogListenerState<T extends GameProvider>
               } else {
                 context.read<T>().pauseResumeGame();
               }
+              isDialogOpen = false;
             });
             break;
           case DialogType.exit:
@@ -203,13 +203,13 @@ class _DialogListenerState<T extends GameProvider>
               ),
               barrierDismissible: false,
             ).then((value) {
-              isDialogOpen = false;
               if (value != null && value) {
                 context.read<T>().updateScore();
                 Navigator.pop(context);
               } else {
                 context.read<T>().pauseResumeGame();
               }
+              isDialogOpen = false;
             });
             break;
           case DialogType.hint:
@@ -231,8 +231,8 @@ class _DialogListenerState<T extends GameProvider>
               enableDrag: false,
               isScrollControlled: true,
             ).then((value) {
-              isDialogOpen = false;
               context.read<T>().gotItFromInfoDialog(widget.level);
+              isDialogOpen = false;
             });
             break;
           case DialogType.non:
