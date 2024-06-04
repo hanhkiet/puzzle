@@ -78,9 +78,8 @@ class _FeedbackScreen extends State<FeedbackScreen> {
                 ),
                 getDefaultIconWidget(context,
                     icon: AppAssets.backIcon,
-                    folder: KeyUtil.themeYellowFolder, function: () {
-                  backClicks();
-                }),
+                    folder: KeyUtil.themeYellowFolder,
+                    function: backClicks),
                 buildExpandedData(edgeInsets, starSize, selection, context),
                 getButtonWidget(
                   context,
@@ -96,7 +95,8 @@ class _FeedbackScreen extends State<FeedbackScreen> {
 
                       final Email email = Email(
                         body: feedback,
-                        subject: 'App Feedback',
+                        subject: 'App Feedback'.tr(),
+                        recipients: ['21520507@gm.uit.edu.vn'],
                         isHTML: false,
                       );
                       await FlutterEmailSender.send(email);
@@ -111,7 +111,7 @@ class _FeedbackScreen extends State<FeedbackScreen> {
         ),
       ),
       onPopInvoked: (didPop) {
-        if (didPop) {
+        if (!didPop) {
           backClicks();
         }
       },

@@ -782,7 +782,7 @@ Widget getCommonDetailWidget({
 }
 
 String getAppLink() {
-  String pkgName = "com.example.mathsgamess";
+  String pkgName = "com.kite.puzzle";
   String appStoreIdentifier = "1562289688";
   if (Platform.isAndroid) {
     return "https://play.google.com/store/apps/details?id=$pkgName";
@@ -961,7 +961,7 @@ Widget getButtonWidget(
   );
 }
 
-String pkgName = "mathmatrix_";
+String pkgName = "mathpuzzle_";
 
 String sound = "${pkgName}sound";
 String vibration = "${pkgName}vibration";
@@ -970,7 +970,8 @@ String rightSound = 'right.mp3';
 String wrongSound = 'wrong.mp3';
 String gameOverSound = 'gameover.mp3';
 
-String privacyURL = 'https://google.com';
+String privacyURL =
+    'https://github.com/VuDucTruong/math-puzzle-privacy/blob/main/privacy-policy';
 
 setSound(bool rem) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();

@@ -4,16 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:provider/provider.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/ui/app/language_provider.dart';
 import 'package:puzzle/ui/resizer/fetch_pixels.dart';
 import 'package:puzzle/ui/resizer/widget_utils.dart';
 import 'package:puzzle/utility/constants.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../core/app_assets.dart';
 import 'app/theme_provider.dart';
+import 'feedback_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -331,7 +332,7 @@ class _SettingScreen extends State<SettingScreen> {
                 ],
               ),
             ),
-            /*verSpace,
+            verSpace,
             getDivider(),
             getCell(
                 string: "Share",
@@ -342,56 +343,34 @@ class _SettingScreen extends State<SettingScreen> {
             getCell(
                 string: "Rate Us",
                 function: () {
-                  // LaunchReview.launch();
-
-                  GradientModel model = GradientModel();
-                  model.primaryColor = KeyUtil.primaryColor1;
-                  showDialog<bool>(
-                    context: context,
-                    builder: (newContext) => CommonAlertDialog(
-                      child: RateViewDialog(
-                        colorTuple: Tuple2(model, 0),
-                      ),
-                    ),
-                    barrierDismissible: false,
-                  );
+                  LaunchReview.launch();
                 }),
             getDivider(),
             getCell(
                 string: "Feedback",
                 function: () async {
-                  GradientModel model = GradientModel();
-                  model.primaryColor = KeyUtil.primaryColor1;
-
-                  showDialog<bool>(
-                    context: context,
-                    builder: (newContext) => CommonAlertDialog(
-                      child: RateViewDialog(
-                        colorTuple: Tuple2(model, 0),
-                      ),
-                    ),
-                    barrierDismissible: false,
-                  );
-
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => FeedbackScreen(),));
-                  // final Email email = Email(
-                  //   body: 'Math Matrix',
-                  //   subject: "Feedback",
-                  //   recipients: ['demo@gmail.com'],
-                  //   isHTML: false,
-                  // );
-                  // await FlutterEmailSender.send(email);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const FeedbackScreen(),
+                      ));
                 }),
             getDivider(),
             getCell(
                 string: "Privacy Policy",
                 function: () async {
                   _launchURL();
-                }),*/
+                }),
           ],
         ),
       ),
     );
+  }
+
+  _launchURL() async {
+    if (!await launchUrl(Uri.parse(privacyURL))) {
+      throw 'Could not launch $privacyURL';
+    }
   }
 
   share() async {

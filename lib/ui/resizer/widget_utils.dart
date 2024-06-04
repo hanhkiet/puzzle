@@ -26,10 +26,9 @@ Widget getVerSpace(double verSpace) {
 
 Widget getSvgImageWithSize(
     BuildContext context, String image, double width, double height,
-    {Color? color, BoxFit fit = BoxFit.fill}) {
+    {BoxFit fit = BoxFit.fill}) {
   return SvgPicture.asset(
     AppAssets.assetPath + image,
-    colorFilter: ColorFilter.mode(color!, BlendMode.srcIn),
     width: width,
     height: height,
     fit: fit,
