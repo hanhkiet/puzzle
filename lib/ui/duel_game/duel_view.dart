@@ -15,12 +15,12 @@ import '../common/common_dual_button.dart';
 import '../common/common_info_text_view.dart';
 import '../common/dialog_listener.dart';
 import '../model/gradient_model.dart';
-import 'dual_game_provider.dart';
+import 'duel_game_provider.dart';
 
-class DualView extends StatelessWidget {
+class DuelView extends StatelessWidget {
   final Tuple2<GradientModel, int> colorTuple;
 
-  const DualView({
+  const DuelView({
     super.key,
     required this.colorTuple,
   });
@@ -41,19 +41,19 @@ class DualView extends StatelessWidget {
     return MultiProvider(
       providers: [
         const VsyncProvider(),
-        ChangeNotifierProvider<DualGameProvider>(
-            create: (context) => DualGameProvider(
+        ChangeNotifierProvider<DuelGameProvider>(
+            create: (context) => DuelGameProvider(
                 vsync: VsyncProvider.of(context),
                 level: colorTuple.item2,
                 context: context))
       ],
-      child: DialogListener<DualGameProvider>(
+      child: DialogListener<DuelGameProvider>(
         colorTuple: colorTuple,
         gameCategoryType: GameCategoryType.dualGame,
         level: colorTuple.item2,
-        appBar: CommonAppBar<DualGameProvider>(
+        appBar: CommonAppBar<DuelGameProvider>(
             hint: false,
-            infoView: CommonInfoTextView<DualGameProvider>(
+            infoView: CommonInfoTextView<DuelGameProvider>(
                 gameCategoryType: GameCategoryType.dualGame,
                 folder: colorTuple.item1.folderName!,
                 color: colorTuple.item1.cellColor!),
@@ -80,7 +80,7 @@ class DualView extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Selector<DualGameProvider, QuizModel>(
+                                Selector<DuelGameProvider, QuizModel>(
                                     selector: (p0, p1) => p1.currentState,
                                     builder:
                                         (context, calculatorProvider, child) {
@@ -96,7 +96,7 @@ class DualView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Selector<DualGameProvider, QuizModel>(
+                        Selector<DuelGameProvider, QuizModel>(
                             selector: (p0, p1) => p1.currentState,
                             builder: (context, currentState, child) {
                               final list = currentState.optionList;
@@ -119,11 +119,11 @@ class DualView extends StatelessWidget {
                                     height: height,
                                     onTab: () {
                                       context
-                                          .read<DualGameProvider>()
+                                          .read<DuelGameProvider>()
                                           .checkResult1(e);
                                       if (kDebugMode) {
                                         print(
-                                            ("score1====${context.read<DualGameProvider>().score1}"));
+                                            ("score1====${context.read<DuelGameProvider>().score1}"));
                                       }
                                     },
                                     colorTuple: colorTuple,
@@ -136,7 +136,7 @@ class DualView extends StatelessWidget {
                   ),
                 ),
                 //just a divider with clock...
-                CommonTimerProgress<DualGameProvider>(
+                CommonTimerProgress<DuelGameProvider>(
                   color: colorTuple.item1.primaryColor,
                 ),
                 // Player 2
@@ -151,7 +151,7 @@ class DualView extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Selector<DualGameProvider, QuizModel>(
+                              Selector<DuelGameProvider, QuizModel>(
                                   selector: (p0, p1) => p1.currentState,
                                   builder:
                                       (context, calculatorProvider, child) {
@@ -165,7 +165,7 @@ class DualView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Selector<DualGameProvider, QuizModel>(
+                      Selector<DuelGameProvider, QuizModel>(
                           selector: (p0, p1) => p1.currentState,
                           builder: (context, currentState, child) {
                             final list = currentState.optionList;
@@ -188,12 +188,12 @@ class DualView extends StatelessWidget {
                                   height: height,
                                   onTab: () {
                                     context
-                                        .read<DualGameProvider>()
+                                        .read<DuelGameProvider>()
                                         .checkResult2(e);
 
                                     if (kDebugMode) {
                                       print(
-                                          ("score2====${context.read<DualGameProvider>().score2}"));
+                                          ("score2====${context.read<DuelGameProvider>().score2}"));
                                     }
                                   },
                                   colorTuple: colorTuple,

@@ -4,7 +4,9 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 AdRequest request = const AdRequest(
   nonPersonalizedAds: true,
 );
-String interstitialAdId = "ca-app-pub-8948935600533196/5722260964";
+String interstitialAdId = "ca-app-pub-5941337395485186/1829382878";
+//Demo
+//String interstitialAdId = "ca-app-pub-3940256099942544/1033173712";
 String getInterstitialAdUnitId() {
   if (Platform.isIOS) {
     return interstitialAdId;
@@ -14,7 +16,9 @@ String getInterstitialAdUnitId() {
   return "";
 }
 
-String rewardAdId = "ca-app-pub-8948935600533196/2205687788";
+String rewardAdId = "ca-app-pub-5941337395485186/2038649323";
+//Demo
+//String rewardAdId = "ca-app-pub-3940256099942544/5224354917";
 String getRewardBasedVideoAdUnitId() {
   if (Platform.isIOS) {
     return rewardAdId;
@@ -24,7 +28,7 @@ String getRewardBasedVideoAdUnitId() {
   return "";
 }
 
-String bannerAdId = "ca-app-pub-8948935600533196/5530689278";
+/*String bannerAdId = "ca-app-pub-5941337395485186/3960382886";
 String getBannerAdUnitId() {
   if (Platform.isIOS) {
     return bannerAdId;
@@ -32,4 +36,4 @@ String getBannerAdUnitId() {
     return bannerAdId;
   }
   return "";
-}
+}*/

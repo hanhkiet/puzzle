@@ -136,6 +136,7 @@ class RandomFindMissingData {
   FindMissingQuizModel getSubtraction() {
     if (dataTypeNumber == 1) {
       firstDigit = Random().nextInt(50) + 10;
+      firstDigit = Random().nextInt(50) + 10;
       secondDigit = Random().nextInt(30) + 3;
     } else if (dataTypeNumber == 2) {
       firstDigit = Random().nextInt((100 - 50) + 1) + 50;

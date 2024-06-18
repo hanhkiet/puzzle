@@ -115,7 +115,6 @@ class MathUtil {
 
   static Expression getMultiplySignExp(int min, int max) {
     var x = MathUtil.generateRandomNumber(min, max, 2);
-
     return Expression(
       firstOperand: x[0],
       operator1: "*",

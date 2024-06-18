@@ -8,11 +8,11 @@ import '../../data/models/quiz_model.dart';
 import '../app/game_provider.dart';
 import '../sound_player/audio_file.dart';
 
-class DualGameProvider extends GameProvider<QuizModel> {
+class DuelGameProvider extends GameProvider<QuizModel> {
   int? level;
   BuildContext? context;
 
-  DualGameProvider(
+  DuelGameProvider(
       {required super.vsync,
       required int this.level,
       required BuildContext this.context})
@@ -31,7 +31,7 @@ class DualGameProvider extends GameProvider<QuizModel> {
       notifyListeners();
       if (kDebugMode) {
         print(
-          "result====${currentState.answer}===$result===${(result == currentState.answer)}");
+            "result====${currentState.answer}===$result===${(result == currentState.answer)}");
       }
       if (result == currentState.answer) {
         score2++;
@@ -61,7 +61,7 @@ class DualGameProvider extends GameProvider<QuizModel> {
 
       if (kDebugMode) {
         print(
-          "result====${currentState.answer}===$result===${(result == currentState.answer)}");
+            "result====${currentState.answer}===$result===${(result == currentState.answer)}");
       }
       if (result == currentState.answer) {
         score1++;

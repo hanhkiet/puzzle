@@ -41,10 +41,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    Future.delayed(Duration.zero, () {
+    /*Future.delayed(Duration.zero, () {
       adsFile = AdsFile(context);
       adsFile!.createAnchoredBanner(context, setState);
-    });
+    });*/
     tuple2 = widget.tuple2;
     isGamePageOpen = false;
     animationController = AnimationController(

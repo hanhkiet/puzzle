@@ -21,7 +21,7 @@ class AdsFile {
 
   BannerAd? _anchoredBanner;
 
-  Future<void> createAnchoredBanner(BuildContext context, var setState,
+/*  Future<void> createAnchoredBanner(BuildContext context, var setState,
       {Function? function}) async {
     final AnchoredAdaptiveBannerAdSize? size =
         await AdSize.getAnchoredAdaptiveBannerAdSize(
@@ -72,7 +72,7 @@ class AdsFile {
     );
     return banner.load();
     // }
-  }
+  }*/
 
   void disposeInterstitialAd() {
     if (_interstitialAd != null) {
@@ -131,7 +131,7 @@ class AdsFile {
     bool isRewarded = false;
     if (_rewardedAd == null) {
       function1();
-      // showToast(S.of(context!).videoError);
+      //showToast(S.of(context!).videoError);
       if (kDebugMode) {
         print('Warning: attempt to show rewarded before loaded.');
       }
@@ -176,6 +176,8 @@ class AdsFile {
     });
   }
 
+  int _numRewardsLoadAttempts = 0;
+  int maxRewardsFailedLoadAttempts = 8;
   void createRewardedAd() {
     // if(!isAppPurchased ) {
     RewardedAd.load(
@@ -192,12 +194,17 @@ class AdsFile {
             if (kDebugMode) {
               print('RewardedAd failed to load: $error');
             }
+            _numRewardsLoadAttempts += 1;
             _rewardedAd = null;
-            createRewardedAd();
+            if (_numRewardsLoadAttempts <= maxRewardsFailedLoadAttempts) {
+              createRewardedAd();
+            }
           },
         ));
   }
 
+  int _numInterstitialLoadAttempts = 0;
+  int maxFailedLoadAttempts = 8;
   void createInterstitialAd() {
     // if(!isAppPurchased  ) {
     // if(!isAppPurchased  && isAdsPermission) {
@@ -220,15 +227,15 @@ class AdsFile {
             if (kDebugMode) {
               print('InterstitialAd failed to load: $error.');
             }
-            // _numInterstitialLoadAttempts += 1;
+            _numInterstitialLoadAttempts += 1;
             _interstitialAd = null;
             if (kDebugMode) {
               print('failed==== loaded');
             }
 
-            // if (_numInterstitialLoadAttempts <= maxFailedLoadAttempts) {
-            createInterstitialAd();
-            // }
+            if (_numInterstitialLoadAttempts <= maxFailedLoadAttempts) {
+              createInterstitialAd();
+            }
           },
         ));
   }

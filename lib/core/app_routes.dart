@@ -6,7 +6,7 @@ import 'package:puzzle/ui/concentration/concentration_view.dart';
 import 'package:puzzle/ui/correct_answer/correct_answer_view.dart';
 import 'package:puzzle/ui/cube_root/cube_root_view.dart';
 import 'package:puzzle/ui/dashboard/dashboard_view.dart';
-import 'package:puzzle/ui/dual_game/dual_view.dart';
+import 'package:puzzle/ui/duel_game/duel_view.dart';
 import 'package:puzzle/ui/find_missing/find_missing_view.dart';
 import 'package:puzzle/ui/guess_the_sign/guess_sign_view.dart';
 import 'package:puzzle/ui/home/home_view.dart';
@@ -52,7 +52,7 @@ var appRoutes = {
   KeyUtil.findMissing: (context) => FindMissingView(
       colorTuple: ModalRoute.of(context)?.settings.arguments
           as Tuple2<GradientModel, int>),
-  KeyUtil.dualGame: (context) => DualView(
+  KeyUtil.dualGame: (context) => DuelView(
       colorTuple: ModalRoute.of(context)?.settings.arguments
           as Tuple2<GradientModel, int>),
   KeyUtil.correctAnswer: (context) => CorrectAnswerView(

@@ -98,7 +98,7 @@ class DashboardProvider extends CoinProvider {
 
         list.add(GameCategory(
           8,
-          "Dual Game".tr(),
+          "Duel Game".tr(),
           keyDualGame,
           GameCategoryType.dualGame,
           KeyUtil.dualGame,
