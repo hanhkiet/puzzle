@@ -1,7 +1,7 @@
 
 
 
-
+<a name="readme-top"></a>
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -14,7 +14,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -58,7 +57,6 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
 
 
 <!-- ABOUT THE PROJECT -->
@@ -109,30 +107,30 @@ After all the packages are downloaded , run the app on a Android device !
 
 ## Features
 
-- [ ] Math Puzzle
-  - [ ]  Calculator
-  - [ ]  Guess The Sign
-  - [ ]  Correct Answer
-  - [ ]  Quick Calculation
-  - [ ]  Find Missing
-  - [ ]  True False
-  - [ ]  Complex Calculation
-  - [ ]  Duel Game ( Which require 2 people to against each other )
-- [ ] Memory Puzzle
-  - [ ] Mental Arithmetic
-  - [ ] Square Root
-  - [ ] Math Grid
-  - [ ] Mathematical Pairs
-  - [ ] Cube Root
-  - [ ] Concentration    
-- [ ] Train Your Brain
-  - [ ] Magic Triangle
-  - [ ] Picture Puzzle
-  - [ ] Number Pyramid
-  - [ ] Numeric Memory
-- [ ]  Multiple Language ( Vietnamese/English)
-- [ ]  Theme ( Dark/Light mode )
-- [ ]  Feedback
+- [x] Math Puzzle
+  - [x]  Calculator
+  - [x]  Guess The Sign
+  - [x]  Correct Answer
+  - [x]  Quick Calculation
+  - [x]  Find Missing
+  - [x]  True False
+  - [x]  Complex Calculation
+  - [x]  Duel Game ( Which require 2 people to against each other )
+- [x] Memory Puzzle
+  - [x] Mental Arithmetic
+  - [x] Square Root
+  - [x] Math Grid
+  - [x] Mathematical Pairs
+  - [x] Cube Root
+  - [x] Concentration    
+- [x] Train Your Brain
+  - [x] Magic Triangle
+  - [x] Picture Puzzle
+  - [x] Number Pyramid
+  - [x] Numeric Memory
+- [x]  Multiple Language ( Vietnamese/English)
+- [x]  Theme ( Dark/Light mode )
+- [x]  Feedback
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -153,13 +151,13 @@ Project Link: [https://github.com/hanhkiet/puzzle](https://github.com/hanhkiet/p
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/hanhkiet/puzzle.svg?style=for-the-badge
 [contributors-url]: https://github.com/hanhkiet/puzzle/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/hanhkiet/puzzle.svg?style=for-the-badge
 [forks-url]: https://github.com/hanhkiet/puzzle/network
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/hanhkiet/puzzle.svg?style=for-the-badge
 [stars-url]: https://github.com/hanhkiet/puzzle/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/hanhkiet/puzzle.svg?style=for-the-badge
 [issues-url]: https://github.com/hanhkiet/puzzle/issues
 [product-screenshot]: https://github.com/hanhkiet/puzzle/assets/113105084/d3030032-3004-4f94-b2e3-74ac9be328aa
 [Flutter]: https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white
