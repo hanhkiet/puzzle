@@ -55,7 +55,7 @@ class DialogInfoUtil {
 
       case GameCategoryType.dualGame:
         return GameInfoDialog(
-            title: "Dual Game".tr(),
+            title: "Duel Game".tr(),
             image: "assets/gif/correct-answer.gif",
             dec: "Select the correct number to finish the equation.".tr(),
             correctAnswerScore: KeyUtil.dualScore,
