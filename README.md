@@ -62,7 +62,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div align="center">
- <img src="https://github.com/hanhkiet/puzzle/assets/113105084/d3030032-3004-4f94-b2e3-74ac9be328aa" alt="AppImage">
+  <table>
+  <tr>
+    <td><img src="https://github.com/hanhkiet/puzzle/assets/113105084/9b6901b9-6780-4b72-9510-d39feaae9243" alt="Image 1 Description" width="300"/></td>
+    <td><img src="https://github.com/hanhkiet/puzzle/assets/113105084/90315ab6-eb41-4624-84cb-5cba5f5a0182" alt="Image 2 Description" width="300"/></td>
+    <td><img src="https://github.com/hanhkiet/puzzle/assets/113105084/3746baaa-cba7-4fd8-85b9-a6737246f152" alt="Image 3 Description" width="300"/></td>
+  </tr>
+</table>
 </div>
 
 
@@ -88,7 +94,7 @@ How to run the app ?
 ### Using source code
 
 Download source code and run
-* cmnd
+* cmd
   ```sh
   flutter pub get
   ```
