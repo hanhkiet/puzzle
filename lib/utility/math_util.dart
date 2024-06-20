@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:expressions/expressions.dart' as ex;
 
 class MathUtil {
   static int evaluate(int x1, String sign, int x3) {
@@ -360,6 +361,26 @@ class MathUtil {
       finalExpression = expression;
     }
     return finalExpression;
+  }
+
+  static bool evaluateExpression(String? expressionStr, num? value) {
+    // Parse the expression
+
+    if (expressionStr == null || expressionStr.isEmpty) {
+      return false;
+    }
+    final expression = ex.Expression.parse(expressionStr);
+
+    // Create an evaluator
+    const evaluator = ex.ExpressionEvaluator();
+
+    // Evaluate the expression (you can optionally provide a context for variables)
+    final result = evaluator.eval(expression, {});
+    if (result is! num) {
+      return false;
+    }
+    // Return the result
+    return result == value;
   }
 
   static List<Expression> getMathPair(int level, int count) {

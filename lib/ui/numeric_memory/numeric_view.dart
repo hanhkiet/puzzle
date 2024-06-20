@@ -10,6 +10,7 @@ import 'package:puzzle/ui/common/common_info_text_view.dart';
 import 'package:puzzle/ui/common/dialog_listener.dart';
 import 'package:puzzle/ui/model/gradient_model.dart';
 import 'package:puzzle/ui/numeric_memory/numeric_button.dart';
+import 'package:puzzle/utility/math_util.dart';
 import 'package:tuple/tuple.dart';
 import 'package:vsync_provider/vsync_provider.dart';
 
@@ -179,9 +180,10 @@ class NumericMemoryView extends StatelessWidget {
                                       mathPairs: provider.currentState,
                                       index: index,
                                       function: () {
-                                        if (provider
-                                                .currentState.list[index].key ==
-                                            provider.currentState.answer) {
+                                        if (MathUtil.evaluateExpression(
+                                            provider
+                                                .currentState.list[index].key,
+                                            provider.currentState.question)) {
                                           provider.currentState.list[index]
                                               .isCheck = true;
                                         } else {

@@ -21,8 +21,8 @@ class NumericMemoryRepository {
         if (expression.answer > 0) {
           NumericMemoryPair numericMemoryPair = NumericMemoryPair();
           numericMemoryPair.question = expression.answer;
-          numericMemoryPair.answer =
-              "${expression.firstOperand} ${expression.operator1} ${expression.secondOperand}";
+          /*numericMemoryPair.answer =
+              "${expression.firstOperand} ${expression.operator1} ${expression.secondOperand}";*/
 
           List<NumericMemoryAnswerPair> list = [];
 

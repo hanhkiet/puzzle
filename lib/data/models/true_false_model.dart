@@ -1,7 +1,5 @@
 class TrueFalseModel {
   String? sign;
-  String? rem;
-  int? id;
   String? firstDigit;
   String? secondDigit, question;
   String? answer;

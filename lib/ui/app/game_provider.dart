@@ -58,7 +58,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       required this.c,
       bool? isTimer})
       : super(
-          totalTime: KeyUtil.getTimeUtil(gameCategoryType),
+          totalTime: KeyUtil.getTimeUtil(gameCategoryType), // xác đinh total time
         ) {
     this.isTimer = (isTimer == null) ? true : isTimer;
     adsFile = AdsFile(c);
@@ -91,6 +91,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     currentScore = 0;
     oldScore = 0;
     currentState = list[index];
+    // Nếu là lần đầu , hiện info dialog
     if (_homeViewModel.isFirstTime(gameCategoryType)) {
       await Future.delayed(const Duration(milliseconds: 100));
       showInfoDialog();
@@ -99,6 +100,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
         print("isTimerStart==$isTimer");
       }
       if (isTimer) {
+        // Đưa trò chơi đến trạng thái play
         restartTimer();
         notifyListeners();
       }
@@ -312,7 +314,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       print("home-==${_homeViewModel.isFirstTime(gameCategoryType)}");
     }
   }
-
+  //Lấy dữ liệu list data dựa trên repository của từng trò chơi
   List<T> getList(int level) {
     this.levelNo = level;
 

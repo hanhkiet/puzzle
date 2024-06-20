@@ -1,10 +1,6 @@
 import 'numeric_memory_answer_pair.dart';
 
-class NumericMemoryPair{
-
-
-  String? answer;
-  int? question;
-  List<NumericMemoryAnswerPair> list=[];
-
+class NumericMemoryPair {
+  int? question; // Ket qua 1 so
+  List<NumericMemoryAnswerPair> list = [];
 }

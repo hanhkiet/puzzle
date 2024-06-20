@@ -10,6 +10,10 @@ class TimeProvider extends CoinProvider {
   Timer? timer;
 
   int currentTime = 0;
+  final int totalTime;
+
+  DialogType dialogType = DialogType.non;
+  TimerStatus timerStatus = TimerStatus.restart;
 
   TimeProvider({
     required TickerProvider vsync,
@@ -65,10 +69,7 @@ class TimeProvider extends CoinProvider {
     });
   }
 
-  final int totalTime;
 
-  DialogType dialogType = DialogType.non;
-  TimerStatus timerStatus = TimerStatus.restart;
 
   // late final AnimationController _animationController;
   // Animation<double> get animation => _animationController;

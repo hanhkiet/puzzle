@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:puzzle/core/app_constants.dart';
 import 'package:puzzle/data/models/numeric_memory_pair.dart';
 import 'package:puzzle/ui/app/game_provider.dart';
+import 'package:puzzle/utility/math_util.dart';
 
 import '../sound_player/audio_file.dart';
 
@@ -27,11 +28,7 @@ class NumericMemoryProvider extends GameProvider<NumericMemoryPair> {
   Future<void> checkResult(String mathPair, int index) async {
     AppAudioPlayer audioPlayer = AppAudioPlayer(context!);
 
-    if (kDebugMode) {
-      print("mathPair===$mathPair===${currentState.answer}");
-    }
-
-    if (mathPair == currentState.answer) {
+    if (MathUtil.evaluateExpression(mathPair, currentState.question)) {
       audioPlayer.playRightSound();
       currentScore = currentScore + KeyUtil.getScoreUtil(gameCategoryType);
       if (timerStatus != TimerStatus.pause) {
