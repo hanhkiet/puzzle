@@ -15,7 +15,7 @@ import '../model/gradient_model.dart';
 import 'concentration_button.dart';
 import 'concentration_provider.dart';
 
-class ConcentrationView extends StatelessWidget {
+class ConcentrationView extends StatefulWidget {
   final Tuple2<GradientModel, int> colorTuple;
 
   const ConcentrationView({
@@ -23,6 +23,11 @@ class ConcentrationView extends StatelessWidget {
     required this.colorTuple,
   });
 
+  @override
+  State<ConcentrationView> createState() => _ConcentrationViewState();
+}
+
+class _ConcentrationViewState extends State<ConcentrationView> {
   @override
   Widget build(BuildContext context) {
     bool isContinue = false;
@@ -40,54 +45,46 @@ class ConcentrationView extends StatelessWidget {
 
     double aspectRatio = widthItem / height;
 
-    return StatefulBuilder(builder: (context, snapshot) {
-      return MultiProvider(
-        providers: [
-          const VsyncProvider(),
-          ChangeNotifierProvider<ConcentrationProvider>(
-              create: (context) => ConcentrationProvider(
-                  vsync: VsyncProvider.of(context),
-                  level: colorTuple.item2,
-                  nextQuiz: () {
-                    if (kDebugMode) {
-                      print("isContinue====$isContinue");
-                    }
-                    snapshot(() {
-                      isContinue = false;
-                    });
-                  },
-                  context: context))
-        ],
-        child: DialogListener<ConcentrationProvider>(
-          colorTuple: colorTuple,
+    return MultiProvider(
+      providers: [
+        const VsyncProvider(),
+        ChangeNotifierProvider<ConcentrationProvider>(
+            create: (context) => ConcentrationProvider(
+                vsync: VsyncProvider.of(context),
+                level: widget.colorTuple.item2,
+                nextQuiz: () {
+                  if (kDebugMode) {
+                    print("isContinue====$isContinue");
+                  }
+                  setState(() {
+                    isContinue = false;
+                  });
+                },
+                context: context))
+      ],
+      child: DialogListener<ConcentrationProvider>(
+        colorTuple: widget.colorTuple,
+        gameCategoryType: GameCategoryType.concentration,
+        level: widget.colorTuple.item2,
+        appBar: CommonAppBar<ConcentrationProvider>(
+          hint: false,
+          infoView: CommonInfoTextView<ConcentrationProvider>(
+              gameCategoryType: GameCategoryType.concentration,
+              folder: widget.colorTuple.item1.folderName!,
+              color: widget.colorTuple.item1.cellColor!),
           gameCategoryType: GameCategoryType.concentration,
-          level: colorTuple.item2,
-          appBar: CommonAppBar<ConcentrationProvider>(
-            hint: false,
-            infoView: CommonInfoTextView<ConcentrationProvider>(
-                gameCategoryType: GameCategoryType.concentration,
-                folder: colorTuple.item1.folderName!,
-                color: colorTuple.item1.cellColor!),
-            gameCategoryType: GameCategoryType.concentration,
-            colorTuple: colorTuple,
-            context: context,
-          ),
-          child: CommonMainWidget<ConcentrationProvider>(
-            gameCategoryType: GameCategoryType.concentration,
-            color: colorTuple.item1.bgColor!,
-            primaryColor: colorTuple.item1.primaryColor!,
-            subChild: Container(
-              margin: EdgeInsets.only(top: getPercentSize(mainHeight, 80)),
-              child: StatefulBuilder(
-                builder: (context, setState) {
-                  return Container(
-                    // decoration: getDecorationWithSide(
-                    //   isShadow: true,
-                    //   bgColor: getBackGroundColor(context),
-                    //   isTopLeft: true,
-                    //   isTopRight: true,
-                    //   radius: getPercentSize(mainHeight, 12),
-                    // ),
+          colorTuple: widget.colorTuple,
+          context: context,
+        ),
+        child: CommonMainWidget<ConcentrationProvider>(
+          gameCategoryType: GameCategoryType.concentration,
+          color: widget.colorTuple.item1.bgColor!,
+          primaryColor: widget.colorTuple.item1.primaryColor!,
+          subChild: StatefulBuilder(
+            builder: (context, setState) {
+              return Container(
+                  margin: EdgeInsets.only(top: getPercentSize(mainHeight, 80)),
+                  child: Container(
                     decoration: getCommonDecoration(context),
                     child: Column(
                       children: [
@@ -121,8 +118,9 @@ class ConcentrationView extends StatelessWidget {
                                       index: index,
                                       isContinue: isContinue,
                                       colorTuple: Tuple2(
-                                          colorTuple.item1.primaryColor!,
-                                          colorTuple.item1.backgroundColor!),
+                                          widget.colorTuple.item1.primaryColor!,
+                                          widget.colorTuple.item1
+                                              .backgroundColor!),
                                     ),
                                   );
                                 }),
@@ -136,7 +134,7 @@ class ConcentrationView extends StatelessWidget {
                             margin: EdgeInsets.symmetric(
                                 horizontal: (getHorizontalSpace(context))),
                             child: getButtonWidget(context, "Continue".tr(),
-                                colorTuple.item1.primaryColor, () {
+                                widget.colorTuple.item1.primaryColor, () {
                               setState(() {
                                 isContinue = true;
                               });
@@ -145,15 +143,13 @@ class ConcentrationView extends StatelessWidget {
                         ),
                       ],
                     ),
-                  );
-                },
-              ),
-            ),
-            context: context,
-            isTopMargin: false,
+                  ));
+            },
           ),
+          context: context,
+          isTopMargin: false,
         ),
-      );
-    });
+      ),
+    );
   }
 }
