@@ -345,7 +345,7 @@ class _SettingScreen extends State<SettingScreen> {
                 function: () {
                   LaunchReview.launch();
                 }),
-            getDivider(),
+            /*getDivider(),
             getCell(
                 string: "Feedback",
                 function: () async {
@@ -354,7 +354,7 @@ class _SettingScreen extends State<SettingScreen> {
                       MaterialPageRoute(
                         builder: (context) => const FeedbackScreen(),
                       ));
-                }),
+                }),*/
             getDivider(),
             getCell(
                 string: "Privacy Policy",

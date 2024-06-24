@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Cho child có hiệu ứng animation khi click
 class CommonTabAnimationView extends StatefulWidget {
   final Function onTab;
   final Widget child;

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utility/constants.dart';
 
-
+// Text Form Field hiển thị đáp án
 class CommonNeumorphicView extends StatelessWidget {
   final Widget child;
   final double? height;
@@ -27,9 +27,7 @@ class CommonNeumorphicView extends StatelessWidget {
     double size = getPercentSize(remainHeight, 8.5);
     return Container(
       height: height ?? size,
-      width: width ?? (isLarge
-              ? null
-              : size),
+      width: width ?? (isLarge ? null : size),
       alignment: Alignment.center,
       margin: EdgeInsets.symmetric(
           horizontal: isMargin

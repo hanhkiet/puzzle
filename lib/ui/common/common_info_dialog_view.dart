@@ -22,7 +22,7 @@ class CommonInfoDialogView extends StatelessWidget {
         DialogInfoUtil.getInfoDialogData(gameCategoryType);
 
     String plusSecondString = gameInfoDialog.plusSeconds != null
-        ? " and second(s)".tr(args: [gameInfoDialog.plusSeconds.toString()])
+        ? "and second(s)".tr(args: [gameInfoDialog.plusSeconds.toString()])
         : "";
     return Padding(
       padding: EdgeInsets.symmetric(

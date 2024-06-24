@@ -58,7 +58,8 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       required this.c,
       bool? isTimer})
       : super(
-          totalTime: KeyUtil.getTimeUtil(gameCategoryType), // xác đinh total time
+          totalTime:
+              KeyUtil.getTimeUtil(gameCategoryType), // xác đinh total time
         ) {
     this.isTimer = (isTimer == null) ? true : isTimer;
     adsFile = AdsFile(c);
@@ -82,7 +83,7 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     result = "";
 
     list = [];
-    list = getList(level ?? 1);
+    list = getListData(level ?? 1);
 
     if (kDebugMode) {
       print("list--${list.length}====");
@@ -140,19 +141,22 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
     if (kDebugMode) {
       print("list12===${list.length}");
     }
-
+    // Nếu đó là câu thứ x < 19 thì load tiếp , không thì kết thúc trò chơi sau khi xong câu hỏi thứ 20
     if (index < 19) {
       if (gameCategoryType == GameCategoryType.quickCalculation &&
           list.length - 2 == index) {
-        list.addAll(getList(level ?? index ~/ 5 + 1));
+        if (kDebugMode) {
+          print("level---${level ?? index ~/ 5 + 1}");
+        }
+        list.addAll(getListData(level ?? index ~/ 5 + 1));
       } else if (list.length - 1 == index) {
         if (kDebugMode) {
-          print("level---${index ~/ 5 + 1}");
+          print("level---${level ?? index ~/ 5 + 1}");
         }
         if (gameCategoryType == GameCategoryType.squareRoot) {
-          list.addAll(getList(level ?? index ~/ 5 + 2));
+          list.addAll(getListData(level ?? index ~/ 5 + 2));
         } else {
-          list.addAll(getList(level ?? index ~/ 5 + 1));
+          list.addAll(getListData(level ?? index ~/ 5 + 1));
         }
       }
       if (kDebugMode) {
@@ -314,8 +318,9 @@ class GameProvider<T> extends TimeProvider with WidgetsBindingObserver {
       print("home-==${_homeViewModel.isFirstTime(gameCategoryType)}");
     }
   }
+
   //Lấy dữ liệu list data dựa trên repository của từng trò chơi
-  List<T> getList(int level) {
+  List<T> getListData(int level) {
     this.levelNo = level;
 
     switch (gameCategoryType) {
